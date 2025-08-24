@@ -1,47 +1,58 @@
 <template>
     <main
-        class="flex flex-col items-center justify-center p-10 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700"
+        class="min-w-md flex flex-col items-center justify-center p-10 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700"
     >
         <h2 class="text-2xl font-bold mb-6 text-center">El stonkeros</h2>
 
-        <form @submit.prevent="handleLogin" class="space-y-4">
+        <Form
+            v-slot="$form"
+            :initialValues
+            :resolver="resolver"
+            @submit="handleLogin"
+            class="space-y-4 w-full"
+        >
             <!-- Email -->
             <div>
-                <label for="email" class="block font-medium mb-1">Email</label>
-                <InputText
-                    v-model.trim="email"
-                    id="email"
-                    type="email"
-                    placeholder="Enter your email"
-                    class="w-full"
-                    v-focus
-                />
+                <FloatLabel variant="on">
+                    <InputText id="email" name="email" v-focus fluid />
+                    <label for="email">Email</label>
+                </FloatLabel>
+                <Message
+                    v-if="$form.email?.invalid"
+                    severity="error"
+                    size="small"
+                    variant="simple"
+                    >{{ $form.email.error.message }}</Message
+                >
             </div>
 
             <!-- Password -->
             <div>
-                <label for="password" class="block font-medium mb-1"
-                    >Password</label
+                <FloatLabel variant="on">
+                    <Password
+                        id="password"
+                        name="password"
+                        toggleMask
+                        :feedback="false"
+                        fluid
+                    />
+                    <label for="password">Password</label>
+                </FloatLabel>
+                <Message
+                    v-if="$form.password?.invalid"
+                    severity="error"
+                    size="small"
+                    variant="simple"
+                    >{{ $form.password.error.message }}</Message
                 >
-                <Password
-                    v-model.trim="password"
-                    id="password"
-                    placeholder="Enter your password"
-                    class="w-full"
-                    toggleMask
-                    :feedback="false"
-                />
             </div>
 
             <!-- Submit Button -->
-            <Button
-                type="submit"
-                class="w-full mt-4 flex items-center justify-center gap-2"
-            >
+            <Button type="submit" fluid>
                 <FontAwesomeIcon :icon="['fas', 'lock-open']" />
                 Login
             </Button>
-        </form>
+        </Form>
     </main>
 </template>
 
@@ -50,25 +61,46 @@ import { ref } from 'vue'
 import InputText from 'primevue/inputtext'
 import Password from 'primevue/password'
 import Button from 'primevue/button'
-import { useToast } from 'primevue/usetoast'
+import Message from 'primevue/message'
+import FloatLabel from 'primevue/floatlabel'
+import { Form } from '@primevue/forms'
 import { useRouter } from 'vue-router'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { useToastNotifications } from '@/composables/useToastNotifications'
+import { z } from 'zod'
+import { zodResolver } from '@primevue/forms/resolvers/zod'
 
 const { showError } = useToastNotifications()
 
 const router = useRouter()
-const toast = useToast()
 
-const email = ref('')
-const password = ref('')
+// --- Initial form values ---
+const initialValues = ref({
+    email: '',
+    password: '',
+})
 
+// --- Zod schema ---
+const resolver = ref(
+    zodResolver(
+        z.object({
+            email: z.email('Invalid email'),
+            password: z
+                .string()
+                .nonempty('Password is required')
+                .min(6, 'Password must be at least 6 characters'),
+        })
+    )
+)
+
+// --- Focus directive ---
 const vFocus = {
     mounted: (el: HTMLElement) => el.focus(),
 }
 
-function handleLogin() {
-    if (email.value && password.value) {
+// --- Submit handler ---
+function handleLogin({ valid }: { valid: boolean }) {
+    if (valid) {
         // Save fake auth token
         localStorage.setItem('authToken', 'demo-token')
         router.push('/home')
