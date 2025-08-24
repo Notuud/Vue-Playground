@@ -1,18 +1,21 @@
 <template>
-  <div class="tw-min-h-screen tw-bg-gray-50 tw-p-6">
-    <h1 class="tw-text-2xl tw-font-bold tw-mb-4">Home Page</h1>
-    <Button label="Logout" icon="fa-solid fa-right-from-bracket" @click="logout" />
-  </div>
+    <main class="p-5">
+        <h1 class="text-2xl font-bold mb-4">Home Page</h1>
+        <Button @click="logout">
+            <FontAwesomeIcon :icon="['fas', 'arrow-left']" />Logout
+        </Button>
+    </main>
 </template>
 
 <script setup lang="ts">
-import Button from 'primevue/button'
 import { useRouter } from 'vue-router'
+import Button from 'primevue/button'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 const router = useRouter()
 
 function logout() {
-  localStorage.removeItem('authToken')
-  router.push('/')
+    localStorage.removeItem('authToken')
+    router.push('/')
 }
 </script>

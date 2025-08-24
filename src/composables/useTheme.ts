@@ -13,6 +13,6 @@ const triggerMode = (isDark: Boolean) => {
 watch(darkMode, (val) => triggerMode(val))
 
 export function useTheme() {
-    triggerMode(darkMode.value);
+    triggerMode(darkMode.value)
     return { darkMode }
 }

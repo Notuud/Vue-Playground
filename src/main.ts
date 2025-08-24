@@ -31,14 +31,14 @@ app.use(createPinia())
 app.use(router)
 
 app.use(PrimeVue, {
-  theme: {
-    preset: Aura,
-    options: {
-      prefix: 'p', // optional, default CSS variable prefix
-      darkModeSelector: '.dark', // im gonna use same class for PrimeVue as Tailwind so it switches both at once
-      cssLayer: false
-    }
-  }
+    theme: {
+        preset: Aura,
+        options: {
+            prefix: 'p', // optional, default CSS variable prefix
+            darkModeSelector: '.dark', // im gonna use same class for PrimeVue as Tailwind so it switches both at once
+            cssLayer: false,
+        },
+    },
 })
 
 app.use(ToastService)
