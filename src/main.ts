@@ -3,7 +3,7 @@ import App from './App.vue'
 
 // PrimeVue
 import PrimeVue from 'primevue/config'
-import Aura from '@primeuix/themes/aura' // example preset
+import Aura from '@primeuix/themes/aura'
 import ToastService from 'primevue/toastservice'
 
 // Tailwind
@@ -35,7 +35,7 @@ app.use(PrimeVue, {
     preset: Aura,
     options: {
       prefix: 'p', // optional, default CSS variable prefix
-      darkModeSelector: 'system',
+      darkModeSelector: '.dark', // im gonna use same class for PrimeVue as Tailwind so it switches both at once
       cssLayer: false
     }
   }

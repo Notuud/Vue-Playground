@@ -2,7 +2,7 @@ import { ref, watch } from 'vue'
 
 const darkMode = ref(localStorage.getItem('darkMode') === 'true')
 
-const triggerMode = (isDark: boolean) => {
+const triggerMode = (isDark: Boolean) => {
     const html = document.documentElement
     if (isDark) html.classList.add('dark')
     else html.classList.remove('dark')

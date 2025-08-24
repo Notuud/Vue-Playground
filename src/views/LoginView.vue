@@ -1,6 +1,5 @@
 <template>
     <main class="flex flex-col items-center justify-center p-10 dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
-      <Toast position="top-center" />
       <h2 class="text-2xl font-bold mb-6 text-center">El stonkeros</h2>
 
       <form @submit.prevent="handleLogin" class="space-y-4">
@@ -13,6 +12,7 @@
             type="email"
             placeholder="Enter your email"
             class="w-full"
+            v-focus
           />
         </div>
 
@@ -46,13 +46,16 @@ import Button from 'primevue/button'
 import { useToast } from 'primevue/usetoast'
 import { useRouter } from 'vue-router'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import Toast from 'primevue/toast';
 
 const router = useRouter()
 const toast = useToast()
 
 const email = ref('')
 const password = ref('')
+
+const vFocus = {
+  mounted: (el: HTMLElement) => el.focus()
+}
 
 function handleLogin() {
   if (email.value && password.value) {
