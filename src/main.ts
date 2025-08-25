@@ -5,6 +5,7 @@ import App from './App.vue'
 import PrimeVue from 'primevue/config'
 import Aura from '@primeuix/themes/aura'
 import ToastService from 'primevue/toastservice'
+import Tooltip from 'primevue/tooltip'
 
 // Tailwind
 import './style.css'
@@ -44,5 +45,7 @@ app.use(PrimeVue, {
 app.use(ToastService)
 
 app.component('font-awesome-icon', FontAwesomeIcon)
+
+app.directive('tooltip', Tooltip)
 
 app.mount('#app')

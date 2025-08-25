@@ -1,15 +1,25 @@
 <template>
-    <div class="flex items-center gap-2">
-        <FontAwesomeIcon :icon="['far', 'sun']" />
-        <ToggleSwitch v-model="darkMode" />
-        <FontAwesomeIcon :icon="['far', 'moon']" />
-    </div>
+    <Button
+        :unstyled="true"
+        @click="darkMode = !darkMode"
+        class="p-2 rounded-lg"
+        v-tooltip="{
+            value: `Toggle ${darkMode ? 'light' : 'dark'} mode`,
+            showDelay: 500,
+            hideDelay: 100,
+        }"
+    >
+        <FontAwesomeIcon
+            :icon="darkMode ? ['fas', 'moon'] : ['fas', 'moon']"
+            size="lg"
+        />
+    </Button>
 </template>
 
 <script setup lang="ts">
-import { useTheme } from '@/composables/useTheme'
+import Button from 'primevue/button'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import ToggleSwitch from 'primevue/toggleSwitch'
+import { useTheme } from '@/composables/useTheme'
 
 const { darkMode } = useTheme()
 </script>

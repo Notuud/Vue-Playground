@@ -10,25 +10,25 @@ const routes: RouteRecordRaw[] = [
         path: '/',
         name: 'Login',
         component: LoginView,
-        meta: { layout: 'login' }, // use LoginLayout
+        meta: { layout: 'login', showInMenu: false },
     },
     {
         path: '/home',
         name: 'Home',
         component: HomeView,
-        meta: { layout: 'app' }, // use AppLayout
-    },
-    {
-        path: '/about',
-        name: 'About',
-        component: AboutView,
-        meta: { layout: 'app' }, // use AppLayout
+        meta: { layout: 'app', icon: 'home', showInMenu: true },
     },
     {
         path: '/playground',
         name: 'Playground',
         component: PlaygroundView,
-        meta: { layout: 'app' }, // use AppLayout
+        meta: { layout: 'app', icon: 'chart-simple', showInMenu: true },
+    },
+    {
+        path: '/about',
+        name: 'About',
+        component: AboutView,
+        meta: { layout: 'app', icon: 'info', showInMenu: true },
     },
 ]
 
@@ -50,4 +50,5 @@ router.beforeEach((to, from, next) => {
     }
 })
 
+export { routes }
 export default router

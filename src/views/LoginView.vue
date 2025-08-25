@@ -1,6 +1,6 @@
 <template>
     <main
-        class="min-w-md flex flex-col items-center justify-center p-10 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700"
+        class="flex flex-col items-center justify-center p-10 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 min-w-1/4"
     >
         <h2 class="text-2xl font-bold mb-6 text-center">El stonkeros</h2>
 
@@ -14,7 +14,12 @@
             <!-- Email -->
             <div>
                 <FloatLabel variant="on">
-                    <InputText id="email" name="email" v-focus fluid />
+                    <IconField>
+                        <InputIcon>
+                            <FontAwesomeIcon :icon="['fas', 'envelope']" />
+                        </InputIcon>
+                        <InputText id="email" name="email" v-focus fluid />
+                    </IconField>
                     <label for="email">Email</label>
                 </FloatLabel>
                 <Message
@@ -29,13 +34,12 @@
             <!-- Password -->
             <div>
                 <FloatLabel variant="on">
-                    <Password
-                        id="password"
-                        name="password"
-                        toggleMask
-                        :feedback="false"
-                        fluid
-                    />
+                    <IconField>
+                        <InputIcon>
+                            <FontAwesomeIcon :icon="['fas', 'lock']" />
+                        </InputIcon>
+                        <Password id="password" name="password" toggleMask :feedback="false" fluid />
+                    </IconField>
                     <label for="password">Password</label>
                 </FloatLabel>
                 <Message
@@ -59,6 +63,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import InputText from 'primevue/inputtext'
+import IconField from 'primevue/iconfield'
+import InputIcon from 'primevue/inputicon'
 import Password from 'primevue/password'
 import Button from 'primevue/button'
 import Message from 'primevue/message'

@@ -1,6 +1,9 @@
 <template>
-    <div class="p-6">
-        <h2 class="text-2xl font-bold mb-4">User List</h2>
+    <main class="p-4">
+        <h3 class="text-xl font-medium text-gray-500">Playground</h3>
+        <h1 class="text-2xl font-bold mb-4">Enjoy playing with various components</h1>
+
+        <h2 class="text-xl mb-4">User List</h2>
 
         <DataTable
             :value="users"
@@ -32,10 +35,8 @@
             <Column field="email" header="Email" />
             <Column field="role" header="Role" sortable />
         </DataTable>
-    </div>
 
-    <div class="p-6">
-        <h2 class="text-2xl font-bold mb-4">Monthly Sales</h2>
+        <h2 class="text-xl mt-4 mb-4">Monthly Sales</h2>
 
         <Chart
             type="line"
@@ -43,7 +44,7 @@
             :options="chartOptions"
             class="w-full"
         />
-    </div>
+    </main>
 </template>
 
 <script setup lang="ts">

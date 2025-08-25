@@ -1,12 +1,12 @@
 <template>
     <header
-        class="p-4 min-h-4 flex justify-between items-center bg-gray-100 dark:bg-gray-800 shadow-lg border-b border-gray-200 dark:border-gray-700"
+        class="p-4 flex justify-between items-center bg-gray-200 dark:bg-gray-950 shadow-lg"
     >
-        <h1 class="text-xl font-bold">Tutaj dame asi logos</h1>
+        <img src="@/assets/logo.svg" alt="Logo" class="w-10 h-10" />
 
         <slot />
 
-        <ThemeSwitch />
+        <ThemeSwitch class="hover:bg-gray-200 hover:dark:bg-gray-900" />
     </header>
 </template>
 
