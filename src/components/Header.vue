@@ -1,8 +1,8 @@
 <template>
     <header
-        class="p-4 flex justify-between items-center bg-gray-200 dark:bg-gray-950 shadow-lg"
+        class="py-4 p-2 flex justify-between items-center bg-gray-200 dark:bg-gray-950 shadow-lg"
     >
-        <img src="@/assets/logo.svg" alt="Logo" class="w-10 h-10" />
+        <img src="@/assets/SN.svg" alt="Logo" class="w-12 h-12" />
 
         <slot />
 
