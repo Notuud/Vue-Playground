@@ -1,6 +1,6 @@
 <template>
     <div
-        class="min-h-screen bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100"
+        class="min-h-dvh bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100"
     >
         <Toast position="top-center" />
         <component :is="layoutComponent">

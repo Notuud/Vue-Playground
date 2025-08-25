@@ -14,7 +14,7 @@
                 :to="item.path"
                 class="mb-4 p-2 rounded-xl hover:bg-gray-700 dark:hover:bg-gray-800 transition-colors"
                 active-class="bg-gray-300 dark:bg-gray-700"
-                v-tooltip="{ value: item.name, showDelay: 500, hideDelay: 100 }"
+                v-tooltip="{ value: item.name, showDelay: 100, hideDelay: 100 }"
             >
                 <FontAwesomeIcon
                     :icon="item?.meta?.icon ?? 'xmark'"
@@ -27,7 +27,7 @@
             :unstyled="true"
             @click="logout"
             class="mb-4 p-2 rounded-xl hover:bg-gray-700 dark:hover:bg-gray-800 transition-colors"
-            v-tooltip="{ value: 'Logout', showDelay: 500, hideDelay: 100 }"
+            v-tooltip="{ value: 'Logout', showDelay: 100, hideDelay: 100 }"
         >
             <FontAwesomeIcon :icon="['fas', 'lock']" size="lg" />
         </Button>

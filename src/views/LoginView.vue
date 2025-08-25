@@ -38,7 +38,13 @@
                         <InputIcon>
                             <FontAwesomeIcon :icon="['fas', 'lock']" />
                         </InputIcon>
-                        <Password id="password" name="password" toggleMask :feedback="false" fluid />
+                        <Password
+                            id="password"
+                            name="password"
+                            toggleMask
+                            :feedback="false"
+                            fluid
+                        />
                     </IconField>
                     <label for="password">Password</label>
                 </FloatLabel>

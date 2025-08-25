@@ -1,7 +1,9 @@
 <template>
     <main class="p-4">
         <h3 class="text-xl font-medium text-gray-500">About</h3>
-        <h1 class="text-2xl font-bold mb-4">Who am I? None of your business!</h1>
+        <h1 class="text-2xl font-bold mb-4">
+            Who am I? None of your business!
+        </h1>
 
         <Button @click="goHome">
             <FontAwesomeIcon :icon="['fas', 'house']" />Back to home

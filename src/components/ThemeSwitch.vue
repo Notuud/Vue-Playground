@@ -5,7 +5,7 @@
         class="p-2 rounded-lg"
         v-tooltip="{
             value: `Toggle ${darkMode ? 'light' : 'dark'} mode`,
-            showDelay: 500,
+            showDelay: 100,
             hideDelay: 100,
         }"
     >
