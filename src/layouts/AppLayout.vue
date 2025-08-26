@@ -11,7 +11,7 @@
         :class="isOpen ? 'ml-16' : ''"
         @click="isOpen = !isOpen"
         v-tooltip="{
-            value: `${isOpen ? 'Hide' : 'Show'} menu`,
+            value: `${isOpen ? 'Skrýt' : 'Zobrazit'} menu`,
             showDelay: 500,
             hideDelay: 100,
         }"

@@ -1,11 +1,7 @@
 <template>
     <Header />
 
-    <div
-        class="flex items-center justify-center min-h-[calc(100dvh-20rem)] w-full"
-    >
-        <slot />
-    </div>
+    <slot />
 </template>
 
 <script setup lang="ts">

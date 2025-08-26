@@ -14,7 +14,7 @@
                 :to="item.path"
                 class="mb-4 p-2 rounded-xl hover:bg-gray-700 dark:hover:bg-gray-800 transition-colors"
                 active-class="bg-gray-300 dark:bg-gray-700"
-                v-tooltip="{ value: item.name, showDelay: 100, hideDelay: 100 }"
+                v-tooltip="{ value: item?.meta?.displayName, showDelay: 100, hideDelay: 100 }"
             >
                 <FontAwesomeIcon
                     :icon="item?.meta?.icon ?? 'xmark'"
@@ -27,7 +27,7 @@
             :unstyled="true"
             @click="logout"
             class="mb-4 p-2 rounded-xl hover:bg-gray-700 dark:hover:bg-gray-800 transition-colors"
-            v-tooltip="{ value: 'Logout', showDelay: 100, hideDelay: 100 }"
+            v-tooltip="{ value: 'Odhlášení', showDelay: 100, hideDelay: 100 }"
         >
             <FontAwesomeIcon :icon="['fas', 'lock']" size="lg" />
         </Button>
@@ -38,13 +38,14 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useRouter, RouterLink } from 'vue-router'
+import { RouterLink } from 'vue-router'
 import Button from 'primevue/button'
 import ThemeSwitch from '@/components/ThemeSwitch.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { routes } from '@/router'
+import { useNavigation } from '@/composables/useNavigation'
 
-const router = useRouter()
+const { logout } = useNavigation()
 
 const props = defineProps({
     isOpen: Boolean,
@@ -54,9 +55,4 @@ const props = defineProps({
 const appRoutes = computed(() =>
     routes.filter((r) => r.meta?.layout === 'app' && r.meta?.icon)
 )
-
-function logout() {
-    localStorage.removeItem('authToken')
-    router.push('/')
-}
 </script>

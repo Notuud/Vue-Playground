@@ -4,7 +4,7 @@
         @click="darkMode = !darkMode"
         class="p-2 rounded-lg"
         v-tooltip="{
-            value: `Toggle ${darkMode ? 'light' : 'dark'} mode`,
+            value: `Zapnout ${darkMode ? 'světlý' : 'tmavý'} režim`,
             showDelay: 100,
             hideDelay: 100,
         }"

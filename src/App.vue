@@ -9,7 +9,9 @@
             </component>
         </div>
 
-        <footer class="w-full text-center p-4 text-md text-gray-500">
+        <footer
+            class="w-full text-center p-4 text-[0.8rem] md:text-base text-gray-500"
+        >
             &copy; {{ new Date().getFullYear() }} Stonker - Made with ❤️ by
             <a
                 href="https://github.com/Safiron8"
