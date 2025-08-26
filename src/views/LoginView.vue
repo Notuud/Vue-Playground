@@ -2,7 +2,7 @@
     <main
         class="flex flex-col items-center justify-center p-10 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 min-w-1/4"
     >
-        <h2 class="text-2xl font-bold mb-6 text-center">El stonkeros</h2>
+        <h2 class="text-2xl font-bold mb-6 text-center">Login</h2>
 
         <Form
             v-slot="$form"

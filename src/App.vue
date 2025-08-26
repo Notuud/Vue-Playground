@@ -1,11 +1,30 @@
 <template>
     <div
-        class="min-h-dvh bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100"
+        class="min-h-dvh flex flex-col bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100"
     >
         <Toast position="top-center" />
-        <component :is="layoutComponent">
-            <RouterView />
-        </component>
+        <div class="flex-grow">
+            <component :is="layoutComponent">
+                <RouterView />
+            </component>
+        </div>
+
+        <footer class="w-full text-center p-4 text-md text-gray-500">
+            &copy; {{ new Date().getFullYear() }} Stonker - Made with ❤️ by
+            <a
+                href="https://github.com/Safiron8"
+                target="_blank"
+                class="underline text-cyan-600"
+                >Safiron8</a
+            >
+            &
+            <a
+                href="https://github.com/Notuud"
+                target="_blank"
+                class="underline text-cyan-600"
+                >Notuud</a
+            >
+        </footer>
     </div>
 </template>
 

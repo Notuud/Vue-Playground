@@ -138,11 +138,11 @@
 
         <h2 class="text-xl mt-4 mb-4">Stacked Bar Chart</h2>
 
-        <Chart 
-            type="bar" 
-            :data="stackedBarData" 
-            :options="stackedBarOptions" 
-            class="w-full" 
+        <Chart
+            type="bar"
+            :data="stackedBarData"
+            :options="stackedBarOptions"
+            class="w-full"
         />
     </main>
 </template>
@@ -342,51 +342,51 @@ onMounted(() => {
 })
 
 const stackedBarData = {
-  labels: ['Q1', 'Q2', 'Q3', 'Q4'],
-  datasets: [
-    {
-      label: 'Product A',
-      data: [120, 150, 180, 200],
-      backgroundColor: '#42A5F5',
-      stack: 'electronics'
-    },
-    {
-      label: 'Product B',
-      data: [100, 130, 160, 190],
-      backgroundColor: '#66BB6A',
-      stack: 'electronics'
-    },
-    {
-      label: 'Product C',
-      data: [80, 90, 100, 120],
-      backgroundColor: '#FFA726',
-      stack: 'furniture'
-    },
-    {
-      label: 'Product D',
-      data: [60, 70, 80, 90],
-      backgroundColor: '#AB47BC',
-      stack: 'furniture'
-    }
-  ]
+    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+    datasets: [
+        {
+            label: 'Product A',
+            data: [120, 150, 180, 200],
+            backgroundColor: '#42A5F5',
+            stack: 'electronics',
+        },
+        {
+            label: 'Product B',
+            data: [100, 130, 160, 190],
+            backgroundColor: '#66BB6A',
+            stack: 'electronics',
+        },
+        {
+            label: 'Product C',
+            data: [80, 90, 100, 120],
+            backgroundColor: '#FFA726',
+            stack: 'furniture',
+        },
+        {
+            label: 'Product D',
+            data: [60, 70, 80, 90],
+            backgroundColor: '#AB47BC',
+            stack: 'furniture',
+        },
+    ],
 }
 
 const stackedBarOptions = {
-  responsive: true,
-  plugins: {
-    title: {
-      display: true,
-      text: 'Quarterly Sales by Product Category'
-    }
-  },
-  scales: {
-    x: {
-      stacked: true
+    responsive: true,
+    plugins: {
+        title: {
+            display: true,
+            text: 'Quarterly Sales by Product Category',
+        },
     },
-    y: {
-      stacked: true,
-      beginAtZero: true
-    }
-  }
+    scales: {
+        x: {
+            stacked: true,
+        },
+        y: {
+            stacked: true,
+            beginAtZero: true,
+        },
+    },
 }
 </script>
