@@ -1,4 +1,13 @@
 User menu - kouknout na user menu
+Vytvorit register a obecne pokryt sekce co ma ada ve stonkeru
 
-Prompt
-Im building project using Vue 3, Vite, TypeScript, Tailwind 4+, PrimeVue 4+, FontAwesome 6
+## Suggestions for Improvement
+- Add more TypeScript types and interfaces for props, stores, and composables
+- Document custom hooks and store modules
+- Add unit and integration tests (Vitest/Jest)
+- Consider lazy-loading routes/components for performance
+- Improve accessibility (ARIA, keyboard navigation)
+- Use `.env` files for configuration
+- Optimize assets (SVG/image compression)
+- Add global error handling
+- Expand documentation for contributors
