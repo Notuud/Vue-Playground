@@ -23,19 +23,19 @@ const routes: RouteRecordRaw[] = [
         path: '/home',
         name: 'Home',
         component: HomeView,
-        meta: { layout: 'app', displayName: 'Úvodní stránka', icon: 'home', showInMenu: true },
+        meta: { layout: 'app', icon: 'home', showInMenu: true },
     },
     {
         path: '/playground',
         name: 'Playground',
         component: PlaygroundView,
-        meta: { layout: 'app', displayName: 'Hřišťátko', icon: 'chart-simple', showInMenu: true },
+        meta: { layout: 'app', icon: 'chart-simple', showInMenu: true },
     },
     {
         path: '/about',
         name: 'About',
         component: AboutView,
-        meta: { layout: 'app', displayName: 'O nás', icon: 'info', showInMenu: true },
+        meta: { layout: 'app', icon: 'info', showInMenu: true },
     },
 ]
 

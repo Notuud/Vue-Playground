@@ -16,6 +16,11 @@ import { createPinia } from 'pinia'
 // Vue Router
 import router from './router'
 
+// Vue i18n
+import { createI18n } from 'vue-i18n'
+import en from '@/locales/en.json'
+import cs from '@/locales/cs.json'
+
 // Font Awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -26,6 +31,18 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 library.add(fas, far, fab)
 
 const app = createApp(App)
+
+const i18n = createI18n({
+    legacy: false,
+    locale: 'cs', // default
+    fallbackLocale: 'en',
+    messages: {
+        en,
+        cs,
+    },
+})
+
+app.use(i18n)
 
 app.use(createPinia())
 

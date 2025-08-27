@@ -12,13 +12,17 @@
 
         <slot />
 
-        <ThemeSwitch class="hover:bg-gray-200 hover:dark:bg-gray-900" />
+        <div class="flex items-center gap-4">
+            <LanguageSelect />
+            <ThemeSwitch class="hover:bg-gray-200 hover:dark:bg-gray-900" />
+        </div>
     </header>
 </template>
 
 <script setup lang="ts">
 import ThemeSwitch from '@/components/ThemeSwitch.vue'
 import { useRouter } from 'vue-router'
+import LanguageSelect from './LanguageSelect.vue'
 
 const router = useRouter()
 function navigateToPresentation() {

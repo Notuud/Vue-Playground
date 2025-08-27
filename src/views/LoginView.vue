@@ -3,7 +3,9 @@
         <div
             class="flex flex-col p-10 mt-20 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 min-w-1/4 lg:min-w-1/6"
         >
-            <h2 class="text-2xl font-bold mb-6 text-center">Přihlášení</h2>
+            <h2 class="text-2xl font-bold mb-6 text-center">
+                {{ t('login.loginHeader') }}
+            </h2>
 
             <Form
                 v-slot="$form"
@@ -21,7 +23,7 @@
                             </InputIcon>
                             <InputText id="email" name="email" v-focus fluid />
                         </IconField>
-                        <label for="email">E-mail</label>
+                        <label for="email">{{ t('common.email') }}</label>
                     </FloatLabel>
                     <Message
                         v-if="$form.email?.invalid"
@@ -47,7 +49,7 @@
                                 fluid
                             />
                         </IconField>
-                        <label for="password">Heslo</label>
+                        <label for="password">{{ t('common.password') }}</label>
                     </FloatLabel>
                     <Message
                         v-if="$form.password?.invalid"
@@ -61,7 +63,7 @@
                 <!-- Submit Button -->
                 <Button type="submit" fluid>
                     <FontAwesomeIcon :icon="['fas', 'lock-open']" />
-                    Přihlásit se
+                    {{ t('login.login') }}
                 </Button>
             </Form>
         </div>
@@ -83,6 +85,9 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { useToastNotifications } from '@/composables/useToastNotifications'
 import { z } from 'zod'
 import { zodResolver } from '@primevue/forms/resolvers/zod'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const { showError } = useToastNotifications()
 
@@ -98,11 +103,11 @@ const initialValues = ref({
 const resolver = ref(
     zodResolver(
         z.object({
-            email: z.email('Neplatný e-mail'),
+            email: z.email(t('validation.invalidEmail')),
             password: z
                 .string()
-                .nonempty('Heslo je povinné')
-                .min(6, 'Heslo musí mít délku alespoň 6 znaků'),
+                .nonempty(t('validation.required'))
+                .min(6, t('validation.passwordMinLength')),
         })
     )
 )
@@ -120,8 +125,8 @@ function handleLogin({ valid }: { valid: boolean }) {
         router.push('/home')
     } else {
         showError(
-            'Neplatné přihlašovací údaje',
-            'Zadejte platný e-mail a heslo.'
+            t('login.invalidCredentials'),
+            t('login.enterValidCredentials')
         )
     }
 }

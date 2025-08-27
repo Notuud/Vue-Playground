@@ -1,0 +1,78 @@
+{
+    "common": {
+        "email": "E-mail",
+        "password": "Heslo",
+        "toggleTheme": "Zapnout {theme} režim",
+        "light": "světlý",
+        "dark": "tmavý",
+        "toggleMenu": "{state} menu",
+        "show": "Zobrazit",
+        "hide": "Skrýt"
+    },
+    "validation": {
+        "invalidEmail": "Neplatný e-mail",
+        "required": "Toto pole je povinné",
+        "passwordMinLength": "Heslo musí mít délku alespoň 6 znaků"
+    },
+    "routes": {
+        "home": "Úvodní stránka",
+        "playground": "Hřišťátko",
+        "about": "O nás"
+    },
+    "login": {
+        "login": "Přihlásit se",
+        "loginHeader": "Přihlášení",
+        "invalidCredentials": "Neplatné přihlašovací údaje",
+        "enterValidCredentials": "Zadejte platný e-mail a heslo",
+        "logout": "Odhlásit se",
+        "register": "Vytvořit účet"
+    },
+    "presentation": {
+        "hero": {
+            "title": "Vítá Vás Stonker!",
+            "subtitle": "Jednoduchý, rychlý a přehledný tracker pro akcie i kryptoměny. Mějte celý majetek pod kontrolou - výnosy, vklady, kurzy a přehledy na pár kliknutí.",
+            "cardTitle": "Rychlý přehled",
+            "cardIncomes": "Výnosy akcií i krypta po dnech, měsících i kvartálech",
+            "cardTables": "Přehledná tabulka portfolia s aktuálními cenami",
+            "cardTransactions": "Evidence vkladů/výběrů a konverzí měn",
+            "cardSecurity": "Dvoufaktor (2FA) a audit přístupů"
+        },
+        "features": {
+            "title": "Co Stonker umí?",
+            "titleEarnings": "Výnosy a heatmapy",
+            "earnings": "Rychlé srovnání výkonu po dnech/měsících/kvartálech. Barevná vizualizace růstů i poklesů.",
+            "titlePortfolio": "Akcie i krypto",
+            "portfolio": "Jedno místo pro obě třídy aktiv. Aktuální ceny, přepočty měn a agregace.",
+            "titleTransactions": "Převody a evidence",
+            "transactions": "Přehled vkladů/výběrů i změn měn. Jasná stopa pro správné vyhodnocení zisků.",
+            "titleSecurity": "Bezpečnost především",
+            "security": "Dvoufaktorové ověření (2FA), persistentní přihlášení a auditní logy aktivit.",
+            "titleSimplicity": "Rychlé a jednoduché",
+            "simplicity": "Bez zbytečné složitosti. Přehledné tabulky, filtry a exporty.",
+            "titlePrivacy": "Kontrola a soukromí",
+            "privacy": "Váš účet, vaše data. Možnost správy účtu a zabezpečení kdykoliv."
+        },
+        "steps": {
+            "title": "Jak začít ve 3 krocích",
+            "start": "Začít zdarma",
+            "createAccount": "Vytvořte si účet a zapněte 2FA pro vyšší bezpečnost.",
+            "addAssets": "Přidejte aktiva, vklady a historie se doplní z dostupných zdrojů.",
+            "trackProgress": "Sledujte vývoj v čase a rozhodujte se na datech."
+        },
+        "faq": {
+            "title": "Často kladené dotazy",
+            "installQ": "Potřebuji něco instalovat?",
+            "installA": "Ne. Stonker běží na serveru. Stačí se přihlásit přes prohlížeč.",
+            "dataQ": "Jak jsou chráněna má data?",
+            "dataA": "Používáme přihlášení s persistentními tokeny, možnost 2FA a auditní logování přístupů. Citlivé akce jsou zaznamenávány.",
+            "currenciesQ": "Podporujete více měn?",
+            "currenciesA": "Ano. Aplikace sleduje kurzy měn a umožňuje převody i vyhodnocení v preferované měně.",
+            "exportQ": "Můžu exportovat data?",
+            "exportA": "Ano, přes DataTables lze exportovat do CSV/XLSX či PDF podle potřeby."
+        },
+        "cta": {
+            "title": "Připraveni mít pořádek v investicích?",
+            "createAccount": "Založte si účet během minuty a začněte sledovat své portfolio chytře."
+        }
+    }
+}

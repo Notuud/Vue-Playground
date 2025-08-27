@@ -14,7 +14,11 @@
                 :to="item.path"
                 class="mb-4 p-2 rounded-xl hover:bg-gray-700 dark:hover:bg-gray-800 transition-colors"
                 active-class="bg-gray-300 dark:bg-gray-700"
-                v-tooltip="{ value: item?.meta?.displayName, showDelay: 100, hideDelay: 100 }"
+                v-tooltip="{
+                    value: t(`routes.${item?.name?.toString().toLowerCase()}`),
+                    showDelay: 100,
+                    hideDelay: 100,
+                }"
             >
                 <FontAwesomeIcon
                     :icon="item?.meta?.icon ?? 'xmark'"
@@ -24,10 +28,14 @@
         </div>
 
         <Button
-            :unstyled="true"
+            unstyled
             @click="logout"
             class="mb-4 p-2 rounded-xl hover:bg-gray-700 dark:hover:bg-gray-800 transition-colors"
-            v-tooltip="{ value: 'Odhlášení', showDelay: 100, hideDelay: 100 }"
+            v-tooltip="{
+                value: t('login.logout'),
+                showDelay: 100,
+                hideDelay: 100,
+            }"
         >
             <FontAwesomeIcon :icon="['fas', 'lock']" size="lg" />
         </Button>
@@ -44,6 +52,9 @@ import ThemeSwitch from '@/components/ThemeSwitch.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { routes } from '@/router'
 import { useNavigation } from '@/composables/useNavigation'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const { logout } = useNavigation()
 

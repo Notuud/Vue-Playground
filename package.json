@@ -13,7 +13,7 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --ext .ts,.vue --fix",
-    "format": "npx prettier 'src/**/*.{ts,vue}' --write"
+    "format": "npx prettier 'src/**/*.{ts,vue,json}' --write"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.0.0",
@@ -28,6 +28,7 @@
     "pinia": "^3.0.3",
     "primevue": "^4.3.7",
     "vue": "^3.5.18",
+    "vue-i18n": "^11.1.11",
     "vue-router": "^4.5.1",
     "zod": "^4.1.1"
   },

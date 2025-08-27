@@ -1,0 +1,78 @@
+{
+    "common": {
+        "email": "E-mail",
+        "password": "Password",
+        "toggleTheme": "Switch to {theme} mode",
+        "light": "light",
+        "dark": "dark",
+        "toggleMenu": "{state} menu",
+        "show": "Show",
+        "hide": "Hide"
+    },
+    "validation": {
+        "invalidEmail": "Invalid e-mail",
+        "required": "This field is required",
+        "passwordMinLength": "Password must be at least 6 characters long"
+    },
+    "routes": {
+        "home": "Home",
+        "playground": "Playground",
+        "about": "About Us"
+    },
+    "login": {
+        "login": "Sign In",
+        "loginHeader": "Sign In",
+        "invalidCredentials": "Invalid credentials",
+        "enterValidCredentials": "Please enter a valid e-mail and password",
+        "logout": "Sign Out",
+        "register": "Create Account"
+    },
+    "presentation": {
+        "hero": {
+            "title": "Welcome to Stonker!",
+            "subtitle": "Simple, fast, and clear tracker for stocks and crypto. Keep your entire portfolio under control – earnings, deposits, rates, and overviews in just a few clicks.",
+            "cardTitle": "Quick Overview",
+            "cardIncomes": "Stock and crypto earnings by day, month, and quarter",
+            "cardTables": "Portfolio table with current prices",
+            "cardTransactions": "Record of deposits/withdrawals and currency conversions",
+            "cardSecurity": "Two-factor (2FA) and access audit"
+        },
+        "features": {
+            "title": "What can Stonker do?",
+            "titleEarnings": "Earnings and heatmaps",
+            "earnings": "Quick comparison of performance by day/month/quarter. Color visualization of growth and declines.",
+            "titlePortfolio": "Stocks and crypto",
+            "portfolio": "One place for both asset classes. Current prices, currency conversions, and aggregation.",
+            "titleTransactions": "Transfers and records",
+            "transactions": "Overview of deposits/withdrawals and currency changes. Clear trail for correct profit evaluation.",
+            "titleSecurity": "Security first",
+            "security": "Two-factor authentication (2FA), persistent login, and activity audit logs.",
+            "titleSimplicity": "Fast and simple",
+            "simplicity": "No unnecessary complexity. Clear tables, filters, and exports.",
+            "titlePrivacy": "Control and privacy",
+            "privacy": "Your account, your data. Manage your account and security anytime."
+        },
+        "steps": {
+            "title": "How to start in 3 steps",
+            "start": "Start for free",
+            "createAccount": "Create an account and enable 2FA for higher security.",
+            "addAssets": "Add assets, deposits, and history will be filled from available sources.",
+            "trackProgress": "Track progress over time and make data-driven decisions."
+        },
+        "faq": {
+            "title": "Frequently Asked Questions",
+            "installQ": "Do I need to install anything?",
+            "installA": "No. Stonker runs on the server. Just sign in via your browser.",
+            "dataQ": "How is my data protected?",
+            "dataA": "We use persistent token login, optional 2FA, and access audit logging. Sensitive actions are recorded.",
+            "currenciesQ": "Do you support multiple currencies?",
+            "currenciesA": "Yes. The app tracks currency rates and allows conversions and evaluation in your preferred currency.",
+            "exportQ": "Can I export my data?",
+            "exportA": "Yes, you can export via DataTables to CSV/XLSX or PDF as needed."
+        },
+        "cta": {
+            "title": "Ready to get your investments in order?",
+            "createAccount": "Create an account in a minute and start tracking your portfolio smartly."
+        }
+    }
+}

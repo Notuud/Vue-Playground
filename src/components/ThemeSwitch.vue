@@ -1,10 +1,12 @@
 <template>
     <Button
-        :unstyled="true"
+        unstyled
         @click="darkMode = !darkMode"
         class="p-2 rounded-lg"
         v-tooltip="{
-            value: `Zapnout ${darkMode ? 'světlý' : 'tmavý'} režim`,
+            value: t('common.toggleTheme', {
+                theme: darkMode ? t('common.light') : t('common.dark'),
+            }),
             showDelay: 100,
             hideDelay: 100,
         }"
@@ -20,6 +22,9 @@
 import Button from 'primevue/button'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { useTheme } from '@/composables/useTheme'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const { darkMode } = useTheme()
 </script>

@@ -2,7 +2,9 @@
     <section
         class="p-5 md:py-10 flex flex-col items-center justify-center border-b border-gray-300"
     >
-        <h1 class="text-3xl font-bold mb-4 md:mb-10">Co Stonker umí?</h1>
+        <h1 class="text-3xl font-bold mb-4 md:mb-10">
+            {{ t('presentation.features.title') }}
+        </h1>
         <div class="flex flex-wrap justify-center gap-5 w-full">
             <CapabilityCard
                 v-for="capability in capabilities"
@@ -16,44 +18,42 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import CapabilityCard from '@/components/presentation/CapabilityCard.vue'
+import { useI18n } from 'vue-i18n'
 
-const capabilities = [
+const { t } = useI18n()
+
+const capabilities = computed(() => [
     {
         icon: ['fas', 'chart-area'],
-        title: 'Výnosy a heatmapy',
-        description:
-            'Rychlé srovnání výkonu po dnech/měsících/kvartálech. Barevná vizualizace růstů i poklesů.',
+        title: t('presentation.features.titleEarnings'),
+        description: t('presentation.features.earnings'),
     },
     {
         icon: ['fas', 'bitcoin-sign'],
-        title: 'Akcie i krypto',
-        description:
-            'Jedno místo pro obě třídy aktiv. Aktuální ceny, přepočty měn a agregace.',
+        title: t('presentation.features.titlePortfolio'),
+        description: t('presentation.features.portfolio'),
     },
     {
         icon: ['fas', 'database'],
-        title: 'Převody a evidence',
-        description:
-            'Přehled vkladů/výběrů i změn měn. Jasná stopa pro správné vyhodnocení zisků.',
+        title: t('presentation.features.titleTransactions'),
+        description: t('presentation.features.transactions'),
     },
     {
         icon: ['fas', 'lock'],
-        title: 'Bezpečnost především',
-        description:
-            'Dvoufaktorové ověření (2FA), persistentní přihlášení a auditní logy aktivit.',
+        title: t('presentation.features.titleSecurity'),
+        description: t('presentation.features.security'),
     },
     {
         icon: ['fas', 'rocket'],
-        title: 'Rychlé a jednoduché',
-        description:
-            'Bez zbytečné složitosti. Přehledné tabulky, filtry a exporty.',
+        title: t('presentation.features.titleSimplicity'),
+        description: t('presentation.features.simplicity'),
     },
     {
         icon: ['fas', 'user-gear'],
-        title: 'Kontrola a soukromí',
-        description:
-            'Váš účet, vaše data. Možnost správy účtu a zabezpečení kdykoliv.',
+        title: t('presentation.features.titlePrivacy'),
+        description: t('presentation.features.privacy'),
     },
-]
+])
 </script>
