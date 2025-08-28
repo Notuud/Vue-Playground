@@ -17,15 +17,17 @@
                 href="https://github.com/Safiron8"
                 target="_blank"
                 class="underline text-cyan-600"
-                >Safiron8</a
-            >
+                >
+                Safiron8
+            </a>
             &
             <a
                 href="https://github.com/Notuud"
                 target="_blank"
                 class="underline text-cyan-600"
-                >Notuud</a
-            >
+                >
+                Notuud
+            </a>
         </footer>
     </div>
 </template>
@@ -33,9 +35,11 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import LoginLayout from './layouts/LoginLayout.vue'
-import AppLayout from './layouts/AppLayout.vue'
 import Toast from 'primevue/toast'
+import LoginLayout from '@/layouts/LoginLayout.vue'
+import AppLayout from '@/layouts/AppLayout.vue'
+
+// TODO: create Footer component
 
 const route = useRoute()
 

@@ -1,31 +1,50 @@
 {
+  // Root TypeScript configuration. This file defines shared options used
+  // by the app and node-specific tsconfigs via project references.
   "compilerOptions": {
+    // Strict mode enables a set of recommended type-checking rules.
     "strict": true,
+    // Target modern JS. Vite will handle bundling/transpilation for older browsers
+    // if you add a legacy plugin. Keep this as ESNext for best dev ergonomics.
     "target": "ESNext",
+    // Align class field semantics with TypeScript's emit expectations for Vue.
     "useDefineForClassFields": true,
+    // Use ESM output and modern module resolution suitable for bundlers.
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "types": ["vite/client"],
+    // Include Vite and Vue global types for editor integration.
+    "types": ["vite/client", "vue"],
+    // Allow importing JSON files as modules.
     "resolveJsonModule": true,
+    // Required when using Babel / Vite transpilation — disallow emit of non-TS files.
     "isolatedModules": true,
+    // Enable compatibility with some CommonJS-style packages.
     "esModuleInterop": true,
+    // Include modern DOM and ES library types.
     "lib": ["ESNext", "DOM"],
+    // Skip type checking of declaration files from dependencies for speed.
     "skipLibCheck": true,
+    // Avoid case-sensitivity issues across platforms.
     "forceConsistentCasingInFileNames": true,
+    // Extra safety for switch statements.
     "noFallthroughCasesInSwitch": true,
+    // Allow default imports from modules with no default export.
     "allowSyntheticDefaultImports": true,
+    // Project base URL for path mapping.
     "baseUrl": ".",
+    // Optional stricter flags — enabled for better type-safety. These may
+    // require small code updates when introduced.
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "exactOptionalPropertyTypes": true,
+    // Path aliases for nicer imports: import Foo from '@/components/Foo'
     "paths": {
       "@/*": ["./src/*"]
     }
   },
   "files": [],
   "references": [
-    {
-      "path": "./tsconfig.node.json"
-    },
-    {
-      "path": "./tsconfig.app.json"
-    }
+    { "path": "./tsconfig.node.json" },
+    { "path": "./tsconfig.app.json" }
   ]
 }

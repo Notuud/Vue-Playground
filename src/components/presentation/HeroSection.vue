@@ -10,7 +10,10 @@
                 {{ $t('presentation.hero.subtitle') }}
             </p>
             <div class="flex flex-col md:flex-row gap-5">
-                <Button @click="navigateToLogin" size="large">
+                <Button
+                    @click="navigateToLogin"
+                    size="large"
+                >
                     <FontAwesomeIcon :icon="['fas', 'lock-open']" />
                     {{ $t('login.login') }}
                 </Button>

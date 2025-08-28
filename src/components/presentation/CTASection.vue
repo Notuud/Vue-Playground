@@ -8,7 +8,10 @@
         <p>
             {{ $t('presentation.cta.createAccount') }}
         </p>
-        <Button @click="navigateToLogin" size="large">
+        <Button
+            @click="navigateToLogin"
+            size="large"
+        >
             <FontAwesomeIcon :icon="['far', 'square-plus']" />
             {{ $t('login.register') }}
         </Button>

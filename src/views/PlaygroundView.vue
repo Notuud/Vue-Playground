@@ -39,7 +39,11 @@
             </template>
             <template #empty> No customers found. </template>
             <template #loading> Loading customers data. Please wait. </template>
-            <Column field="name" header="Name" style="min-width: 12rem">
+            <Column
+                field="name"
+                header="Name"
+                style="min-width: 12rem"
+            >
                 <template #body="{ data }">
                     {{ data.name }}
                 </template>
@@ -114,7 +118,10 @@
                         v-if="data.verified"
                         :icon="['fas', 'check']"
                     />
-                    <FontAwesomeIcon v-else :icon="['fas', 'xmark']" />
+                    <FontAwesomeIcon
+                        v-else
+                        :icon="['fas', 'xmark']"
+                    />
                 </template>
                 <template #filter="{ filterModel, filterCallback }">
                     <Checkbox

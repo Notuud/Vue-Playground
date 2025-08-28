@@ -13,7 +13,7 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --ext .ts,.vue --fix",
-    "format": "npx prettier 'src/**/*.{ts,vue,json}' --write"
+    "format": "npx prettier \"src/**/*.{ts,vue,json}\" --write"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.0.0",
@@ -33,10 +33,8 @@
     "zod": "^4.1.1"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.12",
     "@tsconfig/node22": "^22.0.2",
     "@types/node": "^22.16.5",
-    "@types/vue-router": "^2.0.0",
     "@typescript-eslint/eslint-plugin": "^8.40.0",
     "@typescript-eslint/parser": "^8.40.0",
     "@vitejs/plugin-vue": "^6.0.1",
@@ -47,13 +45,11 @@
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-vue": "^10.4.0",
     "npm-run-all2": "^8.0.4",
-    "postcss": "^8.5.6",
     "prettier": "^3.6.2",
     "tailwindcss": "^4.1.12",
     "typescript": "~5.8.0",
     "vite": "^7.0.6",
     "vite-plugin-vue-devtools": "^8.0.0",
-    "vite-plugin-vuetify": "^2.1.2",
     "vue-tsc": "^3.0.4"
   }
 }

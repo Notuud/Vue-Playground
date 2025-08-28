@@ -3,8 +3,15 @@
         class="fixed top-0 left-0 h-dvh w-16 bg-gray-200 dark:bg-gray-950 flex flex-col items-center py-4 shadow-lg transform transition-transform duration-300 z-40"
         v-show="props.isOpen"
     >
-        <RouterLink to="/home" class="mb-8">
-            <img src="@/assets/SN.svg" alt="Logo" class="w-12 h-12 rounded" />
+        <RouterLink
+            to="/home"
+            class="mb-8"
+        >
+            <img
+                src="@/assets/SN.svg"
+                alt="Logo"
+                class="w-12 h-12 rounded"
+            />
         </RouterLink>
 
         <div class="flex flex-col flex-1">
@@ -37,7 +44,10 @@
                 hideDelay: 100,
             }"
         >
-            <FontAwesomeIcon :icon="['fas', 'lock']" size="lg" />
+            <FontAwesomeIcon
+                :icon="['fas', 'lock']"
+                size="lg"
+            />
         </Button>
 
         <ThemeSwitch class="hover:bg-gray-700 hover:dark:bg-gray-800" />

@@ -9,11 +9,17 @@
     "eslint.config.*"
   ],
   "compilerOptions": {
+    // This tsconfig is targeted at tooling (vite, tests, linters) so it
+    // intentionally disables emit. Keep `noEmit: true` to avoid generating
+    // JS files when running checks.
     "noEmit": true,
+    // Use a dedicated tmp folder for immutable build info produced during
+    // incremental checks; this keeps node_modules tidy and avoids accidental check-ins.
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-
+    // Enable incremental to speed up repeated type-checks even for tooling.
+    "incremental": true,
+    // Modern module settings suitable for Node tooling.
     "module": "ESNext",
-    "moduleResolution": "bundler",
-    "types": ["vite/client"]
+    "moduleResolution": "bundler"
   }
 }

@@ -6,7 +6,11 @@
             class="flex items-center gap-3 cursor-pointer"
             @click="navigateToPresentation"
         >
-            <img src="@/assets/SN.svg" alt="Logo" class="w-12 h-12" />
+            <img
+                src="@/assets/SN.svg"
+                alt="Logo"
+                class="w-12 h-12"
+            />
             <h1 class="text-2xl font-bold">Stonker</h1>
         </div>
 

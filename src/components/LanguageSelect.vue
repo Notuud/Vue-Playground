@@ -11,11 +11,14 @@
         }"
     >
         <template #value="slotProps">
-            <div v-if="slotProps.value" class="flex">
+            <div
+                v-if="slotProps.value"
+                class="flex"
+            >
                 <img
                     class="w-6"
                     :src="getFlagSrc(getFlag(slotProps.value)) ?? 'xx'"
-                    :alt="getFlag(slotProps.value)"
+                    :alt="getFlag(slotProps.value) ?? 'Placeholder'"
                 />
                 <span class="ml-2 hidden md:block">{{
                     getLabel(slotProps.value)
@@ -27,7 +30,7 @@
                 <img
                     class="w-6"
                     :src="getFlagSrc(getFlag(slotProps.option.code)) ?? 'xx'"
-                    :alt="getFlag(slotProps.option.code)"
+                    :alt="getFlag(slotProps.option.code) ?? 'Placeholder'"
                 />
                 <span class="ml-2 hidden md:block">{{
                     slotProps.option.label

@@ -21,7 +21,12 @@
                             <InputIcon>
                                 <FontAwesomeIcon :icon="['fas', 'envelope']" />
                             </InputIcon>
-                            <InputText id="email" name="email" v-focus fluid />
+                            <InputText
+                                id="email"
+                                name="email"
+                                v-focus
+                                fluid
+                            />
                         </IconField>
                         <label for="email">{{ $t('common.email') }}</label>
                     </FloatLabel>
@@ -49,7 +54,9 @@
                                 fluid
                             />
                         </IconField>
-                        <label for="password">{{ $t('common.password') }}</label>
+                        <label for="password">{{
+                            $t('common.password')
+                        }}</label>
                     </FloatLabel>
                     <Message
                         v-if="$form.password?.invalid"
@@ -61,7 +68,10 @@
                 </div>
 
                 <!-- Submit Button -->
-                <Button type="submit" fluid>
+                <Button
+                    type="submit"
+                    fluid
+                >
                     <FontAwesomeIcon :icon="['fas', 'lock-open']" />
                     {{ $t('login.login') }}
                 </Button>

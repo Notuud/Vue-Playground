@@ -1,5 +1,7 @@
 <template>
-    <section class="flex flex-col items-center justify-center p-5 border-b border-gray-300">
+    <section
+        class="flex flex-col items-center justify-center p-5 border-b border-gray-300"
+    >
         <h1 class="text-3xl font-bold text-center mb-4 md:mb-10">
             {{ $t('presentation.faq.title') }}
         </h1>
