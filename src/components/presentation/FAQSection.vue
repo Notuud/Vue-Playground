@@ -1,9 +1,9 @@
 <template>
-    <section class="p-5 md:py-10 md:px-40 border-b border-gray-300">
+    <section class="flex flex-col items-center justify-center p-5 border-b border-gray-300">
         <h1 class="text-3xl font-bold text-center mb-4 md:mb-10">
-            {{ t('presentation.faq.title') }}
+            {{ $t('presentation.faq.title') }}
         </h1>
-        <Accordion class="border border-gray-300 rounded-lg">
+        <Accordion class="border border-gray-300 rounded-lg w-3/4">
             <AccordionPanel
                 v-for="(item, index) in faqs"
                 :key="index"

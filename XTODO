@@ -1,5 +1,6 @@
 User menu - kouknout na user menu
 Vytvorit register a obecne pokryt sekce co ma ada ve stonkeru
+refaktor layouty a viewcka hlavna na presentation page
 
 ## Suggestions for Improvement
 - Add more TypeScript types and interfaces for props, stores, and composables

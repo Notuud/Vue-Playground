@@ -11,8 +11,8 @@
         :class="isOpen ? 'ml-16' : ''"
         @click="isOpen = !isOpen"
         v-tooltip="{
-            value: t('common.toggleMenu', {
-                state: isOpen ? t('common.hide') : t('common.show'),
+            value: $t('common.toggleMenu', {
+                state: isOpen ? $t('common.hide') : $t('common.show'),
             }),
             showDelay: 500,
             hideDelay: 100,
@@ -30,9 +30,6 @@ import SideNav from '@/components/SideNav.vue'
 import Button from 'primevue/button'
 import { ref } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { useI18n } from 'vue-i18n'
-
-const { t } = useI18n()
 
 const isOpen = ref(true)
 </script>

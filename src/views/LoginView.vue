@@ -1,10 +1,10 @@
 <template>
     <main class="flex items-center justify-center text-center">
         <div
-            class="flex flex-col p-10 mt-20 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 min-w-1/4 lg:min-w-1/6"
+            class="flex flex-col p-10 mt-20 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 min-w-full w-1/4 md:min-w-3/8 lg:min-w-1/6"
         >
             <h2 class="text-2xl font-bold mb-6 text-center">
-                {{ t('login.loginHeader') }}
+                {{ $t('login.loginHeader') }}
             </h2>
 
             <Form
@@ -23,14 +23,14 @@
                             </InputIcon>
                             <InputText id="email" name="email" v-focus fluid />
                         </IconField>
-                        <label for="email">{{ t('common.email') }}</label>
+                        <label for="email">{{ $t('common.email') }}</label>
                     </FloatLabel>
                     <Message
                         v-if="$form.email?.invalid"
                         severity="error"
                         size="small"
                         variant="simple"
-                        >{{ $form.email.error.message }}</Message
+                        >{{ $t($form.email.error.message) }}</Message
                     >
                 </div>
 
@@ -49,21 +49,21 @@
                                 fluid
                             />
                         </IconField>
-                        <label for="password">{{ t('common.password') }}</label>
+                        <label for="password">{{ $t('common.password') }}</label>
                     </FloatLabel>
                     <Message
                         v-if="$form.password?.invalid"
                         severity="error"
                         size="small"
                         variant="simple"
-                        >{{ $form.password.error.message }}</Message
+                        >{{ $t($form.password.error.message) }}</Message
                     >
                 </div>
 
                 <!-- Submit Button -->
                 <Button type="submit" fluid>
                     <FontAwesomeIcon :icon="['fas', 'lock-open']" />
-                    {{ t('login.login') }}
+                    {{ $t('login.login') }}
                 </Button>
             </Form>
         </div>
@@ -99,17 +99,15 @@ const initialValues = ref({
     password: '',
 })
 
-// --- Zod schema ---
-const resolver = ref(
-    zodResolver(
-        z.object({
-            email: z.email(t('validation.invalidEmail')),
-            password: z
-                .string()
-                .nonempty(t('validation.required'))
-                .min(6, t('validation.passwordMinLength')),
-        })
-    )
+// --- Zod schema resolver ---
+const resolver = zodResolver(
+    z.object({
+        email: z.email('validation.invalidEmail'),
+        password: z
+            .string()
+            .nonempty('validation.required')
+            .min(6, 'validation.passwordMinLength'),
+    })
 )
 
 // --- Focus directive ---

@@ -4,15 +4,15 @@
     >
         <div class="min-w-3/8 md:max-w-1/2">
             <h1 class="text-4xl font-bold mb-4">
-                {{ t('presentation.hero.title') }}
+                {{ $t('presentation.hero.title') }}
             </h1>
             <p class="mb-4 text-xl font-light">
-                {{ t('presentation.hero.subtitle') }}
+                {{ $t('presentation.hero.subtitle') }}
             </p>
             <div class="flex flex-col md:flex-row gap-5">
                 <Button @click="navigateToLogin" size="large">
                     <FontAwesomeIcon :icon="['fas', 'lock-open']" />
-                    {{ t('login.login') }}
+                    {{ $t('login.login') }}
                 </Button>
                 <Button
                     @click="navigateToLogin"
@@ -21,7 +21,7 @@
                     variant="outlined"
                 >
                     <FontAwesomeIcon :icon="['far', 'square-plus']" />
-                    {{ t('login.register') }}
+                    {{ $t('login.register') }}
                 </Button>
             </div>
         </div>
@@ -29,7 +29,7 @@
             <div class="p-3 border border-gray-300 rounded shadow-lg">
                 <h3 class="text-xl font-semibold">
                     <FontAwesomeIcon :icon="['fas', 'gauge-high']" />
-                    {{ t('presentation.hero.cardTitle') }}
+                    {{ $t('presentation.hero.cardTitle') }}
                 </h3>
                 <ul class="mt-2 font-light">
                     <li

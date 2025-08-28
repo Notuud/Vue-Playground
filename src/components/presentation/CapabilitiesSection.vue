@@ -3,7 +3,7 @@
         class="p-5 md:py-10 flex flex-col items-center justify-center border-b border-gray-300"
     >
         <h1 class="text-3xl font-bold mb-4 md:mb-10">
-            {{ t('presentation.features.title') }}
+            {{ $t('presentation.features.title') }}
         </h1>
         <div class="flex flex-wrap justify-center gap-5 w-full">
             <CapabilityCard
