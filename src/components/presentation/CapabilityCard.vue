@@ -1,7 +1,5 @@
 <template>
-    <div
-        class="p-5 border border-gray-300 rounded shadow-lg w-full md:w-1/3 lg:w-1/4"
-    >
+    <div class="p-5 border border-gray-300 rounded shadow-lg w-full md:w-1/3 lg:w-1/4">
         <h3 class="text-xl font-semibold">
             <FontAwesomeIcon
                 :icon="icon"

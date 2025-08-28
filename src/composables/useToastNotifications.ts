@@ -3,11 +3,7 @@ import { useToast } from 'primevue/usetoast'
 export function useToastNotifications() {
     const toast = useToast()
 
-    function showSuccess(
-        summary: string,
-        detail?: string,
-        duration = 3000 as number
-    ) {
+    function showSuccess(summary: string, detail?: string, duration = 3000 as number) {
         toast.add({
             severity: 'success',
             summary,
@@ -16,11 +12,7 @@ export function useToastNotifications() {
         })
     }
 
-    function showError(
-        summary: string,
-        detail?: string,
-        duration = 3000 as number
-    ) {
+    function showError(summary: string, detail?: string, duration = 3000 as number) {
         toast.add({
             severity: 'error',
             summary,
@@ -29,11 +21,7 @@ export function useToastNotifications() {
         })
     }
 
-    function showWarning(
-        summary: string,
-        detail?: string,
-        duration = 3000 as number
-    ) {
+    function showWarning(summary: string, detail?: string, duration = 3000 as number) {
         toast.add({
             severity: 'warn',
             summary,
@@ -42,11 +30,7 @@ export function useToastNotifications() {
         })
     }
 
-    function showInfo(
-        summary: string,
-        detail?: string,
-        duration = 3000 as number
-    ) {
+    function showInfo(summary: string, detail?: string, duration = 3000 as number) {
         toast.add({
             severity: 'info',
             summary,

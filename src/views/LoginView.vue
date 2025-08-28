@@ -54,9 +54,7 @@
                                 fluid
                             />
                         </IconField>
-                        <label for="password">{{
-                            $t('common.password')
-                        }}</label>
+                        <label for="password">{{ $t('common.password') }}</label>
                     </FloatLabel>
                     <Message
                         v-if="$form.password?.invalid"
@@ -113,10 +111,7 @@ const initialValues = ref({
 const resolver = zodResolver(
     z.object({
         email: z.email('validation.invalidEmail'),
-        password: z
-            .string()
-            .nonempty('validation.required')
-            .min(6, 'validation.passwordMinLength'),
+        password: z.string().nonempty('validation.required').min(6, 'validation.passwordMinLength'),
     })
 )
 
@@ -132,10 +127,7 @@ function handleLogin({ valid }: { valid: boolean }) {
         localStorage.setItem('authToken', 'demo-token')
         router.push('/home')
     } else {
-        showError(
-            t('login.invalidCredentials'),
-            t('login.enterValidCredentials')
-        )
+        showError(t('login.invalidCredentials'), t('login.enterValidCredentials'))
     }
 }
 </script>

@@ -70,7 +70,5 @@ const props = defineProps({
 })
 
 // Filter only app-layout routes with icons
-const appRoutes = computed(() =>
-    routes.filter((r) => r.meta?.layout === 'app' && r.meta?.icon)
-)
+const appRoutes = computed(() => routes.filter((r) => r.meta?.layout === 'app' && r.meta?.icon))
 </script>

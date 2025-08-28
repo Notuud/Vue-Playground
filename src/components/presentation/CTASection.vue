@@ -1,6 +1,6 @@
 <template>
     <section
-        class="p-5 md:py-10 flex flex-col items-center justify-center gap-5 text-center bg-gray-200 dark:bg-gray-950 border-b border-gray-300"
+        class="p-5 md:p-10 flex flex-col items-center justify-center gap-5 text-center bg-gray-200 dark:bg-gray-950 border-b border-gray-300"
     >
         <h1 class="text-3xl font-bold">
             {{ $t('presentation.cta.title') }}

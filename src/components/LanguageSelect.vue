@@ -20,9 +20,7 @@
                     :src="getFlagSrc(getFlag(slotProps.value)) ?? 'xx'"
                     :alt="getFlag(slotProps.value) ?? 'Placeholder'"
                 />
-                <span class="ml-2 hidden md:block">{{
-                    getLabel(slotProps.value)
-                }}</span>
+                <span class="ml-2 hidden md:block">{{ getLabel(slotProps.value) }}</span>
             </div>
         </template>
         <template #option="slotProps">
@@ -32,9 +30,7 @@
                     :src="getFlagSrc(getFlag(slotProps.option.code)) ?? 'xx'"
                     :alt="getFlag(slotProps.option.code) ?? 'Placeholder'"
                 />
-                <span class="ml-2 hidden md:block">{{
-                    slotProps.option.label
-                }}</span>
+                <span class="ml-2 hidden md:block">{{ slotProps.option.label }}</span>
             </div>
         </template>
     </Select>

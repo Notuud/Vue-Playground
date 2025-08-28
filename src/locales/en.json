@@ -40,7 +40,7 @@
         "features": {
             "title": "What can Stonker do?",
             "titleEarnings": "Earnings and heatmaps",
-            "earnings": "Quick comparison of performance by day/month/quarter. Color visualization of growth and declines.",
+            "earnings": "Quick comparison of performance by day / month / quarter. Color visualization of growth and declines.",
             "titlePortfolio": "Stocks and crypto",
             "portfolio": "One place for both asset classes. Current prices, currency conversions, and aggregation.",
             "titleTransactions": "Transfers and records",

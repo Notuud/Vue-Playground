@@ -1,9 +1,7 @@
 <template>
     <main class="p-4">
         <h3 class="text-xl font-medium text-gray-500">Playground</h3>
-        <h1 class="text-2xl font-bold mb-4">
-            Enjoy playing with various components
-        </h1>
+        <h1 class="text-2xl font-bold mb-4">Enjoy playing with various components</h1>
 
         <h2 class="text-xl mb-4">User List</h2>
 
@@ -15,20 +13,13 @@
             dataKey="id"
             filterDisplay="row"
             :loading="loading"
-            :globalFilterFields="[
-                'name',
-                'country.name',
-                'representative.name',
-                'status',
-            ]"
+            :globalFilterFields="['name', 'country.name', 'representative.name', 'status']"
         >
             <template #header>
                 <div class="flex justify-end">
                     <IconField>
                         <InputIcon>
-                            <FontAwesomeIcon
-                                :icon="['fas', 'magnifying-glass']"
-                            />
+                            <FontAwesomeIcon :icon="['fas', 'magnifying-glass']" />
                         </InputIcon>
                         <InputText
                             v-model="filters['global'].value"
@@ -99,9 +90,7 @@
                         <template #option="slotProps">
                             <Tag
                                 :value="slotProps.option"
-                                :severity="
-                                    getSeverity(slotProps.option) ?? 'contrast'
-                                "
+                                :severity="getSeverity(slotProps.option) ?? 'contrast'"
                             />
                         </template>
                     </Select>
@@ -249,14 +238,7 @@ const representatives = ref([
         verified: true,
     },
 ])
-const statuses = ref([
-    'unqualified',
-    'qualified',
-    'new',
-    'negotiation',
-    'renewal',
-    'proposal',
-])
+const statuses = ref(['unqualified', 'qualified', 'new', 'negotiation', 'renewal', 'proposal'])
 const loading = ref(true)
 
 onMounted(() => {
@@ -300,15 +282,7 @@ const chartOptions = ref({})
 
 onMounted(() => {
     chartData.value = {
-        labels: [
-            'January',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-            'July',
-        ],
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [
             {
                 label: '2025 Sales',

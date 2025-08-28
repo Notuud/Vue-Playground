@@ -1,28 +1,32 @@
 <template>
-    <section
-        class="flex flex-col items-center justify-center p-5 border-b border-gray-300"
-    >
-        <h1 class="text-3xl font-bold text-center mb-4 md:mb-10">
-            {{ $t('presentation.faq.title') }}
-        </h1>
-        <Accordion class="border border-gray-300 rounded-lg w-3/4">
-            <AccordionPanel
-                v-for="(item, index) in faqs"
-                :key="index"
-                :value="String(index)"
-            >
-                <AccordionHeader
-                    :pt="{ root: { class: '!bg-gray-100 dark:!bg-gray-900' } }"
-                    >{{ item.question }}</AccordionHeader
+    <section class="p-5 md:p-10 flex justify-center border-b border-gray-300">
+        <div class="w-full md:w-11/12 lg:w-7/8 flex flex-col items-center justify-center">
+            <h1 class="text-3xl font-bold text-center mb-4 md:mb-10">
+                {{ $t('presentation.faq.title') }}
+            </h1>
+            <Accordion class="border border-gray-300 rounded-lg w-full md:w-3/4">
+                <AccordionPanel
+                    v-for="(item, index) in faqs"
+                    :key="index"
+                    :value="String(index)"
                 >
-                <AccordionContent
-                    :pt="{
-                        content: { class: '!bg-gray-100 dark:!bg-gray-900' },
-                    }"
-                    >{{ item.answer }}</AccordionContent
-                >
-            </AccordionPanel>
-        </Accordion>
+                    <AccordionHeader
+                        :pt="{
+                            root: { class: '!bg-gray-100 dark:!bg-gray-900' },
+                        }"
+                        >{{ item.question }}</AccordionHeader
+                    >
+                    <AccordionContent
+                        :pt="{
+                            content: {
+                                class: '!bg-gray-100 dark:!bg-gray-900',
+                            },
+                        }"
+                        >{{ item.answer }}</AccordionContent
+                    >
+                </AccordionPanel>
+            </Accordion>
+        </div>
     </section>
 </template>
 
@@ -37,21 +41,9 @@ import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 
 const faqs = computed(() => [
-    {
-        question: t('presentation.faq.installQ'),
-        answer: t('presentation.faq.installA'),
-    },
-    {
-        question: t('presentation.faq.dataQ'),
-        answer: t('presentation.faq.dataA'),
-    },
-    {
-        question: t('presentation.faq.currenciesQ'),
-        answer: t('presentation.faq.currenciesA'),
-    },
-    {
-        question: t('presentation.faq.exportQ'),
-        answer: t('presentation.faq.exportA'),
-    },
+    { question: t('presentation.faq.installQ'), answer: t('presentation.faq.installA') },
+    { question: t('presentation.faq.dataQ'), answer: t('presentation.faq.dataA') },
+    { question: t('presentation.faq.currenciesQ'), answer: t('presentation.faq.currenciesA') },
+    { question: t('presentation.faq.exportQ'), answer: t('presentation.faq.exportA') },
 ])
 </script>
