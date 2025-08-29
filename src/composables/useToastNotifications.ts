@@ -1,43 +1,33 @@
 import { useToast } from 'primevue/usetoast'
 
+type ToastSeverity = 'success' | 'error' | 'warn' | 'info'
+
 export function useToastNotifications() {
     const toast = useToast()
 
-    function showSuccess(summary: string, detail?: string, duration = 3000 as number) {
+    function showToast(
+        severity: ToastSeverity,
+        summary: string,
+        detail?: string,
+        duration = 3000
+    ) {
         toast.add({
-            severity: 'success',
+            severity,
             summary,
             detail,
             life: duration,
         })
     }
 
-    function showError(summary: string, detail?: string, duration = 3000 as number) {
-        toast.add({
-            severity: 'error',
-            summary,
-            detail,
-            life: duration,
-        })
+    return {
+        showSuccess: (summary: string, detail?: string, duration?: number) =>
+            showToast('success', summary, detail, duration),
+        showError: (summary: string, detail?: string, duration?: number) =>
+            showToast('error', summary, detail, duration),
+        showWarning: (summary: string, detail?: string, duration?: number) =>
+            showToast('warn', summary, detail, duration),
+        showInfo: (summary: string, detail?: string, duration?: number) =>
+            showToast('info', summary, detail, duration),
+        showToast,
     }
-
-    function showWarning(summary: string, detail?: string, duration = 3000 as number) {
-        toast.add({
-            severity: 'warn',
-            summary,
-            detail,
-            life: duration,
-        })
-    }
-
-    function showInfo(summary: string, detail?: string, duration = 3000 as number) {
-        toast.add({
-            severity: 'info',
-            summary,
-            detail,
-            life: duration,
-        })
-    }
-
-    return { showSuccess, showError, showWarning, showInfo }
 }

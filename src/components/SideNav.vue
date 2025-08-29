@@ -1,6 +1,6 @@
 <template>
     <aside
-        class="fixed top-0 left-0 h-dvh w-16 bg-gray-200 dark:bg-gray-950 flex flex-col items-center py-4 shadow-lg transform transition-transform duration-300 z-40"
+        class="fixed top-0 left-0 h-dvh w-16 bg-gray-200 dark:bg-gray-950 flex flex-col items-center p-2 shadow-lg transform transition-transform duration-300 z-40"
         v-show="props.isOpen"
     >
         <RouterLink
@@ -22,7 +22,7 @@
                 class="mb-4 p-2 rounded-xl hover:bg-gray-700 dark:hover:bg-gray-800 transition-colors"
                 active-class="bg-gray-300 dark:bg-gray-700"
                 v-tooltip="{
-                    value: $t(`routes.${item?.name?.toString().toLowerCase()}`),
+                    value: $t(`routes.${item?.meta?.title}`),
                     showDelay: 100,
                     hideDelay: 100,
                 }"
@@ -49,7 +49,7 @@
                 size="lg"
             />
         </Button>
-
+        
         <ThemeSwitch class="hover:bg-gray-700 hover:dark:bg-gray-800" />
     </aside>
 </template>

@@ -1,8 +1,8 @@
 <template>
     <section class="p-5 md:p-10 flex justify-center bg-gray-200 dark:bg-gray-950 border-b border-gray-300">
         <div class="w-full md:w-11/12 lg:w-7/8 flex flex-col md:flex-row items-center justify-center gap-10">
-            <div class="min-w-3/8 md:max-w-1/2">
-                <h1 class="text-4xl font-bold mb-4">
+            <div class="w-full md:w-5/12">
+                <h1 class="text-4xl font-semibold mb-4">
                     {{ $t('presentation.hero.title') }}
                 </h1>
                 <p class="mb-4 text-xl font-light">
@@ -23,11 +23,11 @@
                         variant="outlined"
                     >
                         <FontAwesomeIcon :icon="['far', 'square-plus']" />
-                        {{ $t('login.register') }}
+                        {{ $t('login.createAccount') }}
                     </Button>
                 </div>
             </div>
-            <div class="min-w-1/4 md:max-w-1/2 bg-gray-100 dark:bg-gray-900">
+            <div class="w-full md:w-1/3 bg-gray-100 dark:bg-gray-900">
                 <div class="p-3 border border-gray-300 rounded shadow-lg">
                     <h3 class="text-xl font-semibold">
                         <FontAwesomeIcon :icon="['fas', 'gauge-high']" />

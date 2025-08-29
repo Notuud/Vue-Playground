@@ -15,6 +15,7 @@
         "passwordMinLength": "Heslo musí mít délku alespoň 6 znaků"
     },
     "routes": {
+        "login": "Příhlášení",
         "home": "Úvodní stránka",
         "playground": "Hřišťátko",
         "about": "O nás"
@@ -25,7 +26,10 @@
         "invalidCredentials": "Neplatné přihlašovací údaje",
         "enterValidCredentials": "Zadejte platný e-mail a heslo",
         "logout": "Odhlásit se",
-        "register": "Vytvořit účet"
+        "createAccount": "Vytvořit účet",
+        "register": "Registrujte se",
+        "forgotPassword": "Zapomněli jste heslo?",
+        "noAccount": "Nemáte účet?"
     },
     "presentation": {
         "hero": {

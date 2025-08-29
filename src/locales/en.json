@@ -15,17 +15,21 @@
         "passwordMinLength": "Password must be at least 6 characters long"
     },
     "routes": {
+        "login": "Login",
         "home": "Home",
         "playground": "Playground",
         "about": "About Us"
     },
     "login": {
         "login": "Sign In",
-        "loginHeader": "Sign In",
+        "loginHeader": "Login",
         "invalidCredentials": "Invalid credentials",
         "enterValidCredentials": "Please enter a valid e-mail and password",
-        "logout": "Sign Out",
-        "register": "Create Account"
+        "logout": "Logout",
+        "createAccount": "Create Account",
+        "register": "Sign Up",
+        "forgotPassword": "Did you forget your password?",
+        "noAccount": "Don't have an account?"
     },
     "presentation": {
         "hero": {

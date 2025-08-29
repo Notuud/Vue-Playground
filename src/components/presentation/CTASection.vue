@@ -2,7 +2,7 @@
     <section
         class="p-5 md:p-10 flex flex-col items-center justify-center gap-5 text-center bg-gray-200 dark:bg-gray-950 border-b border-gray-300"
     >
-        <h1 class="text-3xl font-bold">
+        <h1 class="text-3xl font-semibold">
             {{ $t('presentation.cta.title') }}
         </h1>
         <p>
@@ -13,7 +13,7 @@
             size="large"
         >
             <FontAwesomeIcon :icon="['far', 'square-plus']" />
-            {{ $t('login.register') }}
+            {{ $t('login.createAccount') }}
         </Button>
     </section>
 </template>

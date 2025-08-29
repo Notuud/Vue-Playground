@@ -1,7 +1,7 @@
 <template>
     <section class="p-5 md:p-10 flex justify-center border-b border-gray-300">
         <div class="w-full md:w-11/12 lg:w-7/8 flex flex-col items-center justify-center">
-            <h1 class="text-3xl font-bold text-center mb-4 md:mb-10">
+            <h1 class="text-3xl font-semibold text-center mb-4 md:mb-10">
                 {{ $t('presentation.faq.title') }}
             </h1>
             <Accordion class="border border-gray-300 rounded-lg w-full md:w-3/4">

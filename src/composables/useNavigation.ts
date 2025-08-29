@@ -3,25 +3,27 @@ import { useRouter } from 'vue-router'
 export function useNavigation() {
     const router = useRouter()
 
+    /** Named route helpers */
     function navigateToLogin() {
-        router.push('/login')
+        router.push({ name: 'Login' })
     }
 
     function navigateToRegister() {
-        router.push('/register')
-    }
-
-    function logout() {
-        localStorage.removeItem('authToken')
-        router.push('/login')
+        router.push({ name: 'Register' })
     }
 
     function navigateToDashboard() {
-        router.push('/dashboard')
+        router.push({ name: 'Home' })
     }
 
     function navigateToPortfolio(id?: string) {
-        router.push(id ? `/portfolio/${id}` : '/portfolio')
+        router.push({ name: 'Portfolio', params: id ? { id } : {} })
+    }
+
+    /** Auth-related */
+    function logout() {
+        localStorage.removeItem('authToken') // TODO: consider moving to useAuth composable
+        navigateToLogin()
     }
 
     /** Generic helpers */
@@ -36,9 +38,9 @@ export function useNavigation() {
     return {
         navigateToLogin,
         navigateToRegister,
-        logout,
         navigateToDashboard,
         navigateToPortfolio,
+        logout,
         navigateTo,
         goBack,
     }

@@ -17,14 +17,16 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import Toast from 'primevue/toast'
 import Footer from '@/components/Footer.vue'
-import LoginLayout from '@/layouts/LoginLayout.vue'
+import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import AppLayout from '@/layouts/AppLayout.vue'
 
 const route = useRoute()
 
-// Select layout based on route meta
-const layoutComponent = computed(() => {
-    if (route.meta.layout === 'app') return AppLayout
-    return LoginLayout
-})
+const layouts = {
+  app: AppLayout,
+  default: DefaultLayout,
+}
+
+// // Select layout based on route meta
+const layoutComponent = computed(() => layouts[route.meta.layout as keyof typeof layouts] || DefaultLayout)
 </script>

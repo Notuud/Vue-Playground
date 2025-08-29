@@ -1,42 +1,48 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
-import PresentationView from '@/views/PresentationView.vue'
-import LoginView from '@/views/LoginView.vue'
-import HomeView from '@/views/HomeView.vue'
-import AboutView from '@/views/AboutView.vue'
-import PlaygroundView from '@/views/PlaygroundView.vue'
+import { i18n } from '@/plugins/i18n'
 
 // Routes
+// Path for each view
+// Name for router-ling and navigation
+// Component to load view
+// Meta for additional info (layout, icon, title as key for i18n, requiresAuth for auth guard, showInMenu to show/hide in navigation menu)
 const routes: RouteRecordRaw[] = [
     {
         path: '/',
         name: 'Presentation',
-        component: PresentationView,
-        meta: { layout: 'login', showInMenu: false },
+        component: () => import('@/views/PresentationView.vue'),
+        meta: { layout: 'default', requiresAuth: false, showInMenu: false },
     },
     {
         path: '/login',
         name: 'Login',
-        component: LoginView,
-        meta: { layout: 'login', showInMenu: false },
+        component: () => import('@/views/LoginView.vue'),
+        meta: { layout: 'default', title: 'login', requiresAuth: false, showInMenu: false },
     },
     {
         path: '/home',
         name: 'Home',
-        component: HomeView,
-        meta: { layout: 'app', icon: 'home', showInMenu: true },
+        component: () => import('@/views/HomeView.vue'),
+        meta: { layout: 'app', icon: 'home', title: 'home', requiresAuth: true, showInMenu: true },
     },
     {
         path: '/playground',
         name: 'Playground',
-        component: PlaygroundView,
-        meta: { layout: 'app', icon: 'chart-simple', showInMenu: true },
+        component: () => import('@/views/PlaygroundView.vue'),
+        meta: { layout: 'app', icon: 'chart-simple', title: 'playground', requiresAuth: true, showInMenu: true },
     },
     {
         path: '/about',
         name: 'About',
-        component: AboutView,
-        meta: { layout: 'app', icon: 'info', showInMenu: true },
+        component: () => import('@/views/AboutView.vue'),
+        meta: { layout: 'app', icon: 'info', title: 'about', requiresAuth: true, showInMenu: true },
     },
+    // {
+    //     path: '/:pathMatch(.*)*',
+    //     name: 'NotFound',
+    //     component: () => import('@/views/NotFoundView.vue'),
+    //     meta: { layout: 'default', showInMenu: false }
+    // }
 ]
 
 const router = createRouter({
@@ -46,19 +52,25 @@ const router = createRouter({
 
 // Simple auth guard
 router.beforeEach((to, from, next) => {
-    if (to.name === 'Presentation') {
-        next()
-        return
-    }
-
+    // Replace with a store-based auth state (e.g., Pinia) so it reacts when a user logs in/out.
     const loggedIn = !!localStorage.getItem('authToken')
-    if (to.name !== 'Login' && !loggedIn) {
+
+    if (to.meta.requiresAuth && !loggedIn) {
         next({ name: 'Login' })
     } else if (to.name === 'Login' && loggedIn) {
-        // redirect logged-in users away from login
         next({ name: 'Home' })
     } else {
         next()
+    }
+})
+
+// Document title handling
+router.afterEach((to) => {
+    const { t } = i18n.global
+    if (to.meta?.title) {
+        document.title = `Stonker | ${t(`routes.${to.meta?.title}`)}`
+    } else {
+        document.title = 'Stonker'
     }
 })
 

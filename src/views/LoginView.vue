@@ -1,9 +1,9 @@
 <template>
     <main class="flex items-center justify-center text-center">
         <div
-            class="flex flex-col p-10 mt-20 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 min-w-full w-1/4 md:min-w-3/8 lg:min-w-1/6"
+            class="flex flex-col p-10 mt-20 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 w-full max-w-md"
         >
-            <h2 class="text-2xl font-bold mb-6 text-center">
+            <h2 class="text-3xl font-semibold mb-6 text-center">
                 {{ $t('login.loginHeader') }}
             </h2>
 
@@ -68,11 +68,21 @@
                 <!-- Submit Button -->
                 <Button
                     type="submit"
+                    :loading="loading"
                     fluid
                 >
                     <FontAwesomeIcon :icon="['fas', 'lock-open']" />
                     {{ $t('login.login') }}
                 </Button>
+
+                <div class="flex flex-col gap-1">
+                    <RouterLink to="/register">
+                        {{ $t('login.noAccount') }} <span class="underline text-cyan-600 hover:text-cyan-500 transition-colors duration-300">{{ $t('login.register') }}</span>
+                    </RouterLink>
+                    <RouterLink to="/forgot-password" class="underline text-cyan-600 hover:text-cyan-500 transition-colors duration-300">
+                        {{ $t('login.forgotPassword') }}
+                    </RouterLink>
+                </div>
             </Form>
         </div>
     </main>
@@ -101,6 +111,8 @@ const { showError } = useToastNotifications()
 
 const router = useRouter()
 
+const loading = ref(false)
+
 // --- Initial form values ---
 const initialValues = ref({
     email: '',
@@ -121,13 +133,21 @@ const vFocus = {
 }
 
 // --- Submit handler ---
-function handleLogin({ valid }: { valid: boolean }) {
-    if (valid) {
-        // Save fake auth token
+async function handleLogin({ valid }: { valid: boolean }) {
+    if (!valid) {
+        showError(t('login.invalidCredentials'), t('login.enterValidCredentials'))
+        return
+    }
+
+    loading.value = true
+    try {
+        // fake API
+        // Never store auth tokens in localStorage in production (XSS risk). Use HttpOnly cookies instead.
+        await new Promise(res => setTimeout(res, 1000))
         localStorage.setItem('authToken', 'demo-token')
         router.push('/home')
-    } else {
-        showError(t('login.invalidCredentials'), t('login.enterValidCredentials'))
+    } finally {
+        loading.value = false
     }
 }
 </script>

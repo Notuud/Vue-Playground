@@ -1,7 +1,7 @@
 <template>
     <section class="p-5 md:p-10 flex justify-center bg-gray-200 dark:bg-gray-950 border-b border-gray-300">
         <div class="w-full md:w-11/12 lg:w-7/8 flex flex-col items-center justify-center gap-10 text-center">
-            <h1 class="text-3xl font-bold">
+            <h1 class="text-3xl font-semibold">
                 {{ $t('presentation.steps.title') }}
             </h1>
             <div class="flex flex-col md:flex-row gap-10 w-full justify-center">

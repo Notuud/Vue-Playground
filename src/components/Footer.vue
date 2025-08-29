@@ -4,7 +4,7 @@
         <a
             href="https://github.com/Safiron8"
             target="_blank"
-            class="underline text-cyan-600"
+            class="underline text-cyan-600 hover:text-cyan-500 transition-colors duration-300"
         >
             Safiron8
         </a>
@@ -12,7 +12,7 @@
         <a
             href="https://github.com/Notuud"
             target="_blank"
-            class="underline text-cyan-600"
+            class="underline text-cyan-600 hover:text-cyan-500 transition-colors duration-300"
         >
             Notuud
         </a>

@@ -1,7 +1,7 @@
 <template>
     <Button
         unstyled
-        @click="darkMode = !darkMode"
+        @click="toggleTheme"
         class="p-2 rounded-lg"
         v-tooltip="{
             value: $t('common.toggleTheme', {
@@ -12,7 +12,7 @@
         }"
     >
         <FontAwesomeIcon
-            :icon="darkMode ? ['fas', 'moon'] : ['fas', 'moon']"
+            :icon="darkMode ? ['fas', 'sun'] : ['fas', 'moon']"
             size="lg"
         />
     </Button>
@@ -23,5 +23,5 @@ import Button from 'primevue/button'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { useTheme } from '@/composables/useTheme'
 
-const { darkMode } = useTheme()
+const { darkMode, toggleTheme } = useTheme()
 </script>

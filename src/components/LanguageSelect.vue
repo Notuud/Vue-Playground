@@ -17,8 +17,8 @@
             >
                 <img
                     class="w-6"
-                    :src="getFlagSrc(getFlag(slotProps.value)) ?? 'xx'"
-                    :alt="getFlag(slotProps.value) ?? 'Placeholder'"
+                    :src="getFlagSrc(getFlag(slotProps.value))"
+                    :alt="getFlag(slotProps.value)"
                 />
                 <span class="ml-2 hidden md:block">{{ getLabel(slotProps.value) }}</span>
             </div>
@@ -27,8 +27,8 @@
             <div class="flex items-center">
                 <img
                     class="w-6"
-                    :src="getFlagSrc(getFlag(slotProps.option.code)) ?? 'xx'"
-                    :alt="getFlag(slotProps.option.code) ?? 'Placeholder'"
+                    :src="getFlagSrc(getFlag(slotProps.option.code))"
+                    :alt="getFlag(slotProps.option.code)"
                 />
                 <span class="ml-2 hidden md:block">{{ slotProps.option.label }}</span>
             </div>
@@ -64,12 +64,13 @@ function onLocaleChange(e: any) {
 }
 
 function getFlagSrc(code: string | undefined) {
-    return `/src/assets/flags/${code}.svg`
+    return new URL(`../assets/flags/${code ?? 'xx'}.svg`, import.meta.url).href
 }
 
 function getFlag(code: string) {
     return languages.find((l) => l.code === code)?.flag
 }
+
 function getLabel(code: string) {
     return languages.find((l) => l.code === code)?.label
 }
