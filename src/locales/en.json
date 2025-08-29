@@ -7,7 +7,16 @@
         "dark": "dark",
         "toggleMenu": "{state} menu",
         "show": "Show",
-        "hide": "Hide"
+        "hide": "Hide",
+        "backToLogin": "Back to Login page",
+        "backToHome": "Back to Home page",
+        "sendLink": "Send link",
+        "errors": {
+            "notFound": "Page Not Found",
+            "pageDoesNotExist": "The page you are trying to visit does not exist",
+            "invalidData": "Invalid data",
+            "enterValidEmail": "Please enter valid e-mail"
+        }
     },
     "validation": {
         "invalidEmail": "Invalid e-mail",
@@ -26,10 +35,10 @@
         "invalidCredentials": "Invalid credentials",
         "enterValidCredentials": "Please enter a valid e-mail and password",
         "logout": "Logout",
-        "createAccount": "Create Account",
-        "register": "Sign Up",
+        "signUp": "Sign Up",
+        "registerHeader": "Registration",
         "forgotPassword": "Did you forget your password?",
-        "noAccount": "Don't have an account?"
+        "forgotPasswordHeader": "Recover password"
     },
     "presentation": {
         "hero": {

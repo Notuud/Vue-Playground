@@ -2,14 +2,14 @@
     <SideNav :isOpen />
 
     <div :class="isOpen ? 'ml-16' : ''">
-        <Message 
+        <Message
             severity="warn"
             size="large"
             :life="10000"
             closable
         >
             <template #icon>
-                    <FontAwesomeIcon :icon="['fas', 'triangle-exclamation']" />
+                <FontAwesomeIcon :icon="['fas', 'triangle-exclamation']" />
             </template>
             This could be used as closable system message.
         </Message>

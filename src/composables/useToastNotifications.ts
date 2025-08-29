@@ -5,12 +5,7 @@ type ToastSeverity = 'success' | 'error' | 'warn' | 'info'
 export function useToastNotifications() {
     const toast = useToast()
 
-    function showToast(
-        severity: ToastSeverity,
-        summary: string,
-        detail?: string,
-        duration = 3000
-    ) {
+    function showToast(severity: ToastSeverity, summary: string, detail?: string, duration = 3000) {
         toast.add({
             severity,
             summary,
@@ -26,8 +21,7 @@ export function useToastNotifications() {
             showToast('error', summary, detail, duration),
         showWarning: (summary: string, detail?: string, duration?: number) =>
             showToast('warn', summary, detail, duration),
-        showInfo: (summary: string, detail?: string, duration?: number) =>
-            showToast('info', summary, detail, duration),
+        showInfo: (summary: string, detail?: string, duration?: number) => showToast('info', summary, detail, duration),
         showToast,
     }
 }

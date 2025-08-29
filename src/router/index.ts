@@ -20,6 +20,18 @@ const routes: RouteRecordRaw[] = [
         meta: { layout: 'default', title: 'login', requiresAuth: false, showInMenu: false },
     },
     {
+        path: '/register',
+        name: 'Register',
+        component: () => import('@/views/RegisterView.vue'),
+        meta: { layout: 'default', title: 'register', requiresAuth: false, showInMenu: false },
+    },
+    {
+        path: '/forgotten-password',
+        name: 'ForgottenPassword',
+        component: () => import('@/views/ForgottenPasswordView.vue'),
+        meta: { layout: 'default', title: 'forgottenPassword', requiresAuth: false, showInMenu: false },
+    },
+    {
         path: '/home',
         name: 'Home',
         component: () => import('@/views/HomeView.vue'),
@@ -37,12 +49,12 @@ const routes: RouteRecordRaw[] = [
         component: () => import('@/views/AboutView.vue'),
         meta: { layout: 'app', icon: 'info', title: 'about', requiresAuth: true, showInMenu: true },
     },
-    // {
-    //     path: '/:pathMatch(.*)*',
-    //     name: 'NotFound',
-    //     component: () => import('@/views/NotFoundView.vue'),
-    //     meta: { layout: 'default', showInMenu: false }
-    // }
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'NotFound',
+        component: () => import('@/views/NotFoundView.vue'),
+        meta: { layout: 'default', showInMenu: false },
+    },
 ]
 
 const router = createRouter({

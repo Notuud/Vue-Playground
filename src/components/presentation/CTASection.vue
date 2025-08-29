@@ -9,11 +9,11 @@
             {{ $t('presentation.cta.createAccount') }}
         </p>
         <Button
-            @click="navigateToLogin"
+            @click="navigateToRegister"
             size="large"
         >
-            <FontAwesomeIcon :icon="['far', 'square-plus']" />
-            {{ $t('login.createAccount') }}
+            <FontAwesomeIcon :icon="['fas', 'user-pen']" />
+            {{ $t('login.signUp') }}
         </Button>
     </section>
 </template>
@@ -23,5 +23,5 @@ import Button from 'primevue/button'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { useNavigation } from '@/composables/useNavigation'
 
-const { navigateToLogin } = useNavigation()
+const { navigateToRegister } = useNavigation()
 </script>

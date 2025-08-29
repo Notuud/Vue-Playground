@@ -13,17 +13,17 @@
                         @click="navigateToLogin"
                         size="large"
                     >
-                        <FontAwesomeIcon :icon="['fas', 'lock-open']" />
+                        <FontAwesomeIcon :icon="['fas', 'user-check']" />
                         {{ $t('login.login') }}
                     </Button>
                     <Button
-                        @click="navigateToLogin"
+                        @click="navigateToRegister"
                         size="large"
                         severity="contrast"
                         variant="outlined"
                     >
-                        <FontAwesomeIcon :icon="['far', 'square-plus']" />
-                        {{ $t('login.createAccount') }}
+                        <FontAwesomeIcon :icon="['fas', 'user-pen']" />
+                        {{ $t('login.signUp') }}
                     </Button>
                 </div>
             </div>
@@ -59,7 +59,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { useNavigation } from '@/composables/useNavigation'
 import { useI18n } from 'vue-i18n'
 
-const { navigateToLogin } = useNavigation()
+const { navigateToLogin, navigateToRegister } = useNavigation()
 
 const { t } = useI18n()
 

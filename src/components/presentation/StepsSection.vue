@@ -13,10 +13,10 @@
                 />
             </div>
             <Button
-                @click="navigateToLogin"
+                @click="navigateToRegister"
                 size="large"
             >
-                <FontAwesomeIcon :icon="['far', 'square-plus']" />
+                <FontAwesomeIcon :icon="['fas', 'user-pen']" />
                 {{ $t('presentation.steps.start') }}
             </Button>
         </div>
@@ -33,7 +33,7 @@ import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 
-const { navigateToLogin } = useNavigation()
+const { navigateToRegister } = useNavigation()
 
 const steps = computed(() => [
     t('presentation.steps.createAccount'),

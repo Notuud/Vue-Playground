@@ -23,8 +23,8 @@ import AppLayout from '@/layouts/AppLayout.vue'
 const route = useRoute()
 
 const layouts = {
-  app: AppLayout,
-  default: DefaultLayout,
+    app: AppLayout,
+    default: DefaultLayout,
 }
 
 // // Select layout based on route meta

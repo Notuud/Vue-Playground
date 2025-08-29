@@ -49,7 +49,7 @@
                 size="lg"
             />
         </Button>
-        
+
         <ThemeSwitch class="hover:bg-gray-700 hover:dark:bg-gray-800" />
     </aside>
 </template>

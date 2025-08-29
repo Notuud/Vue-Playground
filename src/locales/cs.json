@@ -7,7 +7,16 @@
         "dark": "tmavý",
         "toggleMenu": "{state} menu",
         "show": "Zobrazit",
-        "hide": "Skrýt"
+        "hide": "Skrýt",
+        "backToLogin": "Zpět na Přihlášení",
+        "backToHome": "Zpět na Úvodní stránku",
+        "sendLink": "Odeslat odkaz",
+        "errors": {
+            "notFound": "Stránka nenalezena",
+            "pageDoesNotExist": "Stránka, kterou se pokoušíte navštívit neexistuje",
+            "invalidData": "Neplatné údaje",
+            "enterValidEmail": "Zadejte prosím platný e-mail"
+        }
     },
     "validation": {
         "invalidEmail": "Neplatný e-mail",
@@ -24,12 +33,12 @@
         "login": "Přihlásit se",
         "loginHeader": "Přihlášení",
         "invalidCredentials": "Neplatné přihlašovací údaje",
-        "enterValidCredentials": "Zadejte platný e-mail a heslo",
+        "enterValidCredentials": "Zadejte prosím platný e-mail a heslo",
         "logout": "Odhlásit se",
-        "createAccount": "Vytvořit účet",
-        "register": "Registrujte se",
+        "signUp": "Registrovat se",
+        "registerHeader": "Registrace",
         "forgotPassword": "Zapomněli jste heslo?",
-        "noAccount": "Nemáte účet?"
+        "forgotPasswordHeader": "Obnovení hesla"
     },
     "presentation": {
         "hero": {
