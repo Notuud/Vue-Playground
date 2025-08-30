@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import AuthEmailForm from '@/components/AuthEmailForm.vue'
+import AuthEmailForm from '@/components/auth/AuthEmailForm.vue'
 
 async function handleForgottenPassword(email: string) {
     // fake API call

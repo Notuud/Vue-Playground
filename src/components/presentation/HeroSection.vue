@@ -19,8 +19,7 @@
                     <Button
                         @click="navigateToRegister"
                         size="large"
-                        severity="contrast"
-                        variant="outlined"
+                        severity="secondary"
                     >
                         <FontAwesomeIcon :icon="['fas', 'user-pen']" />
                         {{ $t('login.signUp') }}

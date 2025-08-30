@@ -2,6 +2,7 @@
     "common": {
         "email": "E-mail",
         "password": "Password",
+        "username": "User name",
         "toggleTheme": "Switch to {theme} mode",
         "light": "light",
         "dark": "dark",
@@ -11,6 +12,9 @@
         "backToLogin": "Back to Login page",
         "backToHome": "Back to Home page",
         "sendLink": "Send link",
+        "currency": "Currency",
+        "preferredCurrency": "Preferred currency",
+        "selectCurrency": "Select currency",
         "errors": {
             "notFound": "Page Not Found",
             "pageDoesNotExist": "The page you are trying to visit does not exist",
@@ -21,13 +25,26 @@
     "validation": {
         "invalidEmail": "Invalid e-mail",
         "required": "This field is required",
-        "passwordMinLength": "Password must be at least 6 characters long"
+        "passwordMinLength": "Password must be at least 8 characters long",
+        "passwordsMustMatch": "Passwords must match",
+        "passwordWeakLabel": "Too simple",
+        "passwordMediumLabel": "Average complexity",
+        "passwordStrongLabel": "Complex password",
+        "passwordPrompt": "Enter password",
+        "passwordReqComplexity": "Does not meet complexity requirements",
+        "passwordReqCharLowercase": "At least one character lowercase",
+        "passwordReqCharUppercase": "At least one character uppercase",
+        "passwordReqNumeric": "At least one numeric",
+        "passwordReqMinLength": "Minimum 8 characters"
     },
     "routes": {
         "login": "Login",
         "home": "Home",
         "playground": "Playground",
-        "about": "About Us"
+        "about": "About Us",
+        "register": "Registration",
+        "registerConfirm": "Registration confirm",
+        "forgottenPassword": "Recover password"
     },
     "login": {
         "login": "Sign In",
@@ -38,7 +55,10 @@
         "signUp": "Sign Up",
         "registerHeader": "Registration",
         "forgotPassword": "Did you forget your password?",
-        "forgotPasswordHeader": "Recover password"
+        "forgotPasswordHeader": "Recover password",
+        "registerConfirm": "Registration confirm",
+        "registerComplete": "Complete registration",
+        "passwordConfirm": "Confirm password"
     },
     "presentation": {
         "hero": {

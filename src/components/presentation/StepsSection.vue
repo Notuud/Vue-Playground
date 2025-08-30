@@ -15,6 +15,7 @@
             <Button
                 @click="navigateToRegister"
                 size="large"
+                severity="secondary"
             >
                 <FontAwesomeIcon :icon="['fas', 'user-pen']" />
                 {{ $t('presentation.steps.start') }}

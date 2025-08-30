@@ -12,7 +12,7 @@
         <Button
             @click="navigateToDashboard"
             size="large"
-            severity="contrast"
+            severity="secondary"
             variant="outlined"
             class="mt-10"
         >

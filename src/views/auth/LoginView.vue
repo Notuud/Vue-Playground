@@ -11,7 +11,6 @@
             @submit="handleLogin"
             class="space-y-4 w-full"
         >
-            <!-- Email -->
             <div>
                 <FloatLabel variant="on">
                     <IconField>
@@ -36,7 +35,6 @@
                 </Message>
             </div>
 
-            <!-- Password -->
             <div>
                 <FloatLabel variant="on">
                     <IconField>
@@ -83,8 +81,7 @@
 
             <Button
                 @click="navigateToRegister"
-                severity="contrast"
-                variant="outlined"
+                severity="secondary"
                 class="mt-2"
                 fluid
             >
@@ -93,7 +90,7 @@
 
             <Button
                 @click="navigateTo('/')"
-                severity="contrast"
+                severity="secondary"
                 variant="outlined"
                 class="mt-2"
                 fluid
@@ -115,7 +112,7 @@ import Message from 'primevue/message'
 import FloatLabel from 'primevue/floatlabel'
 import Divider from 'primevue/divider'
 import { Form } from '@primevue/forms'
-import ContainerCenter from '@/components/ContainerCenter.vue'
+import ContainerCenter from '@/components/ui/ContainerCenter.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { useToastNotifications } from '@/composables/useToastNotifications'
 import { z } from 'zod'
@@ -139,7 +136,7 @@ const initialValues = ref({
 const resolver = zodResolver(
     z.object({
         email: z.email('validation.invalidEmail'),
-        password: z.string().nonempty('validation.required').min(6, 'validation.passwordMinLength'),
+        password: z.string().nonempty('validation.required').min(8, 'validation.passwordMinLength'),
     })
 )
 

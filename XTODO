@@ -1,6 +1,5 @@
 User menu - kouknout na user menu
 Vytvorit register a obecne pokryt sekce co ma ada ve stonkeru
-refaktor layouty a viewcka hlavna na presentation page
 
 ## Suggestions for Improvement
 - Add more TypeScript types and interfaces for props, stores, and composables
@@ -12,3 +11,15 @@ refaktor layouty a viewcka hlavna na presentation page
 - Optimize assets (SVG/image compression)
 - Add global error handling
 - Expand documentation for contributors
+
+Notes and conventions
+- Keep page-level code in `src/views/` and group related pages into feature folders (for example, `src/views/auth/`).
+- Put reusable, UI-only components in `src/components/` and organize them by responsibility: `auth/`, `presentation/`, `ui/`, `layout/`, `shared/`.
+- Use `composables/` for small, focused hooks (prefixed with `use`) and consider adding an `index.ts` barrel to simplify imports.
+- When moving components, add a small `index.ts` barrel (per-folder or root `components/index.ts`) to minimize churn in import paths.
+- Keep `src/plugins/` focused on third-party integration and registration only. Business logic belongs in `composables/` or `stores/`.
+- Use the `@/` TypeScript path alias (already configured) for clearer absolute imports (for example: `import { useTheme } from '@/composables'`).
+
+Recommended next steps
+- Add per-folder `index.ts` barrels for `components/`, `composables/`, and `stores/` to make reorganizing later easier.
+- If CI runs on macOS/Linux, ensure file-name casing is consistent (Windows is case-insensitive which can hide issues).

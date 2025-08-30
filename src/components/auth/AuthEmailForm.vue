@@ -54,10 +54,10 @@
             </Button>
 
             <Divider />
-            
+
             <Button
                 @click="navigateToLogin"
-                severity="contrast"
+                severity="secondary"
                 variant="outlined"
                 class="mt-2"
                 fluid
@@ -80,7 +80,7 @@ import Message from 'primevue/message'
 import Button from 'primevue/button'
 import Divider from 'primevue/divider'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import ContainerCenter from '@/components/ContainerCenter.vue'
+import ContainerCenter from '@/components/ui/ContainerCenter.vue'
 import { useNavigation } from '@/composables/useNavigation'
 import { useToastNotifications } from '@/composables/useToastNotifications'
 import { z } from 'zod'

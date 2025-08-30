@@ -35,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-import SideNav from '@/components/SideNav.vue'
+import SideNav from '@/components/layout/SideNav.vue'
 import Button from 'primevue/button'
 import Message from 'primevue/message'
 import { ref } from 'vue'

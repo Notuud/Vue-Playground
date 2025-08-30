@@ -64,7 +64,7 @@ function onLocaleChange(e: any) {
 }
 
 function getFlagSrc(code: string | undefined) {
-    return new URL(`../assets/flags/${code ?? 'xx'}.svg`, import.meta.url).href
+    return new URL(`../../assets/flags/${code ?? 'xx'}.svg`, import.meta.url).href
 }
 
 function getFlag(code: string) {

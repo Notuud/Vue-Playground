@@ -15,21 +15,26 @@ Stonker is a Vue 3 playground project using Vite, TypeScript, Pinia, Vue Router,
 - **Font Awesome** for icons
 
 ## Project Structure
-
 ```
 src/
-  App.vue                # Root component, dynamic layout
-  main.ts                # App entry, plugin registration
-  style.css              # Tailwind & custom styles
-  assets/                # SVGs and images
-  components/            # UI components
-	 presentation/        # Presentation-specific components
-  composables/           # Custom hooks (useTheme, useNavigation, etc.)
-  layouts/               # App and Login layouts
-  router/                # Vue Router setup
-  stores/                # Pinia stores
-  views/                 # Route views
-public/                  # Static assets
+	App.vue                # Root component; selects layout dynamically via route meta
+	main.ts                # App entry: plugin and global registration
+	style.css              # Tailwind and global styles
+	assets/                # Images and SVGs (logo, flags, illustrations)
+	components/            # Reusable UI components and atoms
+		auth/                # Authentication-specific components (forms, helpers)
+		presentation/        # Landing / marketing UI (cards, sections)
+		ui/                  # Generic UI atoms/molecules (ContainerCenter, buttons)
+		layout/              # Header, Footer, SideNav and other shell pieces
+		shared/              # Small shared utilities (LanguageSelect, ThemeSwitch)
+	composables/           # Composition API helpers (useTheme, useNavigation, toasts)
+	layouts/               # Route layouts (AppLayout.vue, DefaultLayout.vue)
+	plugins/               # Plugin setup (i18n, pinia, primevue, fontawesome)
+	router/                # Vue Router configuration and lazy-loaded views
+	stores/                # Pinia stores (user.ts, etc.)
+	views/                 # Page-level views (HomeView.vue, AboutView.vue, auth/*)
+	locales/               # i18n JSON files (en.json, cs.json)
+public/                  # Static assets copied to the dev/prod root
 ```
 
 ## Getting Started

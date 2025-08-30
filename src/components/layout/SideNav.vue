@@ -58,7 +58,7 @@
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import Button from 'primevue/button'
-import ThemeSwitch from '@/components/ThemeSwitch.vue'
+import ThemeSwitch from '@/components/shared/ThemeSwitch.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { routes } from '@/router'
 import { useNavigation } from '@/composables/useNavigation'

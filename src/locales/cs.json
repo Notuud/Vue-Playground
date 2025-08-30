@@ -2,6 +2,7 @@
     "common": {
         "email": "E-mail",
         "password": "Heslo",
+        "username": "Uživatelské jméno",
         "toggleTheme": "Zapnout {theme} režim",
         "light": "světlý",
         "dark": "tmavý",
@@ -11,6 +12,9 @@
         "backToLogin": "Zpět na Přihlášení",
         "backToHome": "Zpět na Úvodní stránku",
         "sendLink": "Odeslat odkaz",
+        "currency": "Měna",
+        "preferredCurrency": "Preferovaná měna",
+        "selectCurrency": "Vyberte měnu",
         "errors": {
             "notFound": "Stránka nenalezena",
             "pageDoesNotExist": "Stránka, kterou se pokoušíte navštívit neexistuje",
@@ -21,13 +25,26 @@
     "validation": {
         "invalidEmail": "Neplatný e-mail",
         "required": "Toto pole je povinné",
-        "passwordMinLength": "Heslo musí mít délku alespoň 6 znaků"
+        "passwordMinLength": "Heslo musí mít délku alespoň 8 znaků",
+        "passwordsMustMatch": "Hesla se musí shodovat",
+        "passwordWeakLabel": "Příliš jednoduché",
+        "passwordMediumLabel": "Průměrně složité",
+        "passwordStrongLabel": "Složité heslo",
+        "passwordPrompt": "Zadejte heslo",
+        "passwordReqComplexity": "Nesplňuje podmínky složitosti",
+        "passwordReqCharLowercase": "Alespoň jeden znak malý",
+        "passwordReqCharUppercase": "Alespoň jeden znak velký",
+        "passwordReqNumeric": "Alespoň jedno číslo",
+        "passwordReqMinLength": "Minimálně 8 znaků"
     },
     "routes": {
         "login": "Příhlášení",
         "home": "Úvodní stránka",
         "playground": "Hřišťátko",
-        "about": "O nás"
+        "about": "O nás",
+        "register": "Registrace",
+        "registerConfirm": "Potvrzení registrace",
+        "forgottenPassword": "Obnovení hesla"
     },
     "login": {
         "login": "Přihlásit se",
@@ -38,7 +55,10 @@
         "signUp": "Registrovat se",
         "registerHeader": "Registrace",
         "forgotPassword": "Zapomněli jste heslo?",
-        "forgotPasswordHeader": "Obnovení hesla"
+        "forgotPasswordHeader": "Obnovení hesla",
+        "registerConfirm": "Potvrzení registrace",
+        "registerComplete": "Dokončit registraci",
+        "passwordConfirm": "Potvrďte heslo"
     },
     "presentation": {
         "hero": {

@@ -16,19 +16,25 @@ const routes: RouteRecordRaw[] = [
     {
         path: '/login',
         name: 'Login',
-        component: () => import('@/views/LoginView.vue'),
+        component: () => import('@/views/auth/LoginView.vue'),
         meta: { layout: 'default', title: 'login', requiresAuth: false, showInMenu: false },
     },
     {
         path: '/register',
         name: 'Register',
-        component: () => import('@/views/RegisterView.vue'),
+        component: () => import('@/views/auth/RegisterView.vue'),
         meta: { layout: 'default', title: 'register', requiresAuth: false, showInMenu: false },
+    },
+    {
+        path: '/register-confirm',
+        name: 'RegisterConfirm',
+        component: () => import('@/views/auth/RegisterConfirmView.vue'),
+        meta: { layout: 'default', title: 'registerConfirm', requiresAuth: false, showInMenu: false },
     },
     {
         path: '/forgotten-password',
         name: 'ForgottenPassword',
-        component: () => import('@/views/ForgottenPasswordView.vue'),
+        component: () => import('@/views/auth/ForgottenPasswordView.vue'),
         meta: { layout: 'default', title: 'forgottenPassword', requiresAuth: false, showInMenu: false },
     },
     {
