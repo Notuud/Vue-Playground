@@ -8,7 +8,7 @@
             class="mb-8"
         >
             <img
-                src="@/assets/SN.svg"
+                src="@/assets/logo.png"
                 alt="Logo"
                 class="w-12 h-12 rounded"
             />

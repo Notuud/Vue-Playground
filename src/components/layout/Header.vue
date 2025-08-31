@@ -8,7 +8,7 @@
             class="flex items-center gap-3 cursor-pointer"
         >
             <img
-                src="@/assets/SN.svg"
+                src="@/assets/logo.png"
                 alt="Logo"
                 class="w-12 h-12"
             />
