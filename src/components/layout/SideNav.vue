@@ -1,7 +1,7 @@
 <template>
     <aside
-        class="fixed top-0 left-0 h-dvh w-16 bg-gray-200 dark:bg-gray-950 flex flex-col items-center p-2 shadow-lg transform transition-transform duration-300 z-40"
         v-show="props.isOpen"
+        class="fixed top-0 left-0 h-dvh w-16 bg-gray-200 dark:bg-gray-950 flex flex-col items-center p-2 shadow-lg transform transition-transform duration-300 z-40 overflow-x-scroll"
     >
         <RouterLink
             to="/home"
@@ -11,21 +11,21 @@
                 src="@/assets/logo.png"
                 alt="Logo"
                 class="w-12 h-12 rounded"
-            />
+            >
         </RouterLink>
 
         <div class="flex flex-col flex-1">
             <RouterLink
                 v-for="item in appRoutes"
                 :key="item.name"
-                :to="item.path"
-                class="mb-4 p-2 rounded-xl hover:bg-gray-700 dark:hover:bg-gray-800 transition-colors"
-                active-class="bg-gray-300 dark:bg-gray-700"
                 v-tooltip="{
                     value: $t(`routes.${item?.meta?.title}`),
                     showDelay: 100,
                     hideDelay: 100,
                 }"
+                :to="item.path"
+                class="mb-4 p-2 rounded-xl hover:bg-gray-700 dark:hover:bg-gray-800 transition-colors"
+                activeClass="bg-gray-300 dark:bg-gray-700"
             >
                 <FontAwesomeIcon
                     :icon="item?.meta?.icon ?? 'xmark'"
@@ -35,14 +35,14 @@
         </div>
 
         <Button
-            unstyled
-            @click="logout"
-            class="mb-4 p-2 rounded-xl hover:bg-gray-700 dark:hover:bg-gray-800 transition-colors"
             v-tooltip="{
                 value: $t('login.logout'),
                 showDelay: 100,
                 hideDelay: 100,
             }"
+            unstyled
+            class="mb-4 p-2 rounded-xl hover:bg-gray-700 dark:hover:bg-gray-800 transition-colors"
+            @click="logout"
         >
             <FontAwesomeIcon
                 :icon="['fas', 'lock']"

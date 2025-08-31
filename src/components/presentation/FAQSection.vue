@@ -14,16 +14,18 @@
                         :pt="{
                             root: { class: '!bg-gray-100 dark:!bg-gray-900' },
                         }"
-                        >{{ item.question }}</AccordionHeader
                     >
+                        {{ item.question }}
+                    </AccordionHeader>
                     <AccordionContent
                         :pt="{
                             content: {
                                 class: '!bg-gray-100 dark:!bg-gray-900',
                             },
                         }"
-                        >{{ item.answer }}</AccordionContent
                     >
+                        {{ item.answer }}
+                    </AccordionContent>
                 </AccordionPanel>
             </Accordion>
         </div>

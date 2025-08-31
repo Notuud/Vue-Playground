@@ -1,9 +1,15 @@
 <template>
     <main class="p-4">
-        <h3 class="text-xl font-medium text-gray-500">Playground</h3>
-        <h1 class="text-2xl font-bold mb-4">Enjoy playing with various components</h1>
+        <h3 class="text-xl font-medium text-gray-500">
+            Playground
+        </h3>
+        <h1 class="text-2xl font-bold mb-4">
+            Enjoy playing with various components
+        </h1>
 
-        <h2 class="text-xl mb-4">User List</h2>
+        <h2 class="text-xl mb-4">
+            User List
+        </h2>
 
         <DataTable
             v-model:filters="filters"
@@ -28,8 +34,12 @@
                     </IconField>
                 </div>
             </template>
-            <template #empty> No customers found. </template>
-            <template #loading> Loading customers data. Please wait. </template>
+            <template #empty>
+                No customers found.
+            </template>
+            <template #loading>
+                Loading customers data. Please wait.
+            </template>
             <Column
                 field="name"
                 header="Name"
@@ -42,8 +52,8 @@
                     <InputText
                         v-model="filterModel.value"
                         type="text"
-                        @input="filterCallback()"
                         placeholder="Search by name"
+                        @input="filterCallback()"
                     />
                 </template>
             </Column>
@@ -61,8 +71,8 @@
                     <InputText
                         v-model="filterModel.value"
                         type="text"
-                        @input="filterCallback()"
                         placeholder="Search by country"
+                        @input="filterCallback()"
                     />
                 </template>
             </Column>
@@ -81,11 +91,11 @@
                 <template #filter="{ filterModel, filterCallback }">
                     <Select
                         v-model="filterModel.value"
-                        @change="filterCallback()"
                         :options="statuses"
                         placeholder="Select One"
                         style="min-width: 12rem"
                         :showClear="true"
+                        @change="filterCallback()"
                     >
                         <template #option="slotProps">
                             <Tag
@@ -123,7 +133,9 @@
             </Column>
         </DataTable>
 
-        <h2 class="text-xl mt-4 mb-4">Lines Chart</h2>
+        <h2 class="text-xl mt-4 mb-4">
+            Lines Chart
+        </h2>
 
         <Chart
             type="line"
@@ -132,7 +144,9 @@
             class="w-full"
         />
 
-        <h2 class="text-xl mt-4 mb-4">Stacked Bar Chart</h2>
+        <h2 class="text-xl mt-4 mb-4">
+            Stacked Bar Chart
+        </h2>
 
         <Chart
             type="bar"
@@ -157,7 +171,6 @@ import DataTable from 'primevue/datatable'
 import Chart from 'primevue/chart'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-const customers = ref()
 const filters = ref({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
     name: { value: null, matchMode: FilterMatchMode.STARTS_WITH },

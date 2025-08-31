@@ -7,7 +7,9 @@
             />
             {{ title }}
         </h3>
-        <p class="mt-2 text-gray-600 dark:text-gray-400">{{ description }}</p>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">
+            {{ description }}
+        </p>
     </div>
 </template>
 

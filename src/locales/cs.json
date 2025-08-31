@@ -44,7 +44,8 @@
         "about": "O nás",
         "register": "Registrace",
         "registerConfirm": "Potvrzení registrace",
-        "forgottenPassword": "Obnovení hesla"
+        "forgottenPassword": "Obnovení hesla",
+        "crypto": "Kryptoměny"
     },
     "login": {
         "login": "Přihlásit se",
@@ -58,6 +59,7 @@
         "forgotPasswordHeader": "Obnovení hesla",
         "registerConfirm": "Potvrzení registrace",
         "registerComplete": "Dokončit registraci",
+        "registerCompletedMessage": "Registrace byla dokončena, běhěm pár sekund budete přihlášeni",
         "passwordConfirm": "Potvrďte heslo"
     },
     "presentation": {

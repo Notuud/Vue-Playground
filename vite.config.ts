@@ -51,12 +51,12 @@ export default defineConfig(({ mode }: ConfigEnv) => {
                     // Manual chunking improves long-term caching by creating
                     // separate bundles for large vendor libraries.
                     manualChunks(id) {
-                    if (id.includes("node_modules")) {
-                        if (id.includes("vue")) return "vue";
-                        if (id.includes("primevue")) return "primevue";
-                        if (id.includes("@fortawesome")) return "vendor";
-                        return "vendor";
-                    }
+                        if (id.includes("node_modules")) {
+                            if (id.includes("vue")) return "vue";
+                            if (id.includes("primevue")) return "primevue";
+                            if (id.includes("@fortawesome")) return "vendor";
+                            return "vendor";
+                        }
                     },
                 },
             },

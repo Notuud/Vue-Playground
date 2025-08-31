@@ -1,8 +1,5 @@
 <template>
     <Button
-        unstyled
-        @click="toggleTheme"
-        class="p-2 rounded-lg"
         v-tooltip="{
             value: $t('common.toggleTheme', {
                 theme: darkMode ? $t('common.light') : $t('common.dark'),
@@ -10,6 +7,9 @@
             showDelay: 100,
             hideDelay: 100,
         }"
+        unstyled
+        class="p-2 rounded-lg"
+        @click="toggleTheme"
     >
         <FontAwesomeIcon
             :icon="darkMode ? ['fas', 'sun'] : ['fas', 'moon']"

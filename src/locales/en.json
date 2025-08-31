@@ -44,7 +44,8 @@
         "about": "About Us",
         "register": "Registration",
         "registerConfirm": "Registration confirm",
-        "forgottenPassword": "Recover password"
+        "forgottenPassword": "Recover password",
+        "crypto": "Cryptocurrencies"
     },
     "login": {
         "login": "Sign In",
@@ -58,6 +59,7 @@
         "forgotPasswordHeader": "Recover password",
         "registerConfirm": "Registration confirm",
         "registerComplete": "Complete registration",
+        "registerCompletedMessage": "Registration is complete, you will be logged in in a few seconds",
         "passwordConfirm": "Confirm password"
     },
     "presentation": {

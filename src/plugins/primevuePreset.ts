@@ -54,5 +54,25 @@ export const MyPreset = definePreset(Aura, {
                 },
             },
         },
+        tabs: {
+            colorScheme: {
+                light: {
+                    tablist: {
+                        background: '{gray.100}',
+                    },
+                    tabpanel: {
+                        background: '{gray.100}',
+                    }
+                },
+                dark: {
+                    tablist: {
+                        background: '{gray.900}',
+                    },
+                    tabpanel: {
+                        background: '{gray.900}',
+                    }
+                },
+            },
+        }
     },
 })

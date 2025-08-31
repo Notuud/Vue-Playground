@@ -4,17 +4,21 @@
             :src="NotFoundImage"
             alt="404 Not Found"
             class="w-full md:w-2/3 lg:w-1/2 float-fadein"
-        />
+        >
 
-        <h1 class="text-4xl font-bold mb-4">404 - {{ $t('common.errors.notFound') }}</h1>
-        <p class="text-xl">{{ $t('common.errors.pageDoesNotExist') }}</p>
+        <h1 class="text-4xl font-bold mb-4">
+            404 - {{ $t('common.errors.notFound') }}
+        </h1>
+        <p class="text-xl">
+            {{ $t('common.errors.pageDoesNotExist') }}
+        </p>
 
         <Button
-            @click="navigateToDashboard"
             size="large"
             severity="secondary"
             variant="outlined"
             class="mt-10"
+            @click="navigateToDashboard"
         >
             <FontAwesomeIcon :icon="['fas', 'house']" />{{ $t('common.backToHome') }}
         </Button>

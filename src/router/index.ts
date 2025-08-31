@@ -44,6 +44,12 @@ const routes: RouteRecordRaw[] = [
         meta: { layout: 'app', icon: 'home', title: 'home', requiresAuth: true, showInMenu: true },
     },
     {
+        path: '/crypto',
+        name: 'Crypto',
+        component: () => import('@/views/crypto/MainView.vue'),
+        meta: { layout: 'app', icon: 'bitcoin-sign', title: 'crypto', requiresAuth: true, showInMenu: true },
+    },
+    {
         path: '/playground',
         name: 'Playground',
         component: () => import('@/views/PlaygroundView.vue'),

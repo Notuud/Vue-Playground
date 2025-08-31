@@ -4,12 +4,23 @@
             {{ $t('login.registerConfirm') }}
         </h2>
 
+        <div v-if="isRegisterCompleted">
+            <Message 
+                severity="success" 
+                class="mb-10"
+            >
+                {{ $t('login.registerCompletedMessage') }}
+            </Message>
+            <ProgressSpinner />
+        </div>
+
         <Form
+            v-else
             v-slot="$form"
             :initialValues
             :resolver="resolver"
-            @submit="handleConfirm"
             class="space-y-4 w-full"
+            @submit="handleConfirm"
         >
             <div>
                 <FloatLabel variant="on">
@@ -19,8 +30,8 @@
                         </InputIcon>
                         <InputText
                             id="username"
-                            name="username"
                             v-focus
+                            name="username"
                             fluid
                         />
                     </IconField>
@@ -31,7 +42,8 @@
                     severity="error"
                     size="small"
                     variant="simple"
-                    >{{ $t($form.username.error.message) }}
+                >
+                    {{ $t($form.username.error.message) }}
                 </Message>
             </div>
 
@@ -69,7 +81,8 @@
                     severity="error"
                     size="small"
                     variant="simple"
-                    >{{ $t($form.password.error.message) }}
+                >
+                    {{ $t($form.password.error.message) }}
                 </Message>
             </div>
 
@@ -85,6 +98,10 @@
                             toggleMask
                             :feedback="false"
                             fluid
+                            @copy.prevent
+                            @paste.prevent
+                            @cut.prevent
+                            @drop.prevent
                         />
                     </IconField>
                     <label for="passwordConfirm">{{ $t('login.passwordConfirm') }}</label>
@@ -155,11 +172,11 @@
             <Divider />
 
             <Button
-                @click="navigateTo('/')"
                 severity="secondary"
                 variant="outlined"
                 class="mt-2"
                 fluid
+                @click="navigateTo('/')"
             >
                 <FontAwesomeIcon :icon="['fas', 'home']" />{{ $t('common.backToHome') }}
             </Button>
@@ -178,6 +195,7 @@ import Message from 'primevue/message'
 import FloatLabel from 'primevue/floatlabel'
 import Divider from 'primevue/divider'
 import Select from 'primevue/select'
+import ProgressSpinner from 'primevue/progressspinner';
 import { Form } from '@primevue/forms'
 import ContainerCenter from '@/components/ui/ContainerCenter.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -188,11 +206,12 @@ import { useI18n } from 'vue-i18n'
 import { useNavigation } from '@/composables/useNavigation'
 
 // --- Navigation / i18n / toast ---
-const { navigateToDashboard, navigateTo } = useNavigation()
+const { navigateTo } = useNavigation()
 const { t } = useI18n()
 const { showError } = useToastNotifications()
 
 const loading = ref(false)
+const isRegisterCompleted = ref(false)
 
 // --- Currency type ---
 interface Currency {
@@ -252,15 +271,13 @@ async function handleConfirm({ valid }: { valid: boolean }) {
         return
     }
 
-    // TODO: send to EP and wait for response add SPINNER
-    // Then hide every element and show message with buttons to login and back to home page
-
     loading.value = true
     try {
         // fake API
         await new Promise((res) => setTimeout(res, 1000))
         localStorage.setItem('authToken', 'demo-token')
-        navigateToDashboard()
+        isRegisterCompleted.value = true
+        // navigateToDashboard()
     } finally {
         loading.value = false
     }

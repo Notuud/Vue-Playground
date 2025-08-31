@@ -10,16 +10,16 @@
                 </p>
                 <div class="flex flex-col md:flex-row gap-5">
                     <Button
-                        @click="navigateToLogin"
                         size="large"
+                        @click="navigateToLogin"
                     >
                         <FontAwesomeIcon :icon="['fas', 'user-check']" />
                         {{ $t('login.login') }}
                     </Button>
                     <Button
-                        @click="navigateToRegister"
                         size="large"
                         severity="secondary"
+                        @click="navigateToRegister"
                     >
                         <FontAwesomeIcon :icon="['fas', 'user-pen']" />
                         {{ $t('login.signUp') }}
@@ -34,9 +34,9 @@
                     </h3>
                     <ul class="mt-2 font-light">
                         <li
-                            class="mb-1"
                             v-for="item in highlights"
                             :key="item.text"
+                            class="mb-1"
                         >
                             <FontAwesomeIcon
                                 :icon="item.icon"

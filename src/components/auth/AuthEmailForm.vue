@@ -16,8 +16,8 @@
             v-slot="$form"
             :initialValues="initialValues"
             :resolver="resolver"
-            @submit="handleSubmit"
             class="space-y-4 w-full"
+            @submit="handleSubmit"
         >
             <div>
                 <FloatLabel variant="on">
@@ -27,8 +27,8 @@
                         </InputIcon>
                         <InputText
                             id="email"
-                            name="email"
                             v-focus
+                            name="email"
                             fluid
                         />
                     </IconField>
@@ -56,11 +56,11 @@
             <Divider />
 
             <Button
-                @click="navigateToLogin"
                 severity="secondary"
                 variant="outlined"
                 class="mt-2"
                 fluid
+                @click="navigateToLogin"
             >
                 <FontAwesomeIcon :icon="['fas', 'user-check']" />
                 {{ $t('common.backToLogin') }}

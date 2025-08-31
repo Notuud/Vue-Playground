@@ -1,5 +1,5 @@
 <template>
-    <footer class="w-full text-center p-5 text-[0.8rem] md:text-base text-gray-500">
+    <footer class="w-full text-center p-5 text-[0.6rem] md:text-base text-gray-500">
         &copy; {{ new Date().getFullYear() }} Stonker - Made with ❤️ by
         <a
             href="https://github.com/Safiron8"

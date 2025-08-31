@@ -9,9 +9,9 @@
             {{ $t('presentation.cta.createAccount') }}
         </p>
         <Button
-            @click="navigateToRegister"
             size="large"
             severity="secondary"
+            @click="navigateToRegister"
         >
             <FontAwesomeIcon :icon="['fas', 'user-pen']" />
             {{ $t('login.signUp') }}

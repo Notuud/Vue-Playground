@@ -5,10 +5,10 @@
         optionLabel="label"
         optionValue="code"
         class="w-20 md:w-48"
-        @change="onLocaleChange"
         :pt="{
             root: { class: '!bg-gray-200 dark:!bg-gray-950' },
         }"
+        @change="onLocaleChange"
     >
         <template #value="slotProps">
             <div
@@ -19,7 +19,7 @@
                     class="w-6"
                     :src="getFlagSrc(getFlag(slotProps.value))"
                     :alt="getFlag(slotProps.value)"
-                />
+                >
                 <span class="ml-2 hidden md:block">{{ getLabel(slotProps.value) }}</span>
             </div>
         </template>
@@ -29,7 +29,7 @@
                     class="w-6"
                     :src="getFlagSrc(getFlag(slotProps.option.code))"
                     :alt="getFlag(slotProps.option.code)"
-                />
+                >
                 <span class="ml-2 hidden md:block">{{ slotProps.option.label }}</span>
             </div>
         </template>

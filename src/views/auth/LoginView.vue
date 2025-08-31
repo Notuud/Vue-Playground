@@ -8,8 +8,8 @@
             v-slot="$form"
             :initialValues
             :resolver="resolver"
-            @submit="handleLogin"
             class="space-y-4 w-full"
+            @submit="handleLogin"
         >
             <div>
                 <FloatLabel variant="on">
@@ -19,8 +19,8 @@
                         </InputIcon>
                         <InputText
                             id="email"
-                            name="email"
                             v-focus
+                            name="email"
                             fluid
                         />
                     </IconField>
@@ -31,7 +31,8 @@
                     severity="error"
                     size="small"
                     variant="simple"
-                    >{{ $t($form.email.error.message) }}
+                >
+                    {{ $t($form.email.error.message) }}
                 </Message>
             </div>
 
@@ -56,7 +57,8 @@
                     severity="error"
                     size="small"
                     variant="simple"
-                    >{{ $t($form.password.error.message) }}
+                >
+                    {{ $t($form.password.error.message) }}
                 </Message>
             </div>
 
@@ -80,20 +82,20 @@
             <Divider />
 
             <Button
-                @click="navigateToRegister"
                 severity="secondary"
                 class="mt-2"
                 fluid
+                @click="navigateToRegister"
             >
                 <FontAwesomeIcon :icon="['fas', 'user-pen']" />{{ $t('login.signUp') }}
             </Button>
 
             <Button
-                @click="navigateTo('/')"
                 severity="secondary"
                 variant="outlined"
                 class="mt-2"
                 fluid
+                @click="navigateTo('/')"
             >
                 <FontAwesomeIcon :icon="['fas', 'home']" />{{ $t('common.backToHome') }}
             </Button>
