@@ -1,7 +1,7 @@
 <template>
     <aside
         v-show="props.isOpen"
-        class="fixed top-0 left-0 h-dvh w-16 bg-gray-200 dark:bg-gray-950 flex flex-col items-center p-2 shadow-lg transform transition-transform duration-300 z-40 overflow-x-scroll"
+        class="fixed top-0 left-0 h-dvh w-16 bg-gray-200 dark:bg-gray-950 flex flex-col items-center p-2 shadow-lg transform transition-transform duration-300 z-40 overflow-auto"
     >
         <RouterLink
             to="/home"
