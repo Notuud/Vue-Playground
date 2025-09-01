@@ -19,7 +19,7 @@
                     class="w-6"
                     :src="getFlagSrc(getFlag(slotProps.value))"
                     :alt="getFlag(slotProps.value)"
-                >
+                />
                 <span class="ml-2 hidden md:block">{{ getLabel(slotProps.value) }}</span>
             </div>
         </template>
@@ -29,7 +29,7 @@
                     class="w-6"
                     :src="getFlagSrc(getFlag(slotProps.option.code))"
                     :alt="getFlag(slotProps.option.code)"
-                >
+                />
                 <span class="ml-2 hidden md:block">{{ slotProps.option.label }}</span>
             </div>
         </template>
@@ -64,7 +64,7 @@ function onLocaleChange(e: any) {
 }
 
 function getFlagSrc(code: string | undefined) {
-    return new URL(`../../assets/flags/${code ?? 'xx'}.svg`, import.meta.url).href
+    return new URL(`../../assets/images/flags/${code ?? 'xx'}.svg`, import.meta.url).href
 }
 
 function getFlag(code: string) {

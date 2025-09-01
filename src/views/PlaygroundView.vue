@@ -1,15 +1,9 @@
 <template>
     <main class="p-4">
-        <h3 class="text-xl font-medium text-gray-500">
-            Playground
-        </h3>
-        <h1 class="text-2xl font-bold mb-4">
-            Enjoy playing with various components
-        </h1>
+        <h3 class="text-xl font-medium text-gray-500">Playground</h3>
+        <h1 class="text-2xl font-bold mb-4">Enjoy playing with various components</h1>
 
-        <h2 class="text-xl mb-4">
-            User List
-        </h2>
+        <h2 class="text-xl mb-4">User List</h2>
 
         <DataTable
             v-model:filters="filters"
@@ -34,12 +28,8 @@
                     </IconField>
                 </div>
             </template>
-            <template #empty>
-                No customers found.
-            </template>
-            <template #loading>
-                Loading customers data. Please wait.
-            </template>
+            <template #empty> No customers found. </template>
+            <template #loading> Loading customers data. Please wait. </template>
             <Column
                 field="name"
                 header="Name"
@@ -133,9 +123,7 @@
             </Column>
         </DataTable>
 
-        <h2 class="text-xl mt-4 mb-4">
-            Lines Chart
-        </h2>
+        <h2 class="text-xl mt-4 mb-4">Lines Chart</h2>
 
         <Chart
             type="line"
@@ -144,9 +132,7 @@
             class="w-full"
         />
 
-        <h2 class="text-xl mt-4 mb-4">
-            Stacked Bar Chart
-        </h2>
+        <h2 class="text-xl mt-4 mb-4">Stacked Bar Chart</h2>
 
         <Chart
             type="bar"

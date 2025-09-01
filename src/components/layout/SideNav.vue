@@ -8,10 +8,10 @@
             class="mb-8"
         >
             <img
-                src="@/assets/logo.png"
+                src="@/assets/images/logo.png"
                 alt="Logo"
                 class="w-12 h-12 rounded"
-            >
+            />
         </RouterLink>
 
         <div class="flex flex-col flex-1">

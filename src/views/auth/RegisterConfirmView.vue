@@ -5,8 +5,8 @@
         </h2>
 
         <div v-if="isRegisterCompleted">
-            <Message 
-                severity="success" 
+            <Message
+                severity="success"
                 class="mb-10"
             >
                 {{ $t('login.registerCompletedMessage') }}
@@ -195,7 +195,7 @@ import Message from 'primevue/message'
 import FloatLabel from 'primevue/floatlabel'
 import Divider from 'primevue/divider'
 import Select from 'primevue/select'
-import ProgressSpinner from 'primevue/progressspinner';
+import ProgressSpinner from 'primevue/progressspinner'
 import { Form } from '@primevue/forms'
 import ContainerCenter from '@/components/ui/ContainerCenter.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'

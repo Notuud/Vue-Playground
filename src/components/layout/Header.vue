@@ -8,10 +8,10 @@
             @click.prevent="navigateTo('/')"
         >
             <img
-                src="@/assets/logo.png"
+                src="@/assets/images/logo.png"
                 alt="Logo"
                 class="w-12 h-12"
-            >
+            />
             <h1 class="text-4xl font-semibold">Stonker</h1>
         </a>
 
