@@ -11,17 +11,33 @@ export function useTabNavigation(tabValues: string[]) {
 
     const activeTab = ref(tabValues[0] || '0') // default to first tab
 
-    // Initialize from URL hash
+    // Initialize from route param `tab` (preferred) or fallback to URL hash
     onMounted(() => {
-        const hash = route.hash.replace('#', '')
-        if (hash && tabValues.includes(hash)) {
-            activeTab.value = hash
+        const tabParam = (route.params.tab as string) || ''
+        if (tabParam && tabValues.includes(tabParam)) {
+            activeTab.value = tabParam
+            return
         }
     })
 
-    // Keep URL hash in sync with tab changes
+    // Keep route param `tab` in sync with tab changes when the current route supports it
     watch(activeTab, (newVal) => {
-        router.replace({ hash: `#${newVal}` }).catch(() => {})
+        const currentTab = (route.params.tab as string) || ''
+        if (currentTab !== newVal) {
+            if (!newVal || newVal === tabValues[0]) {
+                router.push({ name: route.name as string, params: { ...route.params, tab: undefined } })
+            } else {
+                router.push({ name: route.name as string, params: { ...route.params, tab: newVal } })
+            }
+        }
+    })
+
+    // Keep activeTab in sync when route changes (e.g., back/forward buttons or direct navigation)
+    watch(() => route.params.tab, (tabParam) => {
+        const tab = (tabParam as string) || ''
+        if (tab && tabValues.includes(tab) && activeTab.value !== tab) {
+            activeTab.value = tab
+        }
     })
 
     return {

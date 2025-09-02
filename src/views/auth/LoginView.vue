@@ -73,7 +73,7 @@
             </Button>
 
             <RouterLink
-                to="/forgotten-password"
+                :to="{ name: 'ForgottenPassword'}"
                 class="underline text-cyan-600 hover:text-cyan-500 transition-colors duration-300"
             >
                 {{ $t('login.forgotPassword') }}

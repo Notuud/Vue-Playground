@@ -9,20 +9,27 @@
                     v-model="selectedPeriod"
                     name="period"
                     :options="periodOptions"
-                    optionLabel="name"
+                    optionLabel="code"
                     checkmark
                     class="w-full"
-                />
-                <label for="period">Zobrazení</label>
+                >
+                    <template #value="slotProps">
+                        {{ $t(`common.datetime.${slotProps.value.code}`) }}
+                    </template>
+                    <template #option="slotProps">
+                        {{ $t(`common.datetime.${slotProps.option.code}`) }}
+                    </template>
+                </Select>
+                <label for="period">{{ $t('common.display') }}</label>
             </FloatLabel>
             <FloatLabel 
                 variant="on"
                 class="w-full md:w-1/6"
             >
                 <Select
-                    v-model="selectedCrypto"
-                    name="cryptocurrency"
-                    :options="cryptoOptions"
+                    v-model="selectedInvestmentItem"
+                    name="investmentItem"
+                    :options="investmentItemOptions"
                     optionLabel="name"
                     checkmark
                     class="w-full"
@@ -34,41 +41,72 @@
                         {{ slotProps.option.code }} - {{ slotProps.option.name }}
                     </template>
                 </Select>
-                <label for="cryptocurrency">Kryptoměna</label>
+                <label for="investmentItem">Kryptoměna TODO Akcie tohle bude props</label>
             </FloatLabel>
+            <div 
+                v-if="selectedPeriod.code !== 'daily'"
+                class="flex gap-5 w-full md:w-1/2"
+            >
+                <FloatLabel 
+                    variant="on"
+                >
+                    <DatePicker 
+                        v-model="yearFrom"
+                        name="yearFrom" 
+                        view="year" 
+                        dateFormat="yy" 
+                        :minDate="minDate"
+                        :maxDate="yearFromMaxDate"
+                    />
+                    <label for="yearFrom">{{ $t('common.yearFrom') }}</label>
+                </FloatLabel>
+                <FloatLabel 
+                    variant="on"
+                >
+                    <DatePicker 
+                        v-model="yearTo"
+                        name="yearTo" 
+                        view="year" 
+                        dateFormat="yy"
+                        :minDate="yearToMinDate"
+                        :maxDate="maxDate"
+                    />
+                    <label for="yearTo">{{ $t('common.yearTo') }}</label>
+                </FloatLabel>
+            </div>
             <FloatLabel 
+                v-else
                 variant="on"
-                class="w-full md:w-1/6"
             >
                 <DatePicker 
-                    v-model="yearFrom"
-                    name="dateFrom" 
+                    v-model="year"
+                    name="year" 
                     view="year" 
                     dateFormat="yy" 
+                    :minDate="minDate"
+                    :maxDate="maxDate"
                 />
-                <label for="dateFrom">Rok od</label>
+                <label for="year">{{ $t('common.datetime.year') }}</label>
             </FloatLabel>
-            <FloatLabel 
-                variant="on"
-                class="w-full md:w-1/6"
+            <div 
+                class="flex items-center md:ml-auto"
+                @click="isGradient = !isGradient"
             >
-                <DatePicker 
-                    v-model="yearTo"
-                    name="dateFrom" 
-                    view="year" 
-                    dateFormat="yy" 
-                />
-                <label for="dateFrom">Rok do</label>
-            </FloatLabel>
-            <div class="flex items-center md:ml-auto">
                 <ToggleSwitch 
                     v-model="isGradient" 
+                    name="gradientToggle"
+                    @click.prevent
                 /> 
-                <span class="ml-2">Gradienty</span>
+                <label 
+                    class="ml-2" 
+                    for="gradientToggle"
+                >
+                    {{ $t('sections.revenue.showGradient') }}
+                </label>
             </div>
         </div>
         <TableGradient
-            v-if="selectedPeriod.name !== 'Denní'"
+            v-if="selectedPeriod.code !== 'daily'"
             :isGradient
             :tableData
         />
@@ -81,13 +119,14 @@
                 :key="col"
                 :isGradient 
                 :tableData="month"
+                :weekdaysOnly="false"
             />
         </div>
     </main>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import ToggleSwitch from 'primevue/toggleswitch';
 import Select from 'primevue/select';
 import FloatLabel from 'primevue/floatlabel';
@@ -95,16 +134,14 @@ import DatePicker from 'primevue/datepicker';
 import TableGradient from '@/components/shared/TableGradient.vue';
 import TableGradientDaily from '@/components/shared/TableGradientDaily.vue';
 
-// TODO: add translations
 // TODO: call BE when any of the filters is changed
-
 const periodOptions = [
-    { name: 'Kvartální' },
-    { name: 'Měsíční' },
-    { name: 'Denní' }
+    { code: 'quarterly' },
+    { code: 'monthly' },
+    { code: 'daily' }
 ]
 
-const cryptoOptions = [
+const investmentItemOptions = [
     { code: 'ADA', name: 'Cardano' },
     { code: 'BTC', name: 'Bitcoin' },
     { code: 'ETH', name: 'Ethereum' }
@@ -112,9 +149,53 @@ const cryptoOptions = [
 
 const isGradient = ref(false)
 const selectedPeriod = ref(periodOptions[0])
-const selectedCrypto = ref(cryptoOptions[0])
+const selectedInvestmentItem = ref(investmentItemOptions[0])
 const yearFrom = ref()
 const yearTo = ref()
+const year = ref(new Date())
+
+const minDate: Date = new Date()
+minDate.setFullYear(2015)
+
+const maxDate: Date = new Date()
+maxDate.setFullYear(new Date().getFullYear())
+
+// Helpers to bind min/max for the year pickers and keep them in sync
+const yearFromMaxDate = computed(() => {
+    if (!yearTo.value) return maxDate
+    // ensure max is at most the selected yearTo
+    const d = new Date(yearTo.value)
+    return isNaN(d.getTime()) ? maxDate : d
+})
+
+const yearToMinDate = computed(() => {
+    if (!yearFrom.value) return minDate
+    const d = new Date(yearFrom.value)
+    return isNaN(d.getTime()) ? minDate : d
+})
+
+// Keep yearFrom <= yearTo: if user sets yearFrom after yearTo, clamp yearTo and vice versa
+watch(yearFrom, (newVal) => {
+    if (!newVal || !yearTo.value) return
+    const from = new Date(newVal)
+    const to = new Date(yearTo.value)
+    if (isNaN(from.getTime()) || isNaN(to.getTime())) return
+    if (from.getFullYear() > to.getFullYear()) {
+        // set yearTo to from
+        yearTo.value = new Date(from.getFullYear(), 0, 1)
+    }
+})
+
+watch(yearTo, (newVal) => {
+    if (!newVal || !yearFrom.value) return
+    const from = new Date(yearFrom.value)
+    const to = new Date(newVal)
+    if (isNaN(from.getTime()) || isNaN(to.getTime())) return
+    if (to.getFullYear() < from.getFullYear()) {
+        // set yearFrom to to
+        yearFrom.value = new Date(to.getFullYear(), 0, 1)
+    }
+})
 
 const quarterlyData = 
 {
@@ -444,8 +525,8 @@ const dailyData = {
 }
 
 const tableData = computed(() => {
-    const name = selectedPeriod.value?.name ?? ''
-    if (name === 'Měsíční') return monthlyData
+    const name = selectedPeriod.value?.code ?? ''
+    if (name === 'monthly') return monthlyData
     return quarterlyData
 })
 </script>

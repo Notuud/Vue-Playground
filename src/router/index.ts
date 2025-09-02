@@ -44,9 +44,9 @@ const routes: RouteRecordRaw[] = [
         meta: { layout: 'app', icon: 'home', title: 'home', requiresAuth: true, showInMenu: true },
     },
     {
-        path: '/crypto',
+        path: '/crypto/:tab?',
         name: 'Crypto',
-        component: () => import('@/views/crypto/MainView.vue'),
+        component: () => import('@/views/shared/MainView.vue'),
         meta: { layout: 'app', icon: 'bitcoin-sign', title: 'crypto', requiresAuth: true, showInMenu: true },
     },
     {

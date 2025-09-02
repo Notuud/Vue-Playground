@@ -9,12 +9,28 @@
         "toggleMenu": "{state} menu",
         "show": "Show",
         "hide": "Hide",
+        "display": "Display",
+        "yearFrom": "Year from",
+        "yearTo": "Year to",
         "backToLogin": "Back to Login page",
         "backToHome": "Back to Home page",
         "sendLink": "Send link",
         "currency": "Currency",
         "preferredCurrency": "Preferred currency",
         "selectCurrency": "Select currency",
+        "datetime": {
+            "quarterly": "Quarterly",
+            "monthly": "Monthly",
+            "daily": "Daily",
+            "year": "Year",
+            "mon": "Mon",
+            "tue": "Tue",
+            "wed": "Wed",
+            "thu": "Thu",
+            "fri": "Fri",
+            "sat": "Sat",
+            "sun": "Sun"
+        },
         "errors": {
             "notFound": "Page Not Found",
             "pageDoesNotExist": "The page you are trying to visit does not exist",
@@ -108,6 +124,11 @@
         "cta": {
             "title": "Ready to get your investments in order?",
             "createAccount": "Create an account in a minute and start tracking your portfolio smartly."
+        }
+    }
+    ,"sections": {
+        "revenue": {
+            "showGradient": "Show gradient"
         }
     }
 }

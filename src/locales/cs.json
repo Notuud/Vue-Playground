@@ -15,11 +15,27 @@
         "currency": "Měna",
         "preferredCurrency": "Preferovaná měna",
         "selectCurrency": "Vyberte měnu",
+        "display": "Zobrazení",
+        "yearFrom": "Rok od",
+        "yearTo": "Rok do",
         "errors": {
             "notFound": "Stránka nenalezena",
             "pageDoesNotExist": "Stránka, kterou se pokoušíte navštívit neexistuje",
             "invalidData": "Neplatné údaje",
             "enterValidEmail": "Zadejte prosím platný e-mail"
+        },
+        "datetime": {
+            "quarterly": "Kvartální",
+            "monthly": "Měsíční",
+            "daily": "Denní",
+            "year": "Rok",
+            "mon": "Po", 
+            "tue": "Út", 
+            "wed": "St", 
+            "thu": "Čt", 
+            "fri": "Pá", 
+            "sat": "So", 
+            "sun": "Ne" 
         }
     },
     "validation": {
@@ -108,6 +124,11 @@
         "cta": {
             "title": "Připraveni mít pořádek v investicích?",
             "createAccount": "Založte si účet během minuty a začněte sledovat své portfolio chytře."
+        }
+    },
+    "sections": {
+        "revenue": {
+            "showGradient": "Zobrazit gradient"
         }
     }
 }

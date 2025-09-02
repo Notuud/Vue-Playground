@@ -4,14 +4,14 @@
         class="fixed top-0 left-0 h-dvh w-16 bg-gray-200 dark:bg-gray-950 flex flex-col items-center p-2 shadow-lg transform transition-transform duration-300 z-40 overflow-auto"
     >
         <RouterLink
-            to="/home"
+            :to="{ name: 'Home' }"
             class="mb-8"
         >
             <img
                 src="@/assets/images/logo.png"
                 alt="Logo"
                 class="w-12 h-12 rounded"
-            />
+            >
         </RouterLink>
 
         <div class="flex flex-col flex-1">
@@ -23,7 +23,7 @@
                     showDelay: 100,
                     hideDelay: 100,
                 }"
-                :to="item.path"
+                :to="{ name: item.name }"
                 class="mb-4 p-2 rounded-xl hover:bg-gray-700 dark:hover:bg-gray-800 transition-colors"
                 activeClass="bg-gray-300 dark:bg-gray-700"
             >
