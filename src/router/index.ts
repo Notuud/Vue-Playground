@@ -44,10 +44,22 @@ const routes: RouteRecordRaw[] = [
         meta: { layout: 'app', icon: 'home', title: 'home', requiresAuth: true, showInMenu: true },
     },
     {
+        path: '/stocks/:tab?',
+        name: 'Stocks',
+        component: () => import('@/views/stocks/MainView.vue'),
+        meta: { layout: 'app', icon: 'money-check-dollar', title: 'stocks', requiresAuth: true, showInMenu: true },
+    },
+    {
         path: '/crypto/:tab?',
         name: 'Crypto',
-        component: () => import('@/views/shared/MainView.vue'),
+        component: () => import('@/views/crypto/MainView.vue'),
         meta: { layout: 'app', icon: 'bitcoin-sign', title: 'crypto', requiresAuth: true, showInMenu: true },
+    },
+    {
+        path: '/transfers/:tab?',
+        name: 'Transfers',
+        component: () => import('@/views/transfers/MainView.vue'),
+        meta: { layout: 'app', icon: 'money-bill-transfer', title: 'transfers', requiresAuth: true, showInMenu: true },
     },
     {
         path: '/playground',

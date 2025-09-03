@@ -4,9 +4,11 @@
             :src="NotFoundImage"
             alt="404 Not Found"
             class="w-full md:w-2/3 lg:w-1/2 float-fadein"
-        />
+        >
 
-        <h1 class="text-4xl font-bold mb-4">404 - {{ $t('common.errors.notFound') }}</h1>
+        <h1 class="text-4xl font-bold mb-4">
+            404 - {{ $t('common.errors.notFound') }}
+        </h1>
         <p class="text-xl">
             {{ $t('common.errors.pageDoesNotExist') }}
         </p>
@@ -25,7 +27,7 @@
 
 <script setup lang="ts">
 import Button from 'primevue/button'
-import NotFoundImage from '@/assets/404.png'
+import NotFoundImage from '@/assets/images/404.png'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { useNavigation } from '@/composables/useNavigation'
 

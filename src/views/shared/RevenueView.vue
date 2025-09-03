@@ -109,6 +109,7 @@
             v-if="selectedPeriod.code !== 'daily'"
             :isGradient
             :tableData
+            :weekdaysOnly="props.weekDaysOnly"
         />
         <div 
             v-else
@@ -119,7 +120,7 @@
                 :key="col"
                 :isGradient 
                 :tableData="month"
-                :weekdaysOnly="false"
+                :weekdaysOnly="props.weekDaysOnly"
             />
         </div>
     </main>
@@ -133,6 +134,11 @@ import FloatLabel from 'primevue/floatlabel';
 import DatePicker from 'primevue/datepicker';
 import TableGradient from '@/components/shared/TableGradient.vue';
 import TableGradientDaily from '@/components/shared/TableGradientDaily.vue';
+
+const props = defineProps<{
+    type: string
+    weekDaysOnly: boolean
+}>()
 
 // TODO: call BE when any of the filters is changed
 const periodOptions = [

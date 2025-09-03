@@ -61,7 +61,20 @@
         "register": "Registration",
         "registerConfirm": "Registration confirm",
         "forgottenPassword": "Recover password",
-        "crypto": "Cryptocurrencies"
+        "stocks": "Stocks",
+        "crypto": "Cryptocurrencies",
+        "transfers": "Transfers",
+        "tabs": {
+            "overview": "Overview",
+            "trades": "Trades",
+            "stats": "Statistics",
+            "dividends": "Dividends",
+            "new-trade": "New trade",
+            "price-history": "Price history",
+            "revenue": "Revenue",
+            "new-transfer": "New transfer",
+            "rate-history": "Rates history"
+        }
     },
     "login": {
         "login": "Sign In",

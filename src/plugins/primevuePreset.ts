@@ -74,5 +74,48 @@ export const MyPreset = definePreset(Aura, {
                 },
             },
         },
+        datatable: {
+            colorScheme: {
+                light: {
+                    root: {
+                        borderColor: '{gray.400}',
+                    },
+                    header: {
+                        background: '{gray.200}',
+                    },
+                    headerCell: {
+                        background: '{gray.200}',
+                    },
+                    row: {
+                        background: '{gray.200}',
+                    },
+                },
+                dark: {
+                    header: {
+                        background: '{gray.950}',
+                    },
+                    headerCell: {
+                        background: '{gray.950}',
+                    },
+                    row: {
+                        background: '{gray.950}',
+                    },
+                },
+            },
+        },
+        paginator: {
+            colorScheme: {
+                light: {
+                    root: {
+                        background: '{gray.200}',
+                    },
+                },
+                dark: {
+                    root: {
+                        background: '{gray.950}',
+                    },
+                },
+            },
+        },
     },
 })

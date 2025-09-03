@@ -61,7 +61,20 @@
         "register": "Registrace",
         "registerConfirm": "Potvrzení registrace",
         "forgottenPassword": "Obnovení hesla",
-        "crypto": "Kryptoměny"
+        "stocks": "Akcie",
+        "crypto": "Kryptoměny",
+        "transfers": "Převody",
+        "tabs": {
+            "overview": "Přehled",
+            "trades": "Obchody",
+            "stats": "Statistika",
+            "dividends": "Dividendy",
+            "new-trade": "Nový obchod",
+            "price-history": "Historie cen",
+            "revenue": "Výnosy",
+            "new-transfer": "Nový převod",
+            "rate-history": "Historie kurzů"
+        }
     },
     "login": {
         "login": "Přihlásit se",
