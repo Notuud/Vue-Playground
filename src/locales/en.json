@@ -18,6 +18,7 @@
         "currency": "Currency",
         "preferredCurrency": "Preferred currency",
         "selectCurrency": "Select currency",
+        "settings": "Settings",
         "datetime": {
             "quarterly": "Quarterly",
             "monthly": "Monthly",
@@ -64,6 +65,7 @@
         "stocks": "Stocks",
         "crypto": "Cryptocurrencies",
         "transfers": "Transfers",
+        "account": "Account",
         "tabs": {
             "overview": "Overview",
             "trades": "Trades",

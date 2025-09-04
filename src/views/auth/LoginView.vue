@@ -95,7 +95,7 @@
                 variant="outlined"
                 class="mt-2"
                 fluid
-                @click="navigateTo('/')"
+                @click="navigateToViaPath('/')"
             >
                 <FontAwesomeIcon :icon="['fas', 'home']" />{{ $t('common.backToHome') }}
             </Button>
@@ -122,7 +122,7 @@ import { zodResolver } from '@primevue/forms/resolvers/zod'
 import { useI18n } from 'vue-i18n'
 import { useNavigation } from '@/composables/useNavigation'
 
-const { navigateToRegister, navigateToDashboard, navigateTo } = useNavigation()
+const { navigateToRegister, navigateToDashboard, navigateToViaPath } = useNavigation()
 const { t } = useI18n()
 const { showError } = useToastNotifications()
 

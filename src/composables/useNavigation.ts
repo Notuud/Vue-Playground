@@ -27,7 +27,11 @@ export function useNavigation() {
     }
 
     /** Generic helpers */
-    function navigateTo(path: string) {
+    function navigateToViaName(name: string) {
+        router.push({ name: name });
+    }
+
+    function navigateToViaPath(path: string) {
         router.push(path)
     }
 
@@ -41,7 +45,8 @@ export function useNavigation() {
         navigateToDashboard,
         navigateToPortfolio,
         logout,
-        navigateTo,
+        navigateToViaPath,
+        navigateToViaName,
         goBack,
     }
 }

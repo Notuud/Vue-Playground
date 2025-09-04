@@ -117,5 +117,39 @@ export const MyPreset = definePreset(Aura, {
                 },
             },
         },
+        menu: {
+            colorScheme: {
+                light: {
+                    root: {
+                        background: '{gray.100}',
+                    },
+                    item: {
+                        focusBackground: '{gray.200}'
+                    }
+                },
+                dark: {
+                    root: {
+                        background: '{gray.900}',
+                    },
+                    item: {
+                        focusBackground: '{gray.950}'
+                    }
+                },
+            },
+        },
+        divider: {
+            colorScheme: {
+                light: {
+                    root: {
+                        borderColor: '{gray.400}',
+                    }
+                },
+                dark: {
+                    root: {
+                        borderColor: '{gray.700}',
+                    }
+                },
+            },
+        },
     },
 })

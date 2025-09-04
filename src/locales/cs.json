@@ -18,6 +18,7 @@
         "display": "Zobrazení",
         "yearFrom": "Rok od",
         "yearTo": "Rok do",
+        "settings": "Nastavení",
         "errors": {
             "notFound": "Stránka nenalezena",
             "pageDoesNotExist": "Stránka, kterou se pokoušíte navštívit neexistuje",
@@ -64,6 +65,7 @@
         "stocks": "Akcie",
         "crypto": "Kryptoměny",
         "transfers": "Převody",
+        "account": "Účet",
         "tabs": {
             "overview": "Přehled",
             "trades": "Obchody",
