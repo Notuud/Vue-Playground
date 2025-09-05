@@ -19,6 +19,7 @@
         "preferredCurrency": "Preferred currency",
         "selectCurrency": "Select currency",
         "settings": "Settings",
+        "language": "Language",
         "datetime": {
             "quarterly": "Quarterly",
             "monthly": "Monthly",
@@ -75,7 +76,11 @@
             "price-history": "Price history",
             "revenue": "Revenue",
             "new-transfer": "New transfer",
-            "rate-history": "Rates history"
+            "rate-history": "Rates history",
+            "account": "Account",
+            "settings": "Settings",
+            "sessions": "Sessions",
+            "security": "Security"
         }
     },
     "login": {

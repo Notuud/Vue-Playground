@@ -81,7 +81,7 @@ export const MyPreset = definePreset(Aura, {
                         borderColor: '{gray.400}',
                     },
                     header: {
-                        background: '{gray.200}',
+                        background: '{gray.100}',
                     },
                     headerCell: {
                         background: '{gray.200}',
@@ -92,7 +92,7 @@ export const MyPreset = definePreset(Aura, {
                 },
                 dark: {
                     header: {
-                        background: '{gray.950}',
+                        background: '{gray.900}',
                     },
                     headerCell: {
                         background: '{gray.950}',
@@ -147,6 +147,36 @@ export const MyPreset = definePreset(Aura, {
                 dark: {
                     root: {
                         borderColor: '{gray.700}',
+                    }
+                },
+            },
+        },
+        select: {
+            colorScheme: {
+                dark: {
+                    root: {
+                        background: '{gray.900}',
+                    },
+                    overlay: {
+                        background: '{gray.900}',
+                    }
+                },
+            },
+        },
+        inputtext: {
+            colorScheme: {
+                dark: {
+                    root: {
+                        background: '{gray.900}',
+                    },
+                },
+            },
+        },
+        password: {
+            colorScheme: {
+                dark: {
+                    overlay: {
+                        background: '{gray.900}',
                     }
                 },
             },

@@ -13,15 +13,18 @@
 </template>
 
 <script setup lang="ts">
-// import { defineAsyncComponent } from 'vue'
+import { defineAsyncComponent } from 'vue'
 import TabsNav from '@/components/shared/TabsNav.vue'
 
-// TODO: define missing views
-// const RevenueView = defineAsyncComponent(() => import('@/views/shared/RevenueView.vue'))
+const AccountView = defineAsyncComponent(() => import('@/views/account/AccountView.vue'))
+const SettingsView = defineAsyncComponent(() => import('@/views/account/SettingsView.vue'))
+const SessionsView = defineAsyncComponent(() => import('@/views/account/SessionsView.vue'))
+const SecurityView = defineAsyncComponent(() => import('@/views/account/SecurityView.vue'))
 
 const tabs = [
-    { value: 'profile', component: null, },
-    { value: 'sessions', component: null, },
-    { value: 'security', component: null }
+    { value: 'account', component: AccountView },
+    { value: 'settings', component: SettingsView },
+    { value: 'sessions', component: SessionsView },
+    { value: 'security', component: SecurityView }
 ]
 </script>

@@ -19,6 +19,7 @@
         "yearFrom": "Rok od",
         "yearTo": "Rok do",
         "settings": "Nastavení",
+        "language": "Jazyk",
         "errors": {
             "notFound": "Stránka nenalezena",
             "pageDoesNotExist": "Stránka, kterou se pokoušíte navštívit neexistuje",
@@ -75,7 +76,11 @@
             "price-history": "Historie cen",
             "revenue": "Výnosy",
             "new-transfer": "Nový převod",
-            "rate-history": "Historie kurzů"
+            "rate-history": "Historie kurzů",
+            "account": "Účet",
+            "settings": "Nastavení",
+            "sessions": "Relace",
+            "security": "Zabezpečení"
         }
     },
     "login": {

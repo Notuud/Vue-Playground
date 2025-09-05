@@ -68,13 +68,7 @@ const routes: RouteRecordRaw[] = [
         meta: { layout: 'app', icon: 'chart-simple', title: 'playground', requiresAuth: true, showInMenu: true },
     },
     {
-        path: '/about',
-        name: 'About',
-        component: () => import('@/views/AboutView.vue'),
-        meta: { layout: 'app', icon: 'info', title: 'about', requiresAuth: true, showInMenu: true },
-    },
-    {
-        path: '/account',
+        path: '/account/:tab?',
         name: 'Account',
         component: () => import('@/views/account/MainView.vue'),
         meta: { layout: 'app', title: 'account', requiresAuth: true, showInMenu: false },

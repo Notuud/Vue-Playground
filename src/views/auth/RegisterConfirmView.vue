@@ -117,39 +117,10 @@
             </div>
 
             <div>
-                <FloatLabel variant="on">
-                    <IconField>
-                        <InputIcon>
-                            <FontAwesomeIcon :icon="['fas', 'coins']" />
-                        </InputIcon>
-                        <Select
-                            name="currency"
-                            :options="currencies"
-                            optionLabel="name"
-                            :placeholder="$t('common.selectCurrency')"
-                            class="text-left pl-7 font-semibold"
-                            checkmark
-                            fluid
-                        >
-                            <template #value="slotProps">
-                                <div
-                                    v-if="slotProps.value.name"
-                                    class="flex items-center w-full font-normal"
-                                >
-                                    <span>{{ slotProps.value.name }}</span>
-                                    <span class="ml-auto">{{ slotProps.value.code }}</span>
-                                </div>
-                            </template>
-                            <template #option="slotProps">
-                                <div class="flex items-center w-full">
-                                    <span>{{ slotProps.option.name }}</span>
-                                    <span class="ml-auto">{{ slotProps.option.code }}</span>
-                                </div>
-                            </template>
-                        </Select>
-                    </IconField>
-                    <label for="currency">{{ $t('common.preferredCurrency') }}</label>
-                </FloatLabel>
+                <CurrencySelect 
+                    name="currency" 
+                    :preselect="false"
+                />
                 <Message
                     v-if="$form.currency?.invalid"
                     severity="error"
@@ -194,7 +165,6 @@ import Button from 'primevue/button'
 import Message from 'primevue/message'
 import FloatLabel from 'primevue/floatlabel'
 import Divider from 'primevue/divider'
-import Select from 'primevue/select'
 import ProgressSpinner from 'primevue/progressspinner'
 import { Form } from '@primevue/forms'
 import ContainerCenter from '@/components/ui/ContainerCenter.vue'
@@ -204,6 +174,7 @@ import { z } from 'zod'
 import { zodResolver } from '@primevue/forms/resolvers/zod'
 import { useI18n } from 'vue-i18n'
 import { useNavigation } from '@/composables/useNavigation'
+import CurrencySelect from '@/components/shared/CurrencySelect.vue'
 
 // --- Navigation / i18n / toast ---
 const { navigateToViaPath } = useNavigation()
@@ -212,12 +183,6 @@ const { showError } = useToastNotifications()
 
 const loading = ref(false)
 const isRegisterCompleted = ref(false)
-
-// --- Currency type ---
-interface Currency {
-    name: string
-    code?: string
-}
 
 // --- Zod schema (matches form fields) ---
 const schema = z
@@ -252,24 +217,20 @@ const initialValues = {
 // --- Resolver ---
 const resolver = zodResolver(schema)
 
-// --- Currencies ---
-const currencies: Currency[] = [
-    { name: 'CZK', code: 'Kč' },
-    { name: 'EUR', code: '€' },
-    { name: 'USD', code: '$' },
-]
-
 // --- Focus directive ---
 const vFocus = {
     mounted: (el: HTMLElement) => el.focus(),
 }
 
 // --- Submit handler ---
-async function handleConfirm({ valid }: { valid: boolean }) {
+async function handleConfirm(event: any) {
+    const { valid, values } = event
     if (!valid) {
         showError(t('login.invalidCredentials'), t('login.enterValidCredentials'))
         return
     }
+
+    console.log(values) // if its valid then field values are passed
 
     loading.value = true
     try {
