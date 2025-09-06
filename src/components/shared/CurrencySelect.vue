@@ -19,14 +19,14 @@
                         v-if="slotProps.value && slotProps.value.name"
                         class="flex items-center w-full font-normal"
                     >
-                        <span>{{ slotProps.value.name }}</span>
-                        <span class="ml-auto">{{ slotProps.value.code }}</span>
+                        <span>{{ slotProps.value.code }}</span>
+                        <span class="ml-auto">{{ slotProps.value.name }}</span>
                     </div>
                 </template>
                 <template #option="slotProps">
                     <div class="flex items-center w-full">
-                        <span>{{ slotProps.option.name }}</span>
-                        <span class="ml-auto">{{ slotProps.option.code }}</span>
+                        <span>{{ slotProps.option.code }}</span>
+                        <span class="ml-auto">{{ slotProps.option.name }}</span>
                     </div>
                 </template>
             </Select>
@@ -48,9 +48,9 @@ interface Currency {
 }
 
 const currencies: Currency[] = [
-    { name: 'CZK', code: 'Kč' },
-    { name: 'EUR', code: '€' },
-    { name: 'USD', code: '$' },
+    { name: 'Kč', code: 'CZK' },
+    { name: '€', code: 'EUR' },
+    { name: '$', code: 'USD' },
 ]
 
 const selectedCurrency = defineModel<Currency>()
