@@ -1,10 +1,3 @@
-export const formatter = new Intl.NumberFormat(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
-
-export function formatNumberPercent(val: unknown): string {
-    if (typeof val !== 'number' || isNaN(val)) return String(val ?? '-')
-    return `${val > 0 ? '+' : ''}${formatter.format(val)}%`
-}
-
 export function applyBgClass(val: unknown): string {
     if (typeof val === 'number' && !isNaN(val) && val !== 0) {
         return val > 0 ? 'bg-green-500' : 'bg-red-500'

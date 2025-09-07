@@ -64,7 +64,9 @@
             sortable 
         >
             <template #body="{ data }">
-                {{ data.amount_from }}
+                <div class="text-right">
+                    {{ formatMoney(data.amount_from) }}
+                </div>
             </template>
         </Column>
         <Column
@@ -73,7 +75,9 @@
             sortable 
         >
             <template #body="{ data }">
-                {{ data.amount_to }}
+                <div class="text-right">
+                    {{ formatMoney(data.amount_to, undefined, undefined, undefined, '$') }}
+                </div>
             </template>
         </Column>
         <Column
@@ -82,13 +86,15 @@
             sortable 
         >
             <template #body="{ data }">
-                <Tag 
-                    :value="data.official_rate" 
-                    severity="danger" 
-                    rounded
-                    class="!text-[12px]"
-                /> 
-                {{ data.rate }} Kč / $
+                <div class="text-right">
+                    <Tag 
+                        :value="formatNumber(data.official_rate, 4)" 
+                        severity="danger" 
+                        rounded
+                        class="!text-[12px]"
+                    /> 
+                    {{ formatNumber(data.rate, 4) }} Kč / $
+                </div>
             </template>
         </Column>
         <Column
@@ -138,6 +144,7 @@ import Select from 'primevue/select'
 import DataTable from 'primevue/datatable'
 import Tag from 'primevue/tag'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { formatMoney, formatNumber } from '@/composables/useNumberFormat'
 
 const loading = ref(true)
 

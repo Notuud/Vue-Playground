@@ -20,6 +20,8 @@
         "selectCurrency": "Select currency",
         "settings": "Settings",
         "language": "Language",
+        "save": "Save",
+        "example": "Example",
         "datetime": {
             "quarterly": "Quarterly",
             "monthly": "Monthly",
@@ -97,6 +99,10 @@
         "registerComplete": "Complete registration",
         "registerCompletedMessage": "Registration is complete, you will be logged in in a few seconds",
         "passwordConfirm": "Confirm password"
+    },
+    "account": {
+        "currencyPosition": "Currency position",
+        "numberFormat": "Number format"
     },
     "presentation": {
         "hero": {

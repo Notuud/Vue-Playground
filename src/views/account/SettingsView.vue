@@ -10,14 +10,14 @@
             <CurrencyPositionSelect v-model="position" />
             <NumberFormatSelect v-model="format" />
             <Message>
-                Ukázka čísla: {{ numberExample }}
+                {{ $t('common.example') }}: {{ numberExample }}
             </Message>
         </div>
         <Button 
             class="mt-5"      
             @click="saveSettings"    
         >
-            <FontAwesomeIcon :icon="['fas', 'save']" /> Uložit
+            <FontAwesomeIcon :icon="['fas', 'save']" /> {{ $t('common.save') }}
         </Button>
     </main>
 </template>
@@ -30,6 +30,7 @@ import NumberFormatSelect from '@/components/account/NumberFormatSelect.vue';
 import CurrencyPositionSelect from '@/components/account/CurrencyPositionSelect.vue';
 import Button from 'primevue/button';
 import Message from 'primevue/message';
+import { formatMoney } from '@/composables/useNumberFormat';
 
 const language = ref()
 const currency = ref()
@@ -37,50 +38,15 @@ const position = ref()
 const format = ref()
 
 const numberExample = computed(() => {
-    return formatNumber(100000000.2335, format.value.code, 3, position.value.code, currency.value.name)
+    if (!format.value || !position.value || !currency.value) return ''
+    return formatMoney(
+        100000000.2335,
+        2,
+        format.value.code,
+        position.value.code,
+        currency.value.name
+    )
 })
-
-function formatNumber(number: number, format: string, decimalPlaces: number = 2, pos: string, cur: string) {
-    let formattedNumber: string = ''
-    let thousandSeparator: string = ''
-    let decimalSeparator: string = ''
-
-    switch(format) {
-        case 'Whitespace':
-            thousandSeparator = ' '
-            decimalSeparator = ','
-            break;
-        case 'Dot':
-            thousandSeparator = '.'
-            decimalSeparator = ','
-            break;
-        case 'Comma':
-            thousandSeparator = ','
-            decimalSeparator = '.'
-            break;
-    }
-
-    if (number && !isNaN(number)) {
-        formattedNumber = roundNumber(number, decimalPlaces).toFixed(decimalPlaces)
-
-        const parts: string[] = formattedNumber.split(".");
-        let integerPart: string = parts[0];
-        let decimalPart: string = parts[1];
-
-        // Add thousand separator
-        integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, thousandSeparator);
-
-        formattedNumber = `${integerPart}${decimalSeparator}${decimalPart}`
-        formattedNumber = pos === 'Before' ? `${cur} ${formattedNumber}` : `${formattedNumber} ${cur}`
-
-        return formattedNumber
-    }
-    return ''
-}
-
-function roundNumber(number: number, decimalPlaces: number = 2) {
-    return Math.round((number + Number.EPSILON) * (10**decimalPlaces)) / (10**decimalPlaces);
-}
 
 function saveSettings() {
     console.log(language.value)

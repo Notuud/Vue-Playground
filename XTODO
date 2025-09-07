@@ -1,7 +1,7 @@
 User menu - kouknout na user menu
 Vytvorit register a obecne pokryt sekce co ma ada ve stonkeru
 
-ty selecty v nastaveni uctu jsou docela podobny mozna sjednotit?
+composable na formaty datumu
 
 ## Suggestions for Improvement
 - Add more TypeScript types and interfaces for props, stores, and composables

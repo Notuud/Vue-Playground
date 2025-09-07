@@ -46,7 +46,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useTheme } from '@/composables/useTheme'
-import { applyBgClass, formatNumberPercent, getGradientStyle, getMaxAbs } from '@/composables/useRevenuesTableUtils'
+import { applyBgClass, getGradientStyle, getMaxAbs } from '@/composables/useRevenuesTableUtils'
+import { formatNumberPercent } from '@/composables/useNumberFormat'
 
 interface TableDataItem {
     date: string

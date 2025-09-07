@@ -20,6 +20,8 @@
         "yearTo": "Rok do",
         "settings": "Nastavení",
         "language": "Jazyk",
+        "save": "Uložit",
+        "example": "Ukázka",
         "errors": {
             "notFound": "Stránka nenalezena",
             "pageDoesNotExist": "Stránka, kterou se pokoušíte navštívit neexistuje",
@@ -97,6 +99,10 @@
         "registerComplete": "Dokončit registraci",
         "registerCompletedMessage": "Registrace byla dokončena, běhěm pár sekund budete přihlášeni",
         "passwordConfirm": "Potvrďte heslo"
+    },
+    "account": {
+        "currencyPosition": "Pozice měny",
+        "numberFormat": "Formát čísel"
     },
     "presentation": {
         "hero": {
