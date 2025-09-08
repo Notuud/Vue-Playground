@@ -61,6 +61,6 @@ export function roundNumber(
 const formatter = new Intl.NumberFormat(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 
 export function formatNumberPercent(val: unknown): string {
-    if (typeof val !== 'number' || isNaN(val)) return '-'
+    if (typeof val !== 'number' || isNaN(val)) return String(val ?? '-')
     return `${val > 0 ? '+' : ''}${formatter.format(val)}%`
 }

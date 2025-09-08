@@ -91,7 +91,7 @@ import Avatar from 'primevue/avatar';
 import Divider from 'primevue/divider'
 import Menu from 'primevue/menu'
 
-const { logout, navigateToViaPath } = useNavigation()
+const { logout, navigateToViaName } = useNavigation()
 
 const props = defineProps({
     isOpen: Boolean,
@@ -111,7 +111,7 @@ const items = ref([
             {
                 label: 'common.settings',
                 icon: 'cog',
-                callback: () => navigateToViaPath('Account')
+                callback: () => navigateToViaName('Account')
             },
             {
                 label: 'login.logout',
