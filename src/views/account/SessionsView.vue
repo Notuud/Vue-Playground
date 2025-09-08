@@ -35,6 +35,7 @@
                     v-model="filters['global'].value"
                     :icon="['fas', 'magnifying-glass']"
                     :label="$t('common.search')"
+                    name="search"
                 />
             </div>
         </template>

@@ -19,14 +19,10 @@
                     focus
                     fluid
                 />
-                <Message
+                <ValidationMessage 
                     v-if="$form.email?.invalid"
-                    severity="error"
-                    size="small"
-                    variant="simple"
-                >
-                    {{ $t($form.email.error.message) }}
-                </Message>
+                    :label="$t($form.email.error.message)"
+                />
             </div>
 
             <div>
@@ -35,14 +31,10 @@
                     :label="$t('common.password')"
                     name="password"
                 />
-                <Message
+                <ValidationMessage 
                     v-if="$form.password?.invalid"
-                    severity="error"
-                    size="small"
-                    variant="simple"
-                >
-                    {{ $t($form.password.error.message) }}
-                </Message>
+                    :label="$t($form.password.error.message)"
+                />
             </div>
 
             <!-- Submit Button -->
@@ -91,7 +83,6 @@ import { ref } from 'vue'
 import InputText from '@/components/ui/InputText.vue'
 import InputPassword from '@/components/ui/InputPassword.vue'
 import Button from 'primevue/button'
-import Message from 'primevue/message'
 import Divider from 'primevue/divider'
 import { Form } from '@primevue/forms'
 import ContainerCenter from '@/components/ui/ContainerCenter.vue'
@@ -101,6 +92,7 @@ import { z } from 'zod'
 import { zodResolver } from '@primevue/forms/resolvers/zod'
 import { useI18n } from 'vue-i18n'
 import { useNavigation } from '@/composables/useNavigation'
+import ValidationMessage from '@/components/ui/ValidationMessage.vue'
 
 const { navigateToRegister, navigateToDashboard, navigateToViaPath } = useNavigation()
 const { t } = useI18n()

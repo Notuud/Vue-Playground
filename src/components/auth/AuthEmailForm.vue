@@ -27,14 +27,10 @@
                     focus
                     fluid
                 />
-                <Message
+                <ValidationMessage 
                     v-if="$form.email?.invalid"
-                    severity="error"
-                    size="small"
-                    variant="simple"
-                >
-                    {{ $t($form.email.error.message) }}
-                </Message>
+                    :label="$t($form.email.error.message)"
+                />
             </div>
 
             <Button
@@ -66,6 +62,7 @@
 import { ref } from 'vue'
 import { Form, type FormSubmitEvent } from '@primevue/forms'
 import InputText from '@/components/ui/InputText.vue'
+import ValidationMessage from '@/components/ui/ValidationMessage.vue'
 import Message from 'primevue/message'
 import Button from 'primevue/button'
 import Divider from 'primevue/divider'

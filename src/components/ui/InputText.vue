@@ -6,13 +6,12 @@
             </InputIcon>
             <InputText
                 v-focus="props.focus"
-                v-bind="$attrs"
-                :name="($attrs.name as string)"
+                :name="props.name"
                 :disabled="props.disabled ?? false"
                 :fluid="props.fluid ?? false"
             />
         </IconField>
-        <label :for="($attrs.name as string)">{{ $attrs.label }}</label>
+        <label :for="props.name">{{ props.label }}</label>
     </FloatLabel>
 </template>
 
@@ -25,12 +24,10 @@ import InputIcon from 'primevue/inputicon';
 import InputText from 'primevue/inputtext';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-defineOptions({
-    inheritAttrs: false,
-})
-
 const props = defineProps<{
     icon: IconProp
+    name: string
+    label: string
     focus?: boolean
     disabled?: boolean
     fluid?: boolean

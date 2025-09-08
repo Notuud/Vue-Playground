@@ -5,8 +5,7 @@
                 <FontAwesomeIcon :icon="props.icon ?? ['fas', 'lock']" />
             </InputIcon>
             <Password
-                v-bind="$attrs"
-                :name="($attrs.name as string)"
+                :name="props.name"
                 toggleMask
                 fluid
                 :feedback="props.feedback ?? false"
@@ -26,7 +25,7 @@
                 </template>
             </Password>
         </IconField>
-        <label :for="($attrs.name as string)">{{ $attrs.label }}</label>
+        <label :for="props.name">{{ props.label }}</label>
     </FloatLabel>
 </template>
 
@@ -44,7 +43,9 @@ defineOptions({
 })
 
 const props = defineProps<{
-  icon: IconProp,
+  icon: IconProp
+  name: string
+  label: string
   feedback?: boolean
 }>()
 </script>

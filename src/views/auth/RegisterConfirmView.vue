@@ -30,14 +30,10 @@
                     focus
                     fluid
                 />
-                <Message
+                <ValidationMessage 
                     v-if="$form.username?.invalid"
-                    severity="error"
-                    size="small"
-                    variant="simple"
-                >
-                    {{ $t($form.username.error.message) }}
-                </Message>
+                    :label="$t($form.username.error.message)"
+                />
             </div>
 
             <div>
@@ -47,14 +43,10 @@
                     name="password"
                     feedback
                 />
-                <Message
+                <ValidationMessage 
                     v-if="$form.password?.invalid"
-                    severity="error"
-                    size="small"
-                    variant="simple"
-                >
-                    {{ $t($form.password.error.message) }}
-                </Message>
+                    :label="$t($form.password.error.message)"
+                />
             </div>
 
             <div>
@@ -63,14 +55,10 @@
                     :label="$t('login.passwordConfirm')"
                     name="passwordConfirm"
                 />
-                <Message
+                <ValidationMessage 
                     v-if="$form.passwordConfirm?.invalid"
-                    severity="error"
-                    size="small"
-                    variant="simple"
-                >
-                    {{ $t($form.passwordConfirm.error.message) }}
-                </Message>
+                    :label="$t($form.passwordConfirm.error.message)"
+                />
             </div>
 
             <div>
@@ -78,14 +66,10 @@
                     name="currency" 
                     :preselect="false"
                 />
-                <Message
+                <ValidationMessage 
                     v-if="$form.currency?.invalid"
-                    severity="error"
-                    size="small"
-                    variant="simple"
-                >
-                    {{ $t($form.currency.error.message) }}
-                </Message>
+                    :label="$t($form.currency.error.message)"
+                />
             </div>
 
             <Button
@@ -117,6 +101,7 @@ import { ref } from 'vue'
 import InputText from '@/components/ui/InputText.vue'
 import InputPassword from '@/components/ui/InputPassword.vue'
 import CurrencySelect from '@/components/shared/CurrencySelect.vue'
+import ValidationMessage from '@/components/ui/ValidationMessage.vue'
 import Button from 'primevue/button'
 import Message from 'primevue/message'
 import Divider from 'primevue/divider'
