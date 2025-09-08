@@ -12,20 +12,13 @@
             @submit="handleLogin"
         >
             <div>
-                <FloatLabel variant="on">
-                    <IconField>
-                        <InputIcon>
-                            <FontAwesomeIcon :icon="['fas', 'envelope']" />
-                        </InputIcon>
-                        <InputText
-                            id="email"
-                            v-focus
-                            name="email"
-                            fluid
-                        />
-                    </IconField>
-                    <label for="email">{{ $t('common.email') }}</label>
-                </FloatLabel>
+                <InputText
+                    :icon="['fas', 'envelope']"
+                    :label="$t('common.email')"
+                    name="email"
+                    focus
+                    fluid
+                />
                 <Message
                     v-if="$form.email?.invalid"
                     severity="error"
@@ -37,21 +30,11 @@
             </div>
 
             <div>
-                <FloatLabel variant="on">
-                    <IconField>
-                        <InputIcon>
-                            <FontAwesomeIcon :icon="['fas', 'lock']" />
-                        </InputIcon>
-                        <Password
-                            id="password"
-                            name="password"
-                            toggleMask
-                            :feedback="false"
-                            fluid
-                        />
-                    </IconField>
-                    <label for="password">{{ $t('common.password') }}</label>
-                </FloatLabel>
+                <InputPassword
+                    :icon="['fas', 'lock']"
+                    :label="$t('common.password')"
+                    name="password"
+                />
                 <Message
                     v-if="$form.password?.invalid"
                     severity="error"
@@ -105,13 +88,10 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import InputText from 'primevue/inputtext'
-import IconField from 'primevue/iconfield'
-import InputIcon from 'primevue/inputicon'
-import Password from 'primevue/password'
+import InputText from '@/components/ui/InputText.vue'
+import InputPassword from '@/components/ui/InputPassword.vue'
 import Button from 'primevue/button'
 import Message from 'primevue/message'
-import FloatLabel from 'primevue/floatlabel'
 import Divider from 'primevue/divider'
 import { Form } from '@primevue/forms'
 import ContainerCenter from '@/components/ui/ContainerCenter.vue'
@@ -141,11 +121,6 @@ const resolver = zodResolver(
         password: z.string().nonempty('validation.required').min(8, 'validation.passwordMinLength'),
     })
 )
-
-// --- Focus directive ---
-const vFocus = {
-    mounted: (el: HTMLElement) => el.focus(),
-}
 
 // --- Submit handler ---
 async function handleLogin({ valid }: { valid: boolean }) {

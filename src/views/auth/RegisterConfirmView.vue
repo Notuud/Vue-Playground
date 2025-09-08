@@ -23,20 +23,13 @@
             @submit="handleConfirm"
         >
             <div>
-                <FloatLabel variant="on">
-                    <IconField>
-                        <InputIcon>
-                            <FontAwesomeIcon :icon="['fas', 'user']" />
-                        </InputIcon>
-                        <InputText
-                            id="username"
-                            v-focus
-                            name="username"
-                            fluid
-                        />
-                    </IconField>
-                    <label for="username">{{ $t('common.username') }}</label>
-                </FloatLabel>
+                <InputText
+                    :icon="['fas', 'user']"
+                    :label="$t('common.username')"
+                    name="username"
+                    focus
+                    fluid
+                />
                 <Message
                     v-if="$form.username?.invalid"
                     severity="error"
@@ -48,34 +41,12 @@
             </div>
 
             <div>
-                <FloatLabel variant="on">
-                    <IconField>
-                        <InputIcon>
-                            <FontAwesomeIcon :icon="['fas', 'lock']" />
-                        </InputIcon>
-                        <Password
-                            id="password"
-                            name="password"
-                            toggleMask
-                            fluid
-                            :promptLabel="$t('validation.passwordPrompt')"
-                            :weakLabel="$t('validation.passwordWeakLabel')"
-                            :mediumLabel="$t('validation.passwordMediumLabel')"
-                            :strongLabel="$t('validation.passwordStrongLabel')"
-                        >
-                            <template #footer>
-                                <Divider />
-                                <ul class="pl-2 my-0 leading-normal text-sm">
-                                    <li>{{ $t('validation.passwordReqCharLowercase') }}</li>
-                                    <li>{{ $t('validation.passwordReqCharUppercase') }}</li>
-                                    <li>{{ $t('validation.passwordReqNumeric') }}</li>
-                                    <li>{{ $t('validation.passwordReqMinLength') }}</li>
-                                </ul>
-                            </template>
-                        </Password>
-                    </IconField>
-                    <label for="password">{{ $t('common.password') }}</label>
-                </FloatLabel>
+                <InputPassword 
+                    :icon="['fas', 'lock']"
+                    :label="$t('common.password')"
+                    name="password"
+                    feedback
+                />
                 <Message
                     v-if="$form.password?.invalid"
                     severity="error"
@@ -87,25 +58,11 @@
             </div>
 
             <div>
-                <FloatLabel variant="on">
-                    <IconField>
-                        <InputIcon>
-                            <FontAwesomeIcon :icon="['fas', 'lock']" />
-                        </InputIcon>
-                        <Password
-                            id="passwordConfirm"
-                            name="passwordConfirm"
-                            toggleMask
-                            :feedback="false"
-                            fluid
-                            @copy.prevent
-                            @paste.prevent
-                            @cut.prevent
-                            @drop.prevent
-                        />
-                    </IconField>
-                    <label for="passwordConfirm">{{ $t('login.passwordConfirm') }}</label>
-                </FloatLabel>
+                <InputPassword 
+                    :icon="['fas', 'lock']"
+                    :label="$t('login.passwordConfirm')"
+                    name="passwordConfirm"
+                />
                 <Message
                     v-if="$form.passwordConfirm?.invalid"
                     severity="error"
@@ -157,13 +114,11 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import InputText from 'primevue/inputtext'
-import IconField from 'primevue/iconfield'
-import InputIcon from 'primevue/inputicon'
-import Password from 'primevue/password'
+import InputText from '@/components/ui/InputText.vue'
+import InputPassword from '@/components/ui/InputPassword.vue'
+import CurrencySelect from '@/components/shared/CurrencySelect.vue'
 import Button from 'primevue/button'
 import Message from 'primevue/message'
-import FloatLabel from 'primevue/floatlabel'
 import Divider from 'primevue/divider'
 import ProgressSpinner from 'primevue/progressspinner'
 import { Form } from '@primevue/forms'
@@ -174,7 +129,6 @@ import { z } from 'zod'
 import { zodResolver } from '@primevue/forms/resolvers/zod'
 import { useI18n } from 'vue-i18n'
 import { useNavigation } from '@/composables/useNavigation'
-import CurrencySelect from '@/components/shared/CurrencySelect.vue'
 
 // --- Navigation / i18n / toast ---
 const { navigateToViaPath } = useNavigation()
@@ -216,11 +170,6 @@ const initialValues = {
 
 // --- Resolver ---
 const resolver = zodResolver(schema)
-
-// --- Focus directive ---
-const vFocus = {
-    mounted: (el: HTMLElement) => el.focus(),
-}
 
 // --- Submit handler ---
 async function handleConfirm(event: any) {

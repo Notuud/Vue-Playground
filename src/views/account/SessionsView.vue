@@ -31,15 +31,11 @@
                 >
                     <FontAwesomeIcon :icon="['fas', 'filter-circle-xmark']" />
                 </Button>
-                <IconField>
-                    <InputIcon>
-                        <FontAwesomeIcon :icon="['fas', 'magnifying-glass']" />
-                    </InputIcon>
-                    <InputText
-                        v-model="filters['global'].value"
-                        :placeholder="$t('common.search')"
-                    />
-                </IconField>
+                <InputText
+                    v-model="filters['global'].value"
+                    :icon="['fas', 'magnifying-glass']"
+                    :label="$t('common.search')"
+                />
             </div>
         </template>
         <template #empty>
@@ -141,11 +137,9 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import InputText from '@/components/ui/InputText.vue'
 import { FilterMatchMode } from '@primevue/core/api'
 import Button from 'primevue/button'
-import InputIcon from 'primevue/inputicon'
-import InputText from 'primevue/inputtext'
-import IconField from 'primevue/iconfield'
 import Column from 'primevue/column'
 import DataTable from 'primevue/datatable'
 import Tag from 'primevue/tag'

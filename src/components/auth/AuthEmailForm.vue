@@ -20,20 +20,13 @@
             @submit="handleSubmit"
         >
             <div>
-                <FloatLabel variant="on">
-                    <IconField>
-                        <InputIcon>
-                            <FontAwesomeIcon :icon="['fas', 'envelope']" />
-                        </InputIcon>
-                        <InputText
-                            id="email"
-                            v-focus
-                            name="email"
-                            fluid
-                        />
-                    </IconField>
-                    <label for="email">{{ $t('common.email') }}</label>
-                </FloatLabel>
+                <InputText
+                    :icon="['fas', 'envelope']"
+                    :label="$t('common.email')"
+                    name="email"
+                    focus
+                    fluid
+                />
                 <Message
                     v-if="$form.email?.invalid"
                     severity="error"
@@ -72,10 +65,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Form, type FormSubmitEvent } from '@primevue/forms'
-import InputText from 'primevue/inputtext'
-import FloatLabel from 'primevue/floatlabel'
-import IconField from 'primevue/iconfield'
-import InputIcon from 'primevue/inputicon'
+import InputText from '@/components/ui/InputText.vue'
 import Message from 'primevue/message'
 import Button from 'primevue/button'
 import Divider from 'primevue/divider'
@@ -107,8 +97,6 @@ const resolver = zodResolver(
         email: z.email('validation.invalidEmail'),
     })
 )
-
-const vFocus = { mounted: (el: HTMLElement) => el.focus() }
 
 async function handleSubmit(event: FormSubmitEvent<Record<string, any>>) {
     if (!event.valid) {
