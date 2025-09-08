@@ -4,22 +4,27 @@
         v-model:filters="filters"
         :value="dtData"
         paginator
-        :rowsPerPageOptions="[5, 10, 20, 50]"
         paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
-        currentPageReportTemplate="{first} to {last} of {totalRecords}"
+        :currentPageReportTemplate="$t('common.datatablePaginatorTemplate')"
+        :rowsPerPageOptions="[5, 10, 20, 50]"
         :rows="10"
         dataKey="id"
         filterDisplay="row"
         :loading="loading"
         :globalFilterFields="['session', 'token', 'ip', 'userAgent']"
         stripedRows
-        sortField="date" 
+        sortField="lastActivityDate" 
         :sortOrder="-1"
         :rowClass="rowClass"
     >
         <template #header>
             <div class="flex justify-end gap-4">
                 <Button 
+                    v-tooltip.left="{ 
+                        value: $t('common.cancelFiltering'),
+                        showDelay: 1000,
+                        hideDelay: 100,
+                    }"
                     severity="secondary"
                     variant="text"
                     @click="clearFilter()" 
@@ -32,20 +37,25 @@
                     </InputIcon>
                     <InputText
                         v-model="filters['global'].value"
-                        placeholder="Vyhledávání"
+                        :placeholder="$t('common.search')"
                     />
                 </IconField>
             </div>
         </template>
         <template #empty>
-            No data available.
+            <div class="text-center">
+                {{ $t('common.noDataAvailable') }}
+            </div>
         </template>
         <template #loading>
-            Loading data. Please wait.
+            <ProgressSpinner />
         </template>
         <template #paginatorstart>
-            <Button severity="danger">
-                <FontAwesomeIcon :icon="['fas', 'trash-can']" /> Odhlásit všechny relace
+            <Button 
+                v-if="dtData?.length > 0" 
+                severity="danger"
+            >
+                <FontAwesomeIcon :icon="['fas', 'trash-can']" /> {{ $t('account.logoutAllSessions') }}
             </Button>
         </template>
         <Column
@@ -56,7 +66,7 @@
             <template #body="{ data }">
                 {{ data.session }}
                 <FontAwesomeIcon 
-                    v-tooltip="{
+                    v-tooltip.top="{
                         value: data.token,
                         showDelay: 100,
                         hideDelay: 100,
@@ -92,7 +102,7 @@
         >
             <template #body="{ data }">
                 <FontAwesomeIcon 
-                    v-tooltip="{
+                    v-tooltip.top="{
                         value: data.userAgent,
                         showDelay: 100,
                         hideDelay: 100,
@@ -106,13 +116,18 @@
             <template #body="{ data }">
                 <Tag 
                     v-if="data.isCurrent"
-                    :value="'Aktuální'" 
+                    :value="$t('common.current')" 
                     severity="info" 
                     rounded
                     class="!text-[12px] !bg-blue-200 dark:!bg-blue-950"
                 /> 
                 <Button 
                     v-else
+                    v-tooltip.left="{ 
+                        value: $t('account.logoutSession'),
+                        showDelay: 1000,
+                        hideDelay: 100,
+                    }"
                     severity="danger"
                     size="small"
                     @click="signOutSession(data)" 
@@ -134,6 +149,7 @@ import IconField from 'primevue/iconfield'
 import Column from 'primevue/column'
 import DataTable from 'primevue/datatable'
 import Tag from 'primevue/tag'
+import ProgressSpinner from 'primevue/progressspinner'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 const loading = ref(true)

@@ -22,6 +22,11 @@
         "language": "Language",
         "save": "Save",
         "example": "Example",
+        "noDataAvailable": "No data available.",
+        "datatablePaginatorTemplate": "Showing {'{first}'} to {'{last}'} of total {'{totalRecords}'} records",
+        "search": "Search",
+        "cancelFilter": "Cancel filters",
+        "current": "Current",
         "datetime": {
             "quarterly": "Quarterly",
             "monthly": "Monthly",
@@ -102,7 +107,9 @@
     },
     "account": {
         "currencyPosition": "Currency position",
-        "numberFormat": "Number format"
+        "numberFormat": "Number format",
+        "logoutSession": "Logout session",
+        "logoutAllSessions": "Logout all sessions"
     },
     "presentation": {
         "hero": {

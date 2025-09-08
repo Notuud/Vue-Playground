@@ -1,6 +1,6 @@
 <template>
     <Button
-        v-tooltip="!props.showLabel ? {
+        v-tooltip.left="!props.showLabel ? {
             value: $t('common.toggleTheme', {
                 theme: darkMode ? $t('common.light') : $t('common.dark'),
             }),

@@ -4,9 +4,9 @@
         v-model:filters="filters"
         :value="dtData"
         paginator
-        :rowsPerPageOptions="[5, 10, 20, 50]"
         paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
-        currentPageReportTemplate="{first} to {last} of {totalRecords}"
+        :currentPageReportTemplate="$t('common.datatablePaginatorTemplate')"
+        :rowsPerPageOptions="[5, 10, 20, 50]"
         :rows="10"
         dataKey="id"
         filterDisplay="row"
@@ -31,7 +31,7 @@
                     </InputIcon>
                     <InputText
                         v-model="filters['global'].value"
-                        placeholder="Vyhledávání"
+                        :placeholder="$t('common.search')"
                     />
                 </IconField>
                 <Button 
@@ -44,11 +44,14 @@
             </div>
         </template>
         <template #empty>
-            No data available.
+            <div class="text-center">
+                {{ $t('common.noDataAvailable') }}
+            </div>
         </template>
         <template #loading>
-            Loading data. Please wait.
+            <ProgressSpinner />
         </template>
+        <template #paginatorstart />
         <Column
             field="date"
             header="Datum"

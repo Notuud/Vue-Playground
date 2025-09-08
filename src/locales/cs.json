@@ -22,6 +22,11 @@
         "language": "Jazyk",
         "save": "Uložit",
         "example": "Ukázka",
+        "noDataAvailable": "Nejsou dostupná žádná data.",
+        "datatablePaginatorTemplate": "Zobrazuji {'{first}'} až {'{last}'} z celkem {'{totalRecords}'} záznamů",
+        "search": "Vyhledávání",
+        "cancelFiltering": "Zrušit filtrování",
+        "current": "Aktuální",
         "errors": {
             "notFound": "Stránka nenalezena",
             "pageDoesNotExist": "Stránka, kterou se pokoušíte navštívit neexistuje",
@@ -102,7 +107,9 @@
     },
     "account": {
         "currencyPosition": "Pozice měny",
-        "numberFormat": "Formát čísel"
+        "numberFormat": "Formát čísel",
+        "logoutSession": "Odhlásit relaci",
+        "logoutAllSessions": "Odhlásit všechny relace"
     },
     "presentation": {
         "hero": {
