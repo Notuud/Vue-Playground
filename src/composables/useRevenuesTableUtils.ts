@@ -6,9 +6,7 @@ export function applyBgClass(val: unknown): string {
 }
 
 export function getMaxAbs(values: Array<number | null | undefined>) {
-    const nums = values
-        .filter((v): v is number => typeof v === 'number' && !isNaN(v))
-        .map(v => Math.abs(v))
+    const nums = values.filter((v): v is number => typeof v === 'number' && !isNaN(v)).map((v) => Math.abs(v))
     return nums.length ? Math.max(...nums) : 0
 }
 
@@ -33,7 +31,7 @@ export function computeTableHeaders(tableData: any) {
 
 export function allNumericValuesFromRows(rows: Record<string, any>[]) {
     const vals: number[] = []
-    rows.forEach(row => {
+    rows.forEach((row) => {
         Object.entries(row).forEach(([k, v]) => {
             if (k === 'year' || k === 'type') return
             if (typeof v === 'number' && !isNaN(v)) vals.push(v)

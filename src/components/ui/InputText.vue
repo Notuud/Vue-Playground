@@ -5,6 +5,7 @@
                 <FontAwesomeIcon :icon="props.icon" />
             </InputIcon>
             <InputText
+                v-model="model"
                 v-focus="props.focus"
                 :name="props.name"
                 :disabled="props.disabled ?? false"
@@ -18,11 +19,11 @@
 <script setup lang="ts">
 import { type DirectiveBinding } from 'vue'
 import { type IconProp } from '@fortawesome/fontawesome-svg-core'
-import FloatLabel from 'primevue/floatlabel';
-import IconField from 'primevue/iconfield';
-import InputIcon from 'primevue/inputicon';
-import InputText from 'primevue/inputtext';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import FloatLabel from 'primevue/floatlabel'
+import IconField from 'primevue/iconfield'
+import InputIcon from 'primevue/inputicon'
+import InputText from 'primevue/inputtext'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 const props = defineProps<{
     icon: IconProp
@@ -33,8 +34,10 @@ const props = defineProps<{
     fluid?: boolean
 }>()
 
+const model = defineModel<string>()
+
 // --- Focus directive ---
 const vFocus = {
-    mounted: (el: HTMLElement, binding: DirectiveBinding) => binding.value ? el.focus() : null,
+    mounted: (el: HTMLElement, binding: DirectiveBinding) => (binding.value ? el.focus() : null),
 }
 </script>

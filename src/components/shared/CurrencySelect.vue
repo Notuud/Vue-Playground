@@ -6,7 +6,7 @@
             </InputIcon>
             <Select
                 v-model="selectedCurrency"
-                :name="$attrs.name as string ?? 'currency'"
+                :name="props.name ?? 'currency'"
                 :options="currencies"
                 optionLabel="name"
                 :placeholder="$t('common.selectCurrency')"
@@ -31,7 +31,7 @@
                 </template>
             </Select>
         </IconField>
-        <label :for="$attrs.name as string ?? 'currency'">{{ $t('common.preferredCurrency') }}</label>
+        <label :for="props.name ?? 'currency'">{{ $t('common.preferredCurrency') }}</label>
     </FloatLabel>
 </template>
 
@@ -56,6 +56,7 @@ const currencies: Currency[] = [
 const selectedCurrency = defineModel<Currency>()
 
 const props = defineProps<{
+    name: string
     preselect: boolean
 }>()
 

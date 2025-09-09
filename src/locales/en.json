@@ -25,8 +25,12 @@
         "noDataAvailable": "No data available.",
         "datatablePaginatorTemplate": "Showing {'{first}'} to {'{last}'} of total {'{totalRecords}'} records",
         "search": "Search",
-        "cancelFilter": "Cancel filters",
+        "cancelFilters": "Cancel filters",
         "current": "Current",
+        "confirmAction": "Action confirmation",
+        "confirmActionInfo": "Enter your current password to confirm the action.",
+        "confirm": "Confirm",
+        "cancel": "Cancel",
         "datetime": {
             "quarterly": "Quarterly",
             "monthly": "Monthly",
@@ -109,7 +113,14 @@
         "currencyPosition": "Currency position",
         "numberFormat": "Number format",
         "logoutSession": "Logout session",
-        "logoutAllSessions": "Logout all sessions"
+        "logoutAllSessions": "Logout all sessions",
+        "currentEmail": "Current e-mail",
+        "newEmail": "New e-mail",
+        "changeEmail": "Change e-mail",
+        "currentPassword": "Current password",
+        "newPassword": "New password",
+        "confirmNewPassword": "Confirm new password",
+        "changePassword": "Change password"
     },
     "presentation": {
         "hero": {
@@ -158,8 +169,8 @@
             "title": "Ready to get your investments in order?",
             "createAccount": "Create an account in a minute and start tracking your portfolio smartly."
         }
-    }
-    ,"sections": {
+    },
+    "sections": {
         "revenue": {
             "showGradient": "Show gradient"
         }

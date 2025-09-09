@@ -11,7 +11,7 @@
                 src="@/assets/images/logo.png"
                 alt="Logo"
                 class="w-12 h-12 rounded"
-            >
+            />
         </RouterLink>
 
         <div class="flex flex-col flex-1">
@@ -36,19 +36,19 @@
 
         <Divider />
 
-        <Avatar 
-            label="AS" 
+        <Avatar
+            label="AS"
             class="!bg-green-500 my-2 cursor-pointer select-none"
             size="large"
-            shape="circle" 
+            shape="circle"
             @click="toggleMenu"
         />
-        <Menu 
-            id="overlay_menu" 
-            ref="menu" 
+        <Menu
+            id="overlay_menu"
+            ref="menu"
             class="ml-2"
-            :model="items" 
-            :popup="true" 
+            :model="items"
+            :popup="true"
         >
             <template #start>
                 <div class="flex align-center align-middle gap-2 m-3">
@@ -56,24 +56,23 @@
                         src="@/assets/images/logo.png"
                         alt="Logo"
                         class="w-7 h-7"
-                    >
-                    <h1 class="text-xl font-semibold">
-                        Stonker
-                    </h1>
+                    />
+                    <h1 class="text-xl font-semibold">Stonker</h1>
                 </div>
             </template>
             <template #item="{ item }">
-                <div 
-                    class="p-2 cursor-pointer" 
+                <div
+                    class="p-2 cursor-pointer"
                     @click="item.callback"
                 >
-                    <FontAwesomeIcon :icon="item.icon ?? 'question'" /> <span class="ml-1">{{ $t(item.label as string) }}</span>
+                    <FontAwesomeIcon :icon="item.icon ?? 'question'" />
+                    <span class="ml-1">{{ $t(item.label as string) }}</span>
                 </div>
             </template>
             <template #end>
-                <ThemeSwitch 
-                    showLabel 
-                    class="hover:bg-gray-200 dark:hover:bg-gray-950 rounded-sm m-1" 
+                <ThemeSwitch
+                    showLabel
+                    class="hover:bg-gray-200 dark:hover:bg-gray-950 rounded-sm m-1"
                 />
             </template>
         </Menu>
@@ -87,7 +86,7 @@ import ThemeSwitch from '@/components/shared/ThemeSwitch.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { routes } from '@/router'
 import { useNavigation } from '@/composables/useNavigation'
-import Avatar from 'primevue/avatar';
+import Avatar from 'primevue/avatar'
 import Divider from 'primevue/divider'
 import Menu from 'primevue/menu'
 
@@ -100,10 +99,10 @@ const props = defineProps({
 // Filter only app-layout routes with icons
 const appRoutes = computed(() => routes.filter((r) => r.meta?.layout === 'app' && r.meta?.icon && r.meta?.showInMenu))
 
-const menu = ref();
+const menu = ref()
 const items = ref([
     {
-        separator: true
+        separator: true,
     },
     {
         // label: 'Profil',
@@ -111,21 +110,21 @@ const items = ref([
             {
                 label: 'common.settings',
                 icon: 'cog',
-                callback: () => navigateToViaName('Account')
+                callback: () => navigateToViaName('Account'),
             },
             {
                 label: 'login.logout',
                 icon: 'lock',
-                callback: () => logout()
-            }
-        ]
+                callback: () => logout(),
+            },
+        ],
     },
     {
-        separator: true
+        separator: true,
     },
-]);
+])
 
 const toggleMenu = (event: Event) => {
-    menu.value.toggle(event);
-};
+    menu.value.toggle(event)
+}
 </script>

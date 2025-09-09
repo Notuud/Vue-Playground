@@ -4,11 +4,9 @@
             :src="NotFoundImage"
             alt="404 Not Found"
             class="w-full md:w-2/3 lg:w-1/2 float-fadein"
-        >
+        />
 
-        <h1 class="text-4xl font-bold mb-4">
-            404 - {{ $t('common.errors.notFound') }}
-        </h1>
+        <h1 class="text-4xl font-bold mb-4">404 - {{ $t('common.errors.notFound') }}</h1>
         <p class="text-xl">
             {{ $t('common.errors.pageDoesNotExist') }}
         </p>

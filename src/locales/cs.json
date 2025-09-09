@@ -25,8 +25,12 @@
         "noDataAvailable": "Nejsou dostupná žádná data.",
         "datatablePaginatorTemplate": "Zobrazuji {'{first}'} až {'{last}'} z celkem {'{totalRecords}'} záznamů",
         "search": "Vyhledávání",
-        "cancelFiltering": "Zrušit filtrování",
+        "cancelFilters": "Zrušit filtrování",
         "current": "Aktuální",
+        "confirmAction": "Potvrzení akce",
+        "confirmActionInfo": "Pro potvrzení akce zadejte vaše aktuální heslo.",
+        "confirm": "Potvrdit",
+        "cancel": "Zrušit",
         "errors": {
             "notFound": "Stránka nenalezena",
             "pageDoesNotExist": "Stránka, kterou se pokoušíte navštívit neexistuje",
@@ -38,13 +42,13 @@
             "monthly": "Měsíční",
             "daily": "Denní",
             "year": "Rok",
-            "mon": "Po", 
-            "tue": "Út", 
-            "wed": "St", 
-            "thu": "Čt", 
-            "fri": "Pá", 
-            "sat": "So", 
-            "sun": "Ne" 
+            "mon": "Po",
+            "tue": "Út",
+            "wed": "St",
+            "thu": "Čt",
+            "fri": "Pá",
+            "sat": "So",
+            "sun": "Ne"
         }
     },
     "validation": {
@@ -109,7 +113,14 @@
         "currencyPosition": "Pozice měny",
         "numberFormat": "Formát čísel",
         "logoutSession": "Odhlásit relaci",
-        "logoutAllSessions": "Odhlásit všechny relace"
+        "logoutAllSessions": "Odhlásit všechny relace",
+        "currentEmail": "Aktuální e-mail",
+        "newEmail": "Nový e-mail",
+        "changeEmail": "Změnit e-mail",
+        "currentPassword": "Aktuální heslo",
+        "newPassword": "Nové heslo",
+        "confirmNewPassword": "Potvrďte nové heslo",
+        "changePassword": "Změnit heslo"
     },
     "presentation": {
         "hero": {

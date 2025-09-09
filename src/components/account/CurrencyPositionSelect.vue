@@ -1,7 +1,7 @@
 <template>
-    <SelectSimple 
+    <SelectSimple
         v-model="selectedPosition"
-        name="position" 
+        name="position"
         :label="$t('account.currencyPosition')"
         :icon="['fas', 'left-right']"
         :options="positions"

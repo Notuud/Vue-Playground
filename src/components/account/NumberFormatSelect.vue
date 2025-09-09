@@ -1,7 +1,7 @@
 <template>
-    <SelectSimple 
+    <SelectSimple
         v-model="selectedFormat"
-        name="format" 
+        name="format"
         :label="$t('account.numberFormat')"
         :icon="['fas', 'arrow-down-1-9']"
         :options="formats"

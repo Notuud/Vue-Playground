@@ -9,9 +9,9 @@
 </template>
 
 <script setup lang="ts">
-import Message from 'primevue/message';
+import Message from 'primevue/message'
 
 const props = defineProps<{
-  label: string
+    label: string
 }>()
 </script>

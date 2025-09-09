@@ -27,7 +27,7 @@
                     focus
                     fluid
                 />
-                <ValidationMessage 
+                <ValidationMessage
                     v-if="$form.email?.invalid"
                     :label="$t($form.email.error.message)"
                 />

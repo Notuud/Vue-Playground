@@ -30,43 +30,43 @@
                     focus
                     fluid
                 />
-                <ValidationMessage 
+                <ValidationMessage
                     v-if="$form.username?.invalid"
                     :label="$t($form.username.error.message)"
                 />
             </div>
 
             <div>
-                <InputPassword 
+                <InputPassword
                     :icon="['fas', 'lock']"
                     :label="$t('common.password')"
                     name="password"
                     feedback
                 />
-                <ValidationMessage 
+                <ValidationMessage
                     v-if="$form.password?.invalid"
                     :label="$t($form.password.error.message)"
                 />
             </div>
 
             <div>
-                <InputPassword 
+                <InputPassword
                     :icon="['fas', 'lock']"
                     :label="$t('login.passwordConfirm')"
                     name="passwordConfirm"
                 />
-                <ValidationMessage 
+                <ValidationMessage
                     v-if="$form.passwordConfirm?.invalid"
                     :label="$t($form.passwordConfirm.error.message)"
                 />
             </div>
 
             <div>
-                <CurrencySelect 
-                    name="currency" 
+                <CurrencySelect
+                    name="currency"
                     :preselect="false"
                 />
-                <ValidationMessage 
+                <ValidationMessage
                     v-if="$form.currency?.invalid"
                     :label="$t($form.currency.error.message)"
                 />

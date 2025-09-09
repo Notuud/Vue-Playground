@@ -1,6 +1,7 @@
 <template>
-    <main class="py-2 flex gap-5">
-        <div class="flex flex-col gap-5 w-1/3">
+    <PasswordConfirmDialog v-model="visible" />
+    <main class="py-2 flex flex-col md:flex-row gap-5">
+        <div class="flex flex-col gap-5 w-full md:w-1/3 lg:w-1/4">
             <InputText
                 v-model="userData.username"
                 :icon="['fas', 'user']"
@@ -17,61 +18,167 @@
                 disabled
                 fluid
             />
-            <InputPassword 
-                :icon="['fas', 'lock']"
-                label="Zadejte aktuální heslo"
-                name="password"
-            />
         </div>
-        <div class="flex flex-col gap-5 w-1/3">
-            <InputText
-                :icon="['fas', 'envelope']"
-                label="Aktuální e-mail"
-                name="currentEmail"
-                fluid
-            />
-            <InputText
-                :icon="['fas', 'envelope']"
-                label="Nový e-mail"
-                name="newEmail"
-                fluid
-            />
-            <Button>
-                <FontAwesomeIcon :icon="['fas', 'rotate']" /> Změnit e-mail
-            </Button>
+        <div class="flex flex-col gap-5 w-full md:w-1/3 lg:w-1/4">
+            <Form
+                v-slot="$emailForm"
+                :initialValues="emailInitialValues"
+                :resolver="emailResolver"
+                class="space-y-5"
+                @submit="handleChangeEmail($event)"
+            >
+                <div>
+                    <InputText
+                        :icon="['fas', 'envelope']"
+                        :label="$t('account.currentEmail')"
+                        name="currentEmail"
+                        fluid
+                    />
+                    <ValidationMessage
+                        v-if="$emailForm.currentEmail?.invalid"
+                        :label="$t($emailForm.currentEmail.error.message)"
+                    />
+                </div>
+                <div>
+                    <InputText
+                        :icon="['fas', 'envelope']"
+                        :label="$t('account.newEmail')"
+                        name="newEmail"
+                        fluid
+                    />
+                    <ValidationMessage
+                        v-if="$emailForm.newEmail?.invalid"
+                        :label="$t($emailForm.newEmail.error.message)"
+                    />
+                </div>
+                <Button 
+                    type="submit"
+                    fluid
+                > 
+                    <FontAwesomeIcon :icon="['fas', 'rotate']" /> {{ $t('account.changeEmail') }} 
+                </Button>
+            </Form>
         </div>
-        <div class="flex flex-col gap-5 w-1/3">
-            <InputPassword 
-                :icon="['fas', 'lock']"
-                label="Nové heslo"
-                name="newPassword"
-                feedback
-            />
-            <InputPassword 
-                :icon="['fas', 'lock']"
-                label="Potvrďte nové heslo"
-                name="newPasswordConfirm"
-            />
-            <Button>
-                <FontAwesomeIcon :icon="['fas', 'rotate']" /> Změnit heslo
-            </Button>
+        <div class="flex flex-col gap-5 w-full md:w-1/3 lg:w-1/4">
+            <Form
+                v-slot="$passwordForm"
+                :initialValues="passwordInitialValues"
+                :resolver="passwordResolver"
+                class="space-y-5"
+                @submit="handleChangePassword($event)"
+            >
+                <div>
+                    <InputPassword
+                        :icon="['fas', 'lock']"
+                        :label="$t('account.newPassword')"
+                        name="newPassword"
+                        feedback
+                    />
+                    <ValidationMessage
+                        v-if="$passwordForm.newPassword?.invalid"
+                        :label="$t($passwordForm.newPassword.error.message)"
+                    />
+                </div>
+                <div>
+                    <InputPassword
+                        :icon="['fas', 'lock']"
+                        :label="$t('account.confirmNewPassword')"
+                        name="newPasswordConfirm"
+                    />
+                    <ValidationMessage
+                        v-if="$passwordForm.newPasswordConfirm?.invalid"
+                        :label="$t($passwordForm.newPasswordConfirm.error.message)"
+                    />
+                </div>
+                <Button 
+                    type="submit"
+                    fluid
+                > 
+                    <FontAwesomeIcon :icon="['fas', 'rotate']" /> {{ $t('account.changePassword') }}
+                </Button>
+            </Form>
         </div>
     </main>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import InputText from '@/components/ui/InputText.vue';
-import InputPassword from '@/components/ui/InputPassword.vue';
-import Button from 'primevue/button';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { ref } from 'vue'
+import InputText from '@/components/ui/InputText.vue'
+import InputPassword from '@/components/ui/InputPassword.vue'
+import PasswordConfirmDialog from '@/components/shared/PasswordConfirmDialog.vue'
+import ValidationMessage from '@/components/ui/ValidationMessage.vue'
+import Button from 'primevue/button'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { Form } from '@primevue/forms'
+import { z } from 'zod'
+import { zodResolver } from '@primevue/forms/resolvers/zod'
+import { useToastNotifications } from '@/composables/useToastNotifications'
+import { useI18n } from 'vue-i18n'
 
-// TODO: doresit UX/UI
+const { t } = useI18n()
+const { showError } = useToastNotifications()
 
-const userData = ref(
-    { 
-        username: "Safiron8",
-        email: "d*****1@seznam.cz",
-    }
+const visible = ref(false)
+
+const userData = ref({
+    username: 'Safiron8',
+    email: 'd*****1@seznam.cz',
+})
+
+function showDialog() {
+    visible.value = true
+}
+
+// TODO: přidat validace
+
+const emailInitialValues = {
+    currentEmail: '',
+    newEmail: ''
+}
+
+const emailResolver = zodResolver(
+    z.object({
+        currentEmail: z.email('validation.invalidEmail'),
+        newEmail: z.email('validation.invalidEmail')
+    })
 )
+
+function handleChangeEmail(event: any) {
+    const { valid, values } = event
+    if (!valid) {
+        showError(t('login.invalidCredentials'), t('login.enterValidCredentials'))
+        return
+    }
+    console.log(values)
+    showDialog()
+}
+
+const passwordInitialValues = {
+    newPassword: '',
+    newPasswordConfirm: ''
+}
+
+const passwordResolver = zodResolver(
+    z.object({
+        newPassword: z
+            .string()
+            .nonempty('validation.required')
+            .min(8, 'validation.passwordMinLength')
+            .regex(/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/, 'validation.passwordReqComplexity'),
+        newPasswordConfirm: z.string().nonempty('validation.required'),
+    }).refine((data) => data.newPassword === data.newPasswordConfirm, {
+        message: 'validation.passwordsMustMatch',
+        path: ['newPasswordConfirm'],
+    })
+)
+
+function handleChangePassword(event: any) {
+    const { valid, values } = event
+    if (!valid) {
+        showError(t('login.invalidCredentials'), t('login.enterValidCredentials'))
+        return
+    }
+    console.log(values)    
+    showDialog()
+}
 </script>

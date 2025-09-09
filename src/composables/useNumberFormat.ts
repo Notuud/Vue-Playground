@@ -1,9 +1,5 @@
 // TODO: this should later use user settings as defaults for format, pos and cur
-export function formatNumber(
-    value: number | string, 
-    decimalPlaces: number = 2, 
-    format: string = 'Whitespace' 
-): string {
+export function formatNumber(value: number | string, decimalPlaces: number = 2, format: string = 'Whitespace'): string {
     const number = typeof value === 'string' ? Number(value) : value
 
     if (isNaN(number)) {
@@ -16,7 +12,8 @@ export function formatNumber(
         Comma: { thousand: ',', decimal: '.' },
     } as const
 
-    const { thousand: thousandSeparator, decimal: decimalSeparator } = formats[format as keyof typeof formats] ?? formats.Whitespace
+    const { thousand: thousandSeparator, decimal: decimalSeparator } =
+        formats[format as keyof typeof formats] ?? formats.Whitespace
 
     const rounded: string = roundNumber(number, decimalPlaces).toFixed(decimalPlaces)
     const [intPartRaw, decimalPart] = rounded.split('.')
@@ -25,37 +22,28 @@ export function formatNumber(
     const intPart: string = intPartRaw.replace(/\B(?=(\d{3})+(?!\d))/g, thousandSeparator)
 
     // Build formatted string
-    const formatted: string = decimalPlaces > 0 && decimalPart
-        ? `${intPart}${decimalSeparator}${decimalPart}`
-        : intPart
+    const formatted: string = decimalPlaces > 0 && decimalPart ? `${intPart}${decimalSeparator}${decimalPart}` : intPart
 
     return formatted
 }
 
 export function formatMoney(
-    value: number, 
-    decimalPlaces: number = 2, 
-    format: string = 'Whitespace', 
-    pos: string = 'After', 
+    value: number,
+    decimalPlaces: number = 2,
+    format: string = 'Whitespace',
+    pos: string = 'After',
     cur: string = 'Kč'
 ): string {
     let formatted = formatNumber(value, decimalPlaces, format)
 
     // Add currency
-    formatted = pos === 'Before' && cur
-        ? `${cur} ${formatted}`
-        : cur
-            ? `${formatted} ${cur}`
-            : formatted
+    formatted = pos === 'Before' && cur ? `${cur} ${formatted}` : cur ? `${formatted} ${cur}` : formatted
 
     return formatted
 }
 
-export function roundNumber(
-    value: number, 
-    decimalPlaces: number = 2
-): number {
-    return Math.round((value + Number.EPSILON) * (10 ** decimalPlaces)) / (10 ** decimalPlaces);
+export function roundNumber(value: number, decimalPlaces: number = 2): number {
+    return Math.round((value + Number.EPSILON) * 10 ** decimalPlaces) / 10 ** decimalPlaces
 }
 
 const formatter = new Intl.NumberFormat(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })

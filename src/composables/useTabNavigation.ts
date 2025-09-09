@@ -14,7 +14,7 @@ export function useTabNavigation(tabValues: string[]) {
     // Initialize from route param `tab` (preferred)
     onMounted(() => {
         const tabParam = (route.params.tab as string) || ''
-        
+
         // null, undefined and empty string are valid root paths otherwise show NotFound
         if (tabParam) {
             if (tabValues.includes(tabParam)) {
@@ -39,13 +39,16 @@ export function useTabNavigation(tabValues: string[]) {
     })
 
     // Keep activeTab in sync when route changes (e.g., back/forward buttons or direct navigation)
-    watch(() => route.params.tab, (tabParam) => {
-        const tab = (tabParam as string) || ''
+    watch(
+        () => route.params.tab,
+        (tabParam) => {
+            const tab = (tabParam as string) || ''
 
-        if (tab && tabValues.includes(tab) && activeTab.value !== tab) {
-            activeTab.value = tab
+            if (tab && tabValues.includes(tab) && activeTab.value !== tab) {
+                activeTab.value = tab
+            }
         }
-    })
+    )
 
     return {
         activeTab,

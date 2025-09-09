@@ -50,35 +50,41 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useTheme } from '@/composables/useTheme'
-import { applyBgClass, getGradientStyle, computeTableHeaders, allNumericValuesFromRows, getMaxAbs } from '@/composables/useRevenuesTableUtils'
+import {
+    applyBgClass,
+    getGradientStyle,
+    computeTableHeaders,
+    allNumericValuesFromRows,
+    getMaxAbs,
+} from '@/composables/useRevenuesTableUtils'
 import { formatNumberPercent } from '@/composables/useNumberFormat'
 
 interface BaseRow {
-  year: string;
+    year: string
 }
 
 interface BaseStat {
-  type: string;
+    type: string
 }
 
 // generic row that can have either Q1..Q4 or 1..12
 type Row<T extends string | number> = BaseRow & {
-  [K in T]?: number | null;
-};
+    [K in T]?: number | null
+}
 
 // generic stat
 type Stat<T extends string | number> = BaseStat & {
-  [K in T]?: number | null;
-};
+    [K in T]?: number | null
+}
 
 // unified table data
 interface TableData<T extends string | number> {
-  rows: Row<T>[];
-  stats: Stat<T>[];
+    rows: Row<T>[]
+    stats: Stat<T>[]
 }
 
-type QuarterlyKeys = "Q1" | "Q2" | "Q3" | "Q4"
-type MonthlyKeys = "M1" | "M2" | "M3" | "M4" | "M5" | "M6" | "M7" | "M8" | "M9" | "M10" | "M11" | "M12"
+type QuarterlyKeys = 'Q1' | 'Q2' | 'Q3' | 'Q4'
+type MonthlyKeys = 'M1' | 'M2' | 'M3' | 'M4' | 'M5' | 'M6' | 'M7' | 'M8' | 'M9' | 'M10' | 'M11' | 'M12'
 
 const props = defineProps<{
     isGradient: boolean

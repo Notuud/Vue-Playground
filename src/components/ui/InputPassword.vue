@@ -5,6 +5,7 @@
                 <FontAwesomeIcon :icon="props.icon ?? ['fas', 'lock']" />
             </InputIcon>
             <Password
+                ref="passwordComponent"
                 :name="props.name"
                 toggleMask
                 fluid
@@ -30,22 +31,28 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import { type IconProp } from '@fortawesome/fontawesome-svg-core'
-import FloatLabel from 'primevue/floatlabel';
-import IconField from 'primevue/iconfield';
-import InputIcon from 'primevue/inputicon';
-import Password from 'primevue/password';
-import Divider from 'primevue/divider';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-
-defineOptions({
-    inheritAttrs: false,
-})
+import FloatLabel from 'primevue/floatlabel'
+import IconField from 'primevue/iconfield'
+import InputIcon from 'primevue/inputicon'
+import Password from 'primevue/password'
+import Divider from 'primevue/divider'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 const props = defineProps<{
-  icon: IconProp
-  name: string
-  label: string
-  feedback?: boolean
+    icon: IconProp
+    name: string
+    label: string
+    feedback?: boolean
 }>()
+
+const passwordComponent = ref()
+
+defineExpose({
+    focus: () => {
+        const input = passwordComponent.value?.$el.querySelector('input') as HTMLInputElement
+        input?.focus()
+    }
+})
 </script>

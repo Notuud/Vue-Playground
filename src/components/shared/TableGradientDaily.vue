@@ -3,7 +3,7 @@
         <table class="text-center text-sm md:text-base">
             <thead>
                 <tr>
-                    <th 
+                    <th
                         :colspan="columnsCount"
                         class="p-2 border border-gray-300 dark:border-gray-600"
                     >
@@ -11,7 +11,7 @@
                     </th>
                 </tr>
                 <tr>
-                    <th 
+                    <th
                         v-for="day in daysHeader"
                         :key="day"
                         class="p-2 w-20 border border-gray-300 dark:border-gray-600"
@@ -21,12 +21,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr 
-                    v-for="(week, wIndex) in weeks" 
+                <tr
+                    v-for="(week, wIndex) in weeks"
                     :key="wIndex"
                 >
-                    <td 
-                        v-for="(day, dIndex) in week" 
+                    <td
+                        v-for="(day, dIndex) in week"
                         :key="dIndex"
                         class="p-2 border border-gray-300 dark:border-gray-600"
                         :class="applyBgClass(day?.return_percent)"
@@ -54,11 +54,14 @@ interface TableDataItem {
     return_percent?: number | null
 }
 
-const props = withDefaults(defineProps<{
-    isGradient?: boolean,
-    tableData: TableDataItem[],
-    weekdaysOnly?: boolean
-}>(), { weekdaysOnly: false })
+const props = withDefaults(
+    defineProps<{
+        isGradient?: boolean
+        tableData: TableDataItem[]
+        weekdaysOnly?: boolean
+    }>(),
+    { weekdaysOnly: false }
+)
 
 const { darkMode } = useTheme()
 const savedLocale = localStorage.getItem('locale')
@@ -69,14 +72,14 @@ const month = firstDate.getMonth() + 1
 const monthName = new Date(year, month - 1).toLocaleString(savedLocale ?? 'default', { month: 'long' })
 
 const columnsCount = props.weekdaysOnly ? 5 : 7
-const daysHeader = props.weekdaysOnly 
-    ? ['mon', 'tue', 'wed', 'thu', 'fri'] 
+const daysHeader = props.weekdaysOnly
+    ? ['mon', 'tue', 'wed', 'thu', 'fri']
     : ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
 
 // Map data by day
 const daysMap = computed(() => {
     const map: Record<number, number | undefined | null> = {}
-    props.tableData.forEach(d => {
+    props.tableData.forEach((d) => {
         if (!d?.date) return
         const dt = new Date(d.date)
         if (!isNaN(dt.getTime())) map[dt.getDate()] = d.return_percent
@@ -113,11 +116,11 @@ const weeks = computed(() => {
             }
         }
     }
-    if (week.some(x => x !== null)) weeksArr.push(week)
+    if (week.some((x) => x !== null)) weeksArr.push(week)
     return weeksArr
 })
 
-const maxValue = computed(() => getMaxAbs(props.tableData.map(r => r.return_percent ?? 0)))
+const maxValue = computed(() => getMaxAbs(props.tableData.map((r) => r.return_percent ?? 0)))
 
 function useGradient(val: number) {
     if (!props.isGradient) return {}

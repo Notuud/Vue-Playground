@@ -18,8 +18,8 @@
                 :key="`${tab.value}-${col}`"
                 :value="tab.value"
             >
-                <component 
-                    :is="tab.component" 
+                <component
+                    :is="tab.component"
                     v-if="tab.component"
                     v-bind="tab.componentProps"
                 />

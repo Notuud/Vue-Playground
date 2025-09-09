@@ -28,7 +28,7 @@ export function useNavigation() {
 
     /** Generic helpers */
     function navigateToViaName(name: string) {
-        router.push({ name: name });
+        router.push({ name: name })
     }
 
     function navigateToViaPath(path: string) {

@@ -18,7 +18,7 @@
                         class="w-6"
                         :src="getFlag(slotProps.value.flag)"
                         :alt="slotProps.value.code"
-                    >
+                    />
                     <span class="ml-2 hidden md:block">{{ slotProps.value.label }}</span>
                 </div>
             </template>
@@ -28,7 +28,7 @@
                         class="w-6"
                         :src="getFlag(slotProps.option.flag)"
                         :alt="slotProps.option.code"
-                    >
+                    />
                     <span class="ml-2 hidden md:block">{{ slotProps.option.label }}</span>
                 </div>
             </template>
@@ -59,14 +59,14 @@ const languages: Language[] = [
 const selectedLocale = defineModel<Language>()
 
 if (!selectedLocale.value) {
-    selectedLocale.value = languages.find(l => l.code === locale.value)
+    selectedLocale.value = languages.find((l) => l.code === locale.value)
 }
 
 onMounted(() => {
     const savedLocale = localStorage.getItem('locale')
     if (savedLocale && languages.some((l) => l.code === savedLocale)) {
         locale.value = savedLocale
-        selectedLocale.value = languages.find(l => l.code === savedLocale)
+        selectedLocale.value = languages.find((l) => l.code === savedLocale)
     } else {
         // Detect browser/OS language
         const browserLang = navigator.language
@@ -74,7 +74,7 @@ onMounted(() => {
 
         if (matchedLang) {
             locale.value = matchedLang.code
-            selectedLocale.value = languages.find(l => l.code === matchedLang.code)
+            selectedLocale.value = languages.find((l) => l.code === matchedLang.code)
         } else {
             // Fallback if nothing matches
             locale.value = languages[0].code

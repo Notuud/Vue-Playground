@@ -1,12 +1,16 @@
 <template>
     <Button
-        v-tooltip.left="!props.showLabel ? {
-            value: $t('common.toggleTheme', {
-                theme: darkMode ? $t('common.light') : $t('common.dark'),
-            }),
-            showDelay: 100,
-            hideDelay: 100,
-        } : null"
+        v-tooltip.left="
+            !props.showLabel
+                ? {
+                      value: $t('common.toggleTheme', {
+                          theme: darkMode ? $t('common.light') : $t('common.dark'),
+                      }),
+                      showDelay: 100,
+                      hideDelay: 100,
+                  }
+                : null
+        "
         unstyled
         class="p-2 cursor-pointer"
         :class="!props.showLabel ? 'rounded-lg' : ''"
@@ -16,11 +20,11 @@
             :icon="darkMode ? ['fas', 'sun'] : ['fas', 'moon']"
             size="lg"
         />
-        <span 
+        <span
             v-if="props.showLabel"
-            class="ml-1"    
+            class="ml-1"
         >
-            {{ $t('common.toggleTheme', { theme: darkMode ? $t('common.light') : $t('common.dark'), }) }}
+            {{ $t('common.toggleTheme', { theme: darkMode ? $t('common.light') : $t('common.dark') }) }}
         </span>
     </Button>
 </template>

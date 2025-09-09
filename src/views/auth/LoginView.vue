@@ -19,7 +19,7 @@
                     focus
                     fluid
                 />
-                <ValidationMessage 
+                <ValidationMessage
                     v-if="$form.email?.invalid"
                     :label="$t($form.email.error.message)"
                 />
@@ -31,7 +31,7 @@
                     :label="$t('common.password')"
                     name="password"
                 />
-                <ValidationMessage 
+                <ValidationMessage
                     v-if="$form.password?.invalid"
                     :label="$t($form.password.error.message)"
                 />
@@ -48,7 +48,7 @@
             </Button>
 
             <RouterLink
-                :to="{ name: 'ForgottenPassword'}"
+                :to="{ name: 'ForgottenPassword' }"
                 class="underline text-cyan-600 hover:text-cyan-500 transition-colors duration-300"
             >
                 {{ $t('login.forgotPassword') }}

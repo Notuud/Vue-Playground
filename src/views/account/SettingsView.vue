@@ -1,36 +1,33 @@
 <template>
     <main class="py-2">
-        <div class="flex flex-col gap-5 w-1/4">
+        <div class="flex flex-col gap-5 w-full md:w-1/3 lg:w-1/4">
             <LanguageSelect v-model="language" />
-            <CurrencySelect 
-                v-model="currency" 
+            <CurrencySelect
+                v-model="currency"
                 name="currency"
                 preselect
             />
             <CurrencyPositionSelect v-model="position" />
             <NumberFormatSelect v-model="format" />
-            <Message>
-                {{ $t('common.example') }}: {{ numberExample }}
-            </Message>
+            <Message> {{ $t('common.example') }}: {{ numberExample }} </Message>
+            <Button
+                @click="saveSettings"
+            >
+                <FontAwesomeIcon :icon="['fas', 'save']" /> {{ $t('common.save') }}
+            </Button>
         </div>
-        <Button 
-            class="mt-5"      
-            @click="saveSettings"    
-        >
-            <FontAwesomeIcon :icon="['fas', 'save']" /> {{ $t('common.save') }}
-        </Button>
     </main>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-import CurrencySelect from '@/components/shared/CurrencySelect.vue';
-import LanguageSelect from '@/components/shared/LanguageSelect.vue';
-import NumberFormatSelect from '@/components/account/NumberFormatSelect.vue';
-import CurrencyPositionSelect from '@/components/account/CurrencyPositionSelect.vue';
-import Button from 'primevue/button';
-import Message from 'primevue/message';
-import { formatMoney } from '@/composables/useNumberFormat';
+import { ref, computed } from 'vue'
+import CurrencySelect from '@/components/shared/CurrencySelect.vue'
+import LanguageSelect from '@/components/shared/LanguageSelect.vue'
+import NumberFormatSelect from '@/components/account/NumberFormatSelect.vue'
+import CurrencyPositionSelect from '@/components/account/CurrencyPositionSelect.vue'
+import Button from 'primevue/button'
+import Message from 'primevue/message'
+import { formatMoney } from '@/composables/useNumberFormat'
 
 const language = ref()
 const currency = ref()
@@ -39,13 +36,7 @@ const format = ref()
 
 const numberExample = computed(() => {
     if (!format.value || !position.value || !currency.value) return ''
-    return formatMoney(
-        100000000.2335,
-        2,
-        format.value.code,
-        position.value.code,
-        currency.value.name
-    )
+    return formatMoney(100000000.2335, 2, format.value.code, position.value.code, currency.value.name)
 })
 
 function saveSettings() {

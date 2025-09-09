@@ -47,7 +47,7 @@ export const MyPreset = definePreset(Aura, {
                         secondary: {
                             hoverBackground: '{gray.950}',
                             activeBackground: '{gray.950}',
-                            borderColor: '{gray.400}',
+                            borderColor: '{gray.600}',
                             color: '{gray.400}',
                         },
                     },
@@ -124,16 +124,16 @@ export const MyPreset = definePreset(Aura, {
                         background: '{gray.100}',
                     },
                     item: {
-                        focusBackground: '{gray.200}'
-                    }
+                        focusBackground: '{gray.200}',
+                    },
                 },
                 dark: {
                     root: {
                         background: '{gray.900}',
                     },
                     item: {
-                        focusBackground: '{gray.950}'
-                    }
+                        focusBackground: '{gray.950}',
+                    },
                 },
             },
         },
@@ -142,12 +142,12 @@ export const MyPreset = definePreset(Aura, {
                 light: {
                     root: {
                         borderColor: '{gray.400}',
-                    }
+                    },
                 },
                 dark: {
                     root: {
                         borderColor: '{gray.700}',
-                    }
+                    },
                 },
             },
         },
@@ -159,7 +159,7 @@ export const MyPreset = definePreset(Aura, {
                     },
                     overlay: {
                         background: '{gray.900}',
-                    }
+                    },
                 },
             },
         },
@@ -177,7 +177,16 @@ export const MyPreset = definePreset(Aura, {
                 dark: {
                     overlay: {
                         background: '{gray.900}',
-                    }
+                    },
+                },
+            },
+        },
+        dialog: {
+            colorScheme: {
+                dark: {
+                    root: {
+                        background: '{gray.900}',
+                    },
                 },
             },
         },
