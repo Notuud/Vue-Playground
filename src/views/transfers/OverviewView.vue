@@ -146,6 +146,7 @@ import Column from 'primevue/column'
 import Select from 'primevue/select'
 import DataTable from 'primevue/datatable'
 import Tag from 'primevue/tag'
+import ProgressSpinner from 'primevue/progressspinner'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { formatMoney, formatNumber } from '@/composables/useNumberFormat'
 

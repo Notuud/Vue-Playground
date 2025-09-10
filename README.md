@@ -52,6 +52,38 @@ public/                  # Static assets copied to the dev/prod root
 	npm run format
 	```
 
+## How To Update Packages
+
+1. **Install npm-check-updates**
+	```sh
+	npm install -g npm-check-updates
+	```
+2. **Check summary of versions**
+	```sh
+	npx ncu
+	```
+3. **Update all PATCH versions**
+	```sh
+	npx ncu -u -t patch
+	npm install
+	```
+	Updating all PATCH versions shouldn't break anything
+
+4. **Update all MINOR versions**
+	```sh
+	npx ncu -u -t minor
+	npm install
+	```
+	Updating all MINOR versions shouldn't break anything
+
+5. **Check summary of versions**
+	```sh
+	npx ncu -u -f PACKAGE
+	npm install
+	```
+	Finally update of MAJOR versions.
+	It's better to update each package separately using filter -f flag so we can target it one by one and after each successful update which didn't break anything we can commit
+
 ## Features
 - Dynamic layout selection based on route meta
 - Toast notifications (PrimeVue)
