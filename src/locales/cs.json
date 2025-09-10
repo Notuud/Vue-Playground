@@ -64,7 +64,9 @@
         "passwordReqCharLowercase": "Alespoň jeden znak malý",
         "passwordReqCharUppercase": "Alespoň jeden znak velký",
         "passwordReqNumeric": "Alespoň jedno číslo",
-        "passwordReqMinLength": "Minimálně 8 znaků"
+        "passwordReqMinLength": "Minimálně 8 znaků",
+        "minLength": "Pole musí obsahovat alespoň {min} znaků",
+        "maxLength": "Pole může obsahovat maximálně {max} znaků"
     },
     "routes": {
         "login": "Příhlášení",
@@ -120,7 +122,12 @@
         "currentPassword": "Aktuální heslo",
         "newPassword": "Nové heslo",
         "confirmNewPassword": "Potvrďte nové heslo",
-        "changePassword": "Změnit heslo"
+        "changePassword": "Změnit heslo",
+        "enable2FA": "Zapnout dvoufázové ověření",
+        "scanQR2FA": "Naskenujte QR kód ve vaší 2FA aplikaci",
+        "secretKey2FA": "Nebo vyplňte tajný klíč",
+        "enterCode2FA": "Zadejte 6ti místný ověřovací kód z aplikace",
+        "activate2FA": "Aktivovat dvoufázové ověření"
     },
     "presentation": {
         "hero": {

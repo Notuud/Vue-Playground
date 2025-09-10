@@ -10,17 +10,13 @@
             <CurrencyPositionSelect v-model="position" />
             <NumberFormatSelect v-model="format" />
             <Message> {{ $t('common.example') }}: {{ numberExample }} </Message>
-            <Button
-                @click="saveSettings"
-            >
-                <FontAwesomeIcon :icon="['fas', 'save']" /> {{ $t('common.save') }}
-            </Button>
+            <Button @click="saveSettings"> <FontAwesomeIcon :icon="['fas', 'save']" /> {{ $t('common.save') }} </Button>
         </div>
     </main>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import CurrencySelect from '@/components/shared/CurrencySelect.vue'
 import LanguageSelect from '@/components/shared/LanguageSelect.vue'
 import NumberFormatSelect from '@/components/account/NumberFormatSelect.vue'
@@ -33,6 +29,8 @@ const language = ref()
 const currency = ref()
 const position = ref()
 const format = ref()
+
+onMounted(() => console.log('loaded settings'))
 
 const numberExample = computed(() => {
     if (!format.value || !position.value || !currency.value) return ''

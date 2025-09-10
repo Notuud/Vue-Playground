@@ -53,6 +53,6 @@ defineExpose({
     focus: () => {
         const input = passwordComponent.value?.$el.querySelector('input') as HTMLInputElement
         input?.focus()
-    }
+    },
 })
 </script>

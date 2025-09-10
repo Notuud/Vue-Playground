@@ -1,7 +1,7 @@
 <template>
     <Tabs
         :value="activeTab"
-        @update:value="(val) => (activeTab = val as string)"
+        @update:value="onTabChange"
     >
         <TabList>
             <Tab
@@ -18,18 +18,31 @@
                 :key="`${tab.value}-${col}`"
                 :value="tab.value"
             >
-                <component
-                    :is="tab.component"
-                    v-if="tab.component"
-                    v-bind="tab.componentProps"
-                />
+                <Transition
+                    :enterActiveClass="`transition duration-300 ease-out`"
+                    :leaveActiveClass="`transition duration-300 ease-in`"
+                    :enterFromClass="isForward ? 'opacity-0 translate-x-6' : 'opacity-0 -translate-x-6'"
+                    enterToClass="opacity-100 translate-x-0"
+                    :leaveFromClass="'opacity-100 translate-x-0'"
+                    :leaveToClass="isForward ? 'opacity-0 -translate-x-6' : 'opacity-0 translate-x-6'"
+                    mode="out-in"
+                >
+                    <KeepAlive>
+                        <component
+                            :is="tab.component"
+                            v-if="activeTab === tab.value && tab.component"
+                            :key="tab.value"
+                            v-bind="tab.componentProps"
+                        />
+                    </KeepAlive>
+                </Transition>
             </TabPanel>
         </TabPanels>
     </Tabs>
 </template>
 
 <script setup lang="ts">
-import type { Component } from 'vue'
+import { ref, type Component } from 'vue'
 import Tabs from 'primevue/tabs'
 import TabList from 'primevue/tablist'
 import Tab from 'primevue/tab'
@@ -47,6 +60,17 @@ const props = defineProps<{
     tabs: TabItem[]
 }>()
 
-const tabValues = props.tabs.map((tab) => tab.value)
+const tabValues: string[] = props.tabs.map((tab) => tab.value)
 const { activeTab } = useTabNavigation(tabValues)
+
+const isForward = ref(true)
+
+const onTabChange = (val: string | number): void => {
+    const newVal: string = String(val)
+    const newIndex: number = tabValues.indexOf(newVal)
+    const oldIndex: number = tabValues.indexOf(activeTab.value)
+
+    isForward.value = newIndex > oldIndex
+    activeTab.value = newVal
+}
 </script>

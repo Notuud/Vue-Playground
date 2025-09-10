@@ -64,7 +64,9 @@
         "passwordReqCharLowercase": "At least one character lowercase",
         "passwordReqCharUppercase": "At least one character uppercase",
         "passwordReqNumeric": "At least one numeric",
-        "passwordReqMinLength": "Minimum 8 characters"
+        "passwordReqMinLength": "Minimum 8 characters",
+        "minLength": "The field must contain at least {min} characters",
+        "maxLength": "The field can contain a maximum of {max} characters"
     },
     "routes": {
         "login": "Login",
@@ -120,7 +122,12 @@
         "currentPassword": "Current password",
         "newPassword": "New password",
         "confirmNewPassword": "Confirm new password",
-        "changePassword": "Change password"
+        "changePassword": "Change password",
+        "enable2FA": "Enable two-factor authentication",
+        "scanQR2FA": "Scan the QR code in your 2FA app",
+        "secretKey2FA": "Or enter the secret key",
+        "enterCode2FA": "Enter the 6-digit verification code from the app",
+        "activate2FA": "Activate two-factor authentication"
     },
     "presentation": {
         "hero": {

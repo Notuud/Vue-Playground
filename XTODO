@@ -1,10 +1,9 @@
-dodelat account security
-
 composable na formaty datumu
 
-10.09.2025 - xh - Account security tab + npm updates
+10.09.2025 - 2h - Account security tab + tabNavs transitions + npm updates
 09.09.2025 - 2h - Account, Dialog, Form + validations
 22.08.2025 - 8.9.2025 - 40h +/-
+
 ## Suggestions for Improvement
 - Add more TypeScript types and interfaces for props, stores, and composables
 - Document custom hooks and store modules

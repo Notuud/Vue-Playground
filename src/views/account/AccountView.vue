@@ -1,6 +1,6 @@
 <template>
-    <PasswordConfirmDialog v-model="visible" />
     <main class="py-2 flex flex-col md:flex-row gap-5">
+        <PasswordConfirmDialog v-model="visible" />
         <div class="flex flex-col gap-5 w-full md:w-1/3 lg:w-1/4">
             <InputText
                 v-model="userData.username"
@@ -51,11 +51,11 @@
                         :label="$t($emailForm.newEmail.error.message)"
                     />
                 </div>
-                <Button 
+                <Button
                     type="submit"
                     fluid
-                > 
-                    <FontAwesomeIcon :icon="['fas', 'rotate']" /> {{ $t('account.changeEmail') }} 
+                >
+                    <FontAwesomeIcon :icon="['fas', 'rotate']" /> {{ $t('account.changeEmail') }}
                 </Button>
             </Form>
         </div>
@@ -90,10 +90,10 @@
                         :label="$t($passwordForm.newPasswordConfirm.error.message)"
                     />
                 </div>
-                <Button 
+                <Button
                     type="submit"
                     fluid
-                > 
+                >
                     <FontAwesomeIcon :icon="['fas', 'rotate']" /> {{ $t('account.changePassword') }}
                 </Button>
             </Form>
@@ -133,13 +133,13 @@ function showDialog() {
 
 const emailInitialValues = {
     currentEmail: '',
-    newEmail: ''
+    newEmail: '',
 }
 
 const emailResolver = zodResolver(
     z.object({
         currentEmail: z.email('validation.invalidEmail'),
-        newEmail: z.email('validation.invalidEmail')
+        newEmail: z.email('validation.invalidEmail'),
     })
 )
 
@@ -155,21 +155,23 @@ function handleChangeEmail(event: any) {
 
 const passwordInitialValues = {
     newPassword: '',
-    newPasswordConfirm: ''
+    newPasswordConfirm: '',
 }
 
 const passwordResolver = zodResolver(
-    z.object({
-        newPassword: z
-            .string()
-            .nonempty('validation.required')
-            .min(8, 'validation.passwordMinLength')
-            .regex(/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/, 'validation.passwordReqComplexity'),
-        newPasswordConfirm: z.string().nonempty('validation.required'),
-    }).refine((data) => data.newPassword === data.newPasswordConfirm, {
-        message: 'validation.passwordsMustMatch',
-        path: ['newPasswordConfirm'],
-    })
+    z
+        .object({
+            newPassword: z
+                .string()
+                .nonempty('validation.required')
+                .min(8, 'validation.passwordMinLength')
+                .regex(/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/, 'validation.passwordReqComplexity'),
+            newPasswordConfirm: z.string().nonempty('validation.required'),
+        })
+        .refine((data) => data.newPassword === data.newPasswordConfirm, {
+            message: 'validation.passwordsMustMatch',
+            path: ['newPasswordConfirm'],
+        })
 )
 
 function handleChangePassword(event: any) {
@@ -178,7 +180,7 @@ function handleChangePassword(event: any) {
         showError(t('login.invalidCredentials'), t('login.enterValidCredentials'))
         return
     }
-    console.log(values)    
+    console.log(values)
     showDialog()
 }
 </script>
