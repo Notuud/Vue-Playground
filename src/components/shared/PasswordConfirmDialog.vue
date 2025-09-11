@@ -5,7 +5,6 @@
         :header="$t('common.confirmAction')"
         position="top"
         class="w-100"
-        @show="focusPassword"
     >
         <div class="flex flex-col gap-5">
             <span>{{ $t('common.confirmActionInfo') }}</span>
@@ -14,6 +13,7 @@
                 name="password"
                 :label="$t('account.currentPassword')"
                 :icon="['fas', 'lock']"
+                autofocus
             />
             <div class="flex justify-end gap-2">
                 <Button
@@ -41,13 +41,6 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 const model = defineModel<boolean>()
 
 const passwordInput = ref<{ focus: () => void } | null>(null)
-
-function focusPassword() {
-    // setTimeout because PrimeVue Dialog steals focus after being fully loaded even when using nextTick
-    setTimeout(() => {
-        passwordInput.value?.focus()
-    }, 500)
-}
 
 function closeDialog() {
     model.value = false

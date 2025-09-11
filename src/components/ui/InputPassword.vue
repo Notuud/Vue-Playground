@@ -9,6 +9,7 @@
                 :name="props.name"
                 toggleMask
                 fluid
+                :autofocus="props.autofocus ?? false"
                 :feedback="props.feedback ?? false"
                 :promptLabel="$t('validation.passwordPrompt')"
                 :weakLabel="$t('validation.passwordWeakLabel')"
@@ -45,14 +46,8 @@ const props = defineProps<{
     name: string
     label: string
     feedback?: boolean
+    autofocus?: boolean
 }>()
 
 const passwordComponent = ref()
-
-defineExpose({
-    focus: () => {
-        const input = passwordComponent.value?.$el.querySelector('input') as HTMLInputElement
-        input?.focus()
-    },
-})
 </script>
