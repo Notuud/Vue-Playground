@@ -26,7 +26,7 @@
                         src="/src/assets/images/placeholder.png"
                         alt="Placeholder"
                         class="w-70"
-                    >
+                    />
                     <div>
                         <span class="font-medium">{{ $t('account.secretKey2FA') }}</span>
                         <pre class="mt-2 font-semibold text-lg">{{ secretKey }}</pre>

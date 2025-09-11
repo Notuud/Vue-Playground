@@ -40,7 +40,7 @@ const routes: RouteRecordRaw[] = [
     {
         path: '/home',
         name: 'Home',
-        component: () => import('@/views/HomeView.vue'),
+        component: () => import('@/views/dashboard/DashbordView.vue'),
         meta: { layout: 'app', icon: 'home', title: 'home', requiresAuth: true, showInMenu: true },
     },
     {

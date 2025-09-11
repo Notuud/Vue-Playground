@@ -3,12 +3,12 @@
         v-tooltip.left="
             !props.showLabel
                 ? {
-                    value: $t('common.toggleTheme', {
-                        theme: darkMode ? $t('common.light') : $t('common.dark'),
-                    }),
-                    showDelay: 100,
-                    hideDelay: 100,
-                }
+                      value: $t('common.toggleTheme', {
+                          theme: darkMode ? $t('common.light') : $t('common.dark'),
+                      }),
+                      showDelay: 100,
+                      hideDelay: 100,
+                  }
                 : null
         "
         unstyled
