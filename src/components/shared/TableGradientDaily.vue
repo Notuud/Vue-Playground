@@ -34,7 +34,7 @@
                     >
                         <div v-if="day">
                             <div>{{ day.day }}</div>
-                            <div>{{ formatNumberPercent(day.return_percent) }}</div>
+                            <div>{{ formatNumberPercent(day.return_percent, true) }}</div>
                         </div>
                     </td>
                 </tr>

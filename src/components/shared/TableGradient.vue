@@ -26,7 +26,7 @@
                             :class="applyBgClass(cellData)"
                             :style="typeof cellData === 'number' ? useGradient(cellData) : null"
                         >
-                            {{ formatNumberPercent(cellData) }}
+                            {{ formatNumberPercent(cellData, true) }}
                         </td>
                     </tr>
                     <tr
@@ -38,7 +38,7 @@
                             :key="`${stat.type}-${col}`"
                             class="p-2 border font-bold text-gray-100 border-gray-300 dark:border-gray-600 bg-gray-950"
                         >
-                            {{ formatNumberPercent(cellData) }}
+                            {{ formatNumberPercent(cellData, true) }}
                         </td>
                     </tr>
                 </tbody>

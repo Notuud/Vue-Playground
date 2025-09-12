@@ -11,9 +11,15 @@
             :gs-y="item.y"
             :gs-w="item.w"
             :gs-h="item.h"
+            :gs-min-w="item.minW"
+            :gs-max-w="item.maxW"
+            :gs-min-h="item.minH"
+            :gs-max-h="item.maxH"
         >
             <div class="grid-stack-item-content">
-                <slot :item="item">{{ item.content }}</slot>
+                <slot :item="item">
+                    {{ item.content }}
+                </slot>
             </div>
         </div>
     </div>
@@ -24,7 +30,7 @@ import { ref, onMounted, onBeforeUnmount, type Component } from 'vue'
 import { GridStack, type GridStackOptions, type GridStackNode } from 'gridstack'
 import 'gridstack/dist/gridstack.min.css'
 
-interface MyGridStackNode extends Partial<GridStackNode> {
+interface MyGridStackNode extends GridStackNode {
     component?: Component
 }
 
@@ -46,8 +52,8 @@ const defaultOptions: GridStackOptions = {
     cellHeight: 'auto',
     columnOpts: {
         breakpoints: [
-            { w: 0, c: 12 }, // width > 768 use 12 col layout
-            { w: 768, c: 1 }, // width <= 768 use 1 col layout
+            { w: 0, c: 12 }, // width > 1024 use 12 col layout
+            { w: 1024, c: 1 }, // width <= 1024 use 1 col layout
         ],
     },
 }

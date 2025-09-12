@@ -5,7 +5,7 @@ platform, total, type, null
 
 composable na formaty datumu - zatim nevim co bude chodit za formaty
 
-12.09.2025 - 0,5h - Password computed feedback with icons
+12.09.2025 - 2h - Password computed feedback with icons + Gridstack and MeterGroup widget
 11.09.2025 - 1,5h - GridStack
 10.09.2025 - 2h - Account security tab + tabNavs transitions + npm updates
 09.09.2025 - 2h - Account, Dialog, Form + validations

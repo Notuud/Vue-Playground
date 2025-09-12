@@ -68,7 +68,7 @@
         >
             <template #body="{ data }">
                 <div class="text-right">
-                    {{ formatMoney(data.amount_from) }}
+                    {{ formatMoney(data.amount_from, 2, '$') }}
                 </div>
             </template>
         </Column>
@@ -79,7 +79,7 @@
         >
             <template #body="{ data }">
                 <div class="text-right">
-                    {{ formatMoney(data.amount_to, undefined, undefined, undefined, '$') }}
+                    {{ formatMoney(data.amount_to, 2, '$') }}
                 </div>
             </template>
         </Column>
