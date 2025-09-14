@@ -5,6 +5,8 @@ platform, total, type, null
 
 composable na formaty datumu - zatim nevim co bude chodit za formaty
 
+14.09.2025 - xh - 
+13.09.2025 - 1h - Refactor router and its paths as const / enum
 12.09.2025 - 2h - Password computed feedback with icons + Gridstack and MeterGroup widget
 11.09.2025 - 1,5h - GridStack
 10.09.2025 - 2h - Account security tab + tabNavs transitions + npm updates

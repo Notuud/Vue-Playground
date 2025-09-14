@@ -40,7 +40,7 @@
                 <label for="investmentItem">Kryptoměna TODO Akcie tohle bude props</label>
             </FloatLabel>
             <div
-                v-if="selectedPeriod.code !== 'daily'"
+                v-if="selectedPeriod?.code !== 'daily'"
                 class="flex gap-5 w-full md:w-1/2"
             >
                 <FloatLabel variant="on">
@@ -98,7 +98,7 @@
             </div>
         </div>
         <TableGradient
-            v-if="selectedPeriod.code !== 'daily'"
+            v-if="selectedPeriod?.code !== 'daily'"
             :isGradient
             :tableData
             :weekdaysOnly="props.weekDaysOnly"

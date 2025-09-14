@@ -88,7 +88,7 @@
                 variant="outlined"
                 class="mt-2"
                 fluid
-                @click="navigateToViaPath('/')"
+                @click="navigateToPresentation"
             >
                 <FontAwesomeIcon :icon="['fas', 'home']" />{{ $t('common.backToHome') }}
             </Button>
@@ -116,7 +116,7 @@ import { useI18n } from 'vue-i18n'
 import { useNavigation } from '@/composables/useNavigation'
 
 // --- Navigation / i18n / toast ---
-const { navigateToViaPath } = useNavigation()
+const { navigateToPresentation } = useNavigation()
 const { t } = useI18n()
 const { showError } = useToastNotifications()
 

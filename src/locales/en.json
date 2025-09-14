@@ -70,7 +70,7 @@
     },
     "routes": {
         "login": "Login",
-        "home": "Home",
+        "dashboard": "Dashboard",
         "playground": "Playground",
         "about": "About Us",
         "register": "Registration",

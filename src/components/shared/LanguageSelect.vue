@@ -77,7 +77,7 @@ onMounted(() => {
             selectedLocale.value = languages.find((l) => l.code === matchedLang.code)
         } else {
             // Fallback if nothing matches
-            locale.value = languages[0].code
+            locale.value = languages[0]?.code ?? 'cz'
             selectedLocale.value = languages[0]
         }
     }

@@ -17,9 +17,9 @@
                 :mediumLabel="$t('validation.passwordMediumLabel')"
                 :strongLabel="$t('validation.passwordStrongLabel')"
             >
-                <template 
+                <template
                     v-if="props.feedback"
-                    #footer 
+                    #footer
                 >
                     <Divider />
                     <ul class="pl-2 my-0 leading-normal text-sm">
@@ -28,9 +28,7 @@
                             :key="req.key"
                             :class="req.passed ? 'text-green-500' : ''"
                         >
-                            <FontAwesomeIcon 
-                                :icon="req.passed ? ['far', 'circle-check'] : ['far', 'circle-xmark']" 
-                            />
+                            <FontAwesomeIcon :icon="req.passed ? ['far', 'circle-check'] : ['far', 'circle-xmark']" />
                             {{ $t(req.key) }}
                         </li>
                     </ul>
@@ -82,7 +80,7 @@ const requirements = [
 ]
 
 const reqs = computed(() =>
-    requirements.map(r => ({
+    requirements.map((r) => ({
         key: r.key,
         passed: r.check(password.value),
     }))

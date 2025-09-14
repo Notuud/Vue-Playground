@@ -4,7 +4,7 @@
         class="fixed top-0 left-0 h-dvh w-16 bg-gray-200 dark:bg-gray-950 flex flex-col items-center p-2 shadow-lg transform transition-transform duration-300 z-40 overflow-auto"
     >
         <RouterLink
-            :to="{ name: 'Home' }"
+            :to="{ name: ROUTE_NAMES.DASHBOARD }"
             class="mb-8"
         >
             <img
@@ -89,8 +89,9 @@ import { useNavigation } from '@/composables/useNavigation'
 import Avatar from 'primevue/avatar'
 import Divider from 'primevue/divider'
 import Menu from 'primevue/menu'
+import { ROUTE_NAMES } from '@/constants/routeNames'
 
-const { logout, navigateToViaName } = useNavigation()
+const { logout, navigateToAccount } = useNavigation()
 
 const props = defineProps({
     isOpen: Boolean,
@@ -110,7 +111,7 @@ const items = ref([
             {
                 label: 'common.settings',
                 icon: 'cog',
-                callback: () => navigateToViaName('Account'),
+                callback: () => navigateToAccount(),
             },
             {
                 label: 'login.logout',

@@ -23,6 +23,7 @@ import NumberFormatSelect from '@/components/account/NumberFormatSelect.vue'
 import CurrencyPositionSelect from '@/components/account/CurrencyPositionSelect.vue'
 import Button from 'primevue/button'
 import Message from 'primevue/message'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { numberFormatSettings, formatMoney } from '@/composables/useNumberFormat'
 
 const language = ref()
@@ -34,9 +35,9 @@ onMounted(() => console.log('loaded settings'))
 
 const numberExample = computed(() => {
     if (!format.value || !position.value || !currency.value) return ''
-    
+
     numberFormatSettings.value.position = position.value.code
-    numberFormatSettings.value.format = format.value.code   
+    numberFormatSettings.value.format = format.value.code
 
     return formatMoney(100000000.2335, 2, currency.value.name)
 })

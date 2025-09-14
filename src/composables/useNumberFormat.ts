@@ -18,8 +18,8 @@ export const numberFormatSettings = ref<NumberFormatSettings>({
 })
 
 export function formatNumber(
-    value: number | string, 
-    decimalPlaces: number = numberFormatSettings.value.decimalPlaces, 
+    value: number | string,
+    decimalPlaces: number = numberFormatSettings.value.decimalPlaces
 ): string {
     const number = typeof value === 'string' ? Number(value) : value
 
@@ -56,15 +56,17 @@ export function formatMoney(
     let formatted = formatNumber(value, decimalPlaces)
 
     // Add currency
-    formatted = numberFormatSettings.value.position === 'Before' && cur ? `${cur} ${formatted}` : cur ? `${formatted} ${cur}` : formatted
+    formatted =
+        numberFormatSettings.value.position === 'Before' && cur
+            ? `${cur} ${formatted}`
+            : cur
+              ? `${formatted} ${cur}`
+              : formatted
 
     return formatted
 }
 
-export function roundNumber(
-    value: number, 
-    decimalPlaces: number = numberFormatSettings.value.decimalPlaces
-): number {
+export function roundNumber(value: number, decimalPlaces: number = numberFormatSettings.value.decimalPlaces): number {
     return Math.round((value + Number.EPSILON) * 10 ** decimalPlaces) / 10 ** decimalPlaces
 }
 

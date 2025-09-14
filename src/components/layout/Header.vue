@@ -5,7 +5,7 @@
         <a
             href="/"
             class="flex items-center gap-3 cursor-pointer"
-            @click.prevent="navigateToViaPath('/')"
+            @click.prevent="navigateToPresentation"
         >
             <img
                 src="@/assets/images/logo.png"
@@ -32,5 +32,5 @@ import ThemeSwitch from '@/components/shared/ThemeSwitch.vue'
 import LanguageSelect from '@/components/shared/LanguageSelect.vue'
 import { useNavigation } from '@/composables/useNavigation'
 
-const { navigateToViaPath } = useNavigation()
+const { navigateToPresentation } = useNavigation()
 </script>
