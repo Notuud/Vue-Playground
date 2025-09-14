@@ -1,11 +1,14 @@
-mrknout na gridstack - pretahnutelne widgety
+mrknout na gridstack - pretahnutelne widgety - pridat widgety na prehled treba nejakej graf
+
 ada ma jeste endpointy na portfolio
 https://safiron.eu/stonker/sources/api/portfolio/?group_by=
 platform, total, type, null
 
+na gradient tables pridat transition
+
 composable na formaty datumu - zatim nevim co bude chodit za formaty
 
-14.09.2025 - xh - 
+14.09.2025 - 2,5h - Refactor router navigation to be dynamic and safe + Add JSDocs to composables + Use barrel files
 13.09.2025 - 1h - Refactor router and its paths as const / enum
 12.09.2025 - 2h - Password computed feedback with icons + Gridstack and MeterGroup widget
 11.09.2025 - 1,5h - GridStack
@@ -25,12 +28,7 @@ composable na formaty datumu - zatim nevim co bude chodit za formaty
 - Expand documentation for contributors
 
 Notes and conventions
-- Keep page-level code in `src/views/` and group related pages into feature folders (for example, `src/views/auth/`).
-- Put reusable, UI-only components in `src/components/` and organize them by responsibility: `auth/`, `presentation/`, `ui/`, `layout/`, `shared/`.
 - Use `composables/` for small, focused hooks (prefixed with `use`) and consider adding an `index.ts` barrel to simplify imports.
-- When moving components, add a small `index.ts` barrel (per-folder or root `components/index.ts`) to minimize churn in import paths.
-- Keep `src/plugins/` focused on third-party integration and registration only. Business logic belongs in `composables/` or `stores/`.
-- Use the `@/` TypeScript path alias (already configured) for clearer absolute imports (for example: `import { useTheme } from '@/composables'`).
 
 Recommended next steps
 - Add per-folder `index.ts` barrels for `components/`, `composables/`, and `stores/` to make reorganizing later easier.

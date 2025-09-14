@@ -103,10 +103,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import InputText from '@/components/ui/InputText.vue'
-import InputPassword from '@/components/ui/InputPassword.vue'
-import PasswordConfirmDialog from '@/components/shared/PasswordConfirmDialog.vue'
-import ValidationMessage from '@/components/ui/ValidationMessage.vue'
+import { InputText, InputPassword, ValidationMessage } from '@/components/ui'
+import { PasswordConfirmDialog } from '@/components/shared'
 import Button from 'primevue/button'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { Form } from '@primevue/forms'

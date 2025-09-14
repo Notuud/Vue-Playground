@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import CapabilityCard from '@/components/presentation/CapabilityCard.vue'
+import { CapabilityCard } from '@/components/presentation'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()

@@ -98,10 +98,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import InputText from '@/components/ui/InputText.vue'
-import InputPassword from '@/components/ui/InputPassword.vue'
-import CurrencySelect from '@/components/shared/CurrencySelect.vue'
-import ValidationMessage from '@/components/ui/ValidationMessage.vue'
+import { InputText, InputPassword, ValidationMessage } from '@/components/ui'
+import { CurrencySelect } from '@/components/shared'
 import Button from 'primevue/button'
 import Message from 'primevue/message'
 import Divider from 'primevue/divider'

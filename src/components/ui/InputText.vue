@@ -19,11 +19,11 @@
 <script setup lang="ts">
 import { type DirectiveBinding } from 'vue'
 import { type IconProp } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import FloatLabel from 'primevue/floatlabel'
 import IconField from 'primevue/iconfield'
 import InputIcon from 'primevue/inputicon'
 import InputText from 'primevue/inputtext'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 const props = defineProps<{
     icon: IconProp

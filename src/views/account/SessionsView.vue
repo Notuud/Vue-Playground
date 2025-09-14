@@ -138,7 +138,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import InputText from '@/components/ui/InputText.vue'
+import { InputText } from '@/components/ui'
 import { FilterMatchMode } from '@primevue/core/api'
 import Button from 'primevue/button'
 import Column from 'primevue/column'

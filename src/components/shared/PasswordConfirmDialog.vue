@@ -35,7 +35,7 @@
 import { ref } from 'vue'
 import Dialog from 'primevue/dialog'
 import Button from 'primevue/button'
-import InputPassword from '@/components/ui/InputPassword.vue'
+import { InputPassword } from '@/components/ui'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 const model = defineModel<boolean>()

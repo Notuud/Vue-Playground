@@ -16,7 +16,7 @@
 
 <script setup lang="ts">
 import { defineAsyncComponent, ref, type Component } from 'vue'
-import GridStackWrapper from '@/components/shared/GridStackWrapper.vue'
+import { GridStackWrapper } from '@/components/shared'
 import { type GridStackNode } from 'gridstack'
 
 interface MyGridStackNode extends GridStackNode {

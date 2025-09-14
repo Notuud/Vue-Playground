@@ -80,19 +80,17 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import InputText from '@/components/ui/InputText.vue'
-import InputPassword from '@/components/ui/InputPassword.vue'
+import { InputText, InputPassword, ValidationMessage } from '@/components/ui'
+import { ContainerCenter } from '@/components/ui'
 import Button from 'primevue/button'
 import Divider from 'primevue/divider'
 import { Form } from '@primevue/forms'
-import ContainerCenter from '@/components/ui/ContainerCenter.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { useToastNotifications } from '@/composables/useToastNotifications'
 import { z } from 'zod'
 import { zodResolver } from '@primevue/forms/resolvers/zod'
 import { useI18n } from 'vue-i18n'
 import { useNavigation } from '@/composables/useNavigation'
-import ValidationMessage from '@/components/ui/ValidationMessage.vue'
 
 const { navigateToRegister, navigateToDashboard, navigateToPresentation } = useNavigation()
 const { t } = useI18n()

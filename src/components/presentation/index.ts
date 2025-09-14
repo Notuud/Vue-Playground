@@ -1,0 +1,7 @@
+export { default as CapabilitiesSection } from './CapabilitiesSection.vue'
+export { default as CapabilityCard } from './CapabilityCard.vue'
+export { default as CTASection } from './CTASection.vue'
+export { default as FAQSection } from './FAQSection.vue'
+export { default as HeroSection } from './HeroSection.vue'
+export { default as StepItem } from './StepItem.vue'
+export { default as StepsSection } from './StepsSection.vue'

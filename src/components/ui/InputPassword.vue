@@ -42,12 +42,12 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { type IconProp } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import FloatLabel from 'primevue/floatlabel'
 import IconField from 'primevue/iconfield'
 import InputIcon from 'primevue/inputicon'
 import Password from 'primevue/password'
 import Divider from 'primevue/divider'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 const props = defineProps<{
     icon: IconProp

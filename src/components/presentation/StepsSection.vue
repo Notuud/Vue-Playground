@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import StepItem from '@/components/presentation/StepItem.vue'
+import { StepItem } from '@/components/presentation'
 import Button from 'primevue/button'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { useNavigation } from '@/composables/useNavigation'

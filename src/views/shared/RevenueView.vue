@@ -124,8 +124,7 @@ import ToggleSwitch from 'primevue/toggleswitch'
 import Select from 'primevue/select'
 import FloatLabel from 'primevue/floatlabel'
 import DatePicker from 'primevue/datepicker'
-import TableGradient from '@/components/shared/TableGradient.vue'
-import TableGradientDaily from '@/components/shared/TableGradientDaily.vue'
+import { TableGradient, TableGradientDaily } from '@/components/shared'
 
 const props = defineProps<{
     type: string

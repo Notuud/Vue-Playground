@@ -16,7 +16,7 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import Toast from 'primevue/toast'
-import Footer from '@/components/layout/Footer.vue'
+import { Footer } from '@/components/layout'
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import AppLayout from '@/layouts/AppLayout.vue'
 

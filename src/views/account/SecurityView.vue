@@ -71,8 +71,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import InputText from '@/components/ui/InputText.vue'
-import ValidationMessage from '@/components/ui/ValidationMessage.vue'
+import { InputText, ValidationMessage } from '@/components/ui'
 import Button from 'primevue/button'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { Form } from '@primevue/forms'

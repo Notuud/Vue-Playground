@@ -37,7 +37,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import ContainerCard from '@/components/ui/ContainerCard.vue'
+import { ContainerCard } from '@/components/ui'
 import MeterGroup from 'primevue/metergroup'
 import { formatMoney, formatNumberPercent, roundNumber } from '@/composables/useNumberFormat'
 

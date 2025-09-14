@@ -2,8 +2,28 @@ import { ref, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
 /**
- * Provides reactive tab selection synced with URL
- * @param tabValues Array of valid tab values (string)
+ * Provide a reactive `activeTab` ref that's two-way synchronized with the
+ * route `tab` param when available.
+ *
+ * Behavior:
+ * - On mount, reads `route.params.tab` and sets `activeTab` if the value is
+ *   present and included in `tabValues`. If the param exists but is invalid,
+ *   navigates to the `NotFound` named route.
+ * - When `activeTab` changes it updates the route `tab` param. If the new
+ *   value is falsy or equals the first `tabValues[0]`, the `tab` param is
+ *   removed (set to `undefined`) to keep the URL clean.
+ * - Watches `route.params.tab` so browser navigation (back/forward) or direct
+ *   URL entry will update `activeTab` accordingly.
+ *
+ * Use this composable in tabbed views where you want the selected tab to be
+ * addressable by URL and react to navigation.
+ *
+ * @param tabValues - Array of allowed tab identifiers (strings). The first
+ *                    element is treated as the default (no `tab` param).
+ * @returns An object containing the reactive `activeTab` ref.
+ *
+ * @example
+ * const { activeTab } = useTabNavigation(['main','history','settings'])
  */
 export function useTabNavigation(tabValues: string[]) {
     const route = useRoute()

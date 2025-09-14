@@ -32,11 +32,11 @@
 
 <script setup lang="ts">
 import { type IconProp } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import Select from 'primevue/select'
 import IconField from 'primevue/iconfield'
 import InputIcon from 'primevue/inputicon'
 import FloatLabel from 'primevue/floatlabel'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 interface Option {
     name: string

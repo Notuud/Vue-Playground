@@ -42,6 +42,7 @@ import InputIcon from 'primevue/inputicon'
 import FloatLabel from 'primevue/floatlabel'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+// IDEA: Keep simple interfaces in script if reused somewhere else extract it to src/models
 interface Currency {
     name: string
     code?: string

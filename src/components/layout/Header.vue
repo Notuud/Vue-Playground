@@ -28,8 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import ThemeSwitch from '@/components/shared/ThemeSwitch.vue'
-import LanguageSelect from '@/components/shared/LanguageSelect.vue'
+import { ThemeSwitch, LanguageSelect } from '@/components/shared'
 import { useNavigation } from '@/composables/useNavigation'
 
 const { navigateToPresentation } = useNavigation()

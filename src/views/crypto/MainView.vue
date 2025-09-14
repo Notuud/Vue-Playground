@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue'
-import TabsNav from '@/components/shared/TabsNav.vue'
+import { TabsNav } from '@/components/layout'
 
 // TODO: define missing views
 const RevenueView = defineAsyncComponent(() => import('@/views/shared/RevenueView.vue'))

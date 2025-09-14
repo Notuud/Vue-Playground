@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import SelectSimple from '@/components/ui/SelectSimple.vue'
+import { SelectSimple } from '@/components/ui'
 
 interface CurrencyPosition {
     name: string

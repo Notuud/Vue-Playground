@@ -82,7 +82,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { RouterLink } from 'vue-router'
-import ThemeSwitch from '@/components/shared/ThemeSwitch.vue'
+import { ThemeSwitch } from '@/components/shared'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { routes } from '@/router'
 import { useNavigation } from '@/composables/useNavigation'

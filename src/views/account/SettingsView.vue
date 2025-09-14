@@ -17,10 +17,8 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
-import CurrencySelect from '@/components/shared/CurrencySelect.vue'
-import LanguageSelect from '@/components/shared/LanguageSelect.vue'
-import NumberFormatSelect from '@/components/account/NumberFormatSelect.vue'
-import CurrencyPositionSelect from '@/components/account/CurrencyPositionSelect.vue'
+import { CurrencySelect, LanguageSelect } from '@/components/shared'
+import { NumberFormatSelect, CurrencyPositionSelect } from '@/components/account'
 import Button from 'primevue/button'
 import Message from 'primevue/message'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
