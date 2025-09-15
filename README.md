@@ -20,20 +20,27 @@ src/
 	App.vue                # Root component; selects layout dynamically via route meta
 	main.ts                # App entry: plugin and global registration
 	style.css              # Tailwind and global styles
-	assets/                # Images and SVGs (logo, flags, illustrations)
+	assets/                # Images and SVGs
+		flags/			   # Dedicated flags folder
 	components/            # Reusable UI components and atoms
+		account/             # Account-specific components (CurrencyPositionSelect, NumberFormatSelect)
+			component.vue		# SFC component file
+			index.ts			# Used as a barrel file
 		auth/                # Authentication-specific components (forms, helpers)
 		presentation/        # Landing / marketing UI (cards, sections)
 		ui/                  # Generic UI atoms/molecules (ContainerCenter, buttons)
 		layout/              # Header, Footer, SideNav and other shell pieces
 		shared/              # Small shared utilities (LanguageSelect, ThemeSwitch)
 	composables/           # Composition API helpers (useTheme, useNavigation, toasts)
+	constants/			   # Consts used in project (ROUTE_NAMES for router)
 	layouts/               # Route layouts (AppLayout.vue, DefaultLayout.vue)
+	locales/               # i18n JSON files (en.json, cs.json)
 	plugins/               # Plugin setup (i18n, pinia, primevue, fontawesome)
 	router/                # Vue Router configuration and lazy-loaded views
 	stores/                # Pinia stores (user.ts, etc.)
 	views/                 # Page-level views (HomeView.vue, AboutView.vue, auth/*)
-	locales/               # i18n JSON files (en.json, cs.json)
+		account/		   # Account-specific views (MainView, Settings, Security)
+		NotFound.vue	   # View that might be shared across project (if having more of these create shared/ folder)
 public/                  # Static assets copied to the dev/prod root
 ```
 
