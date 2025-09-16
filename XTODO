@@ -8,6 +8,7 @@ na gradient tables pridat transition
 
 composable na formaty datumu - zatim nevim co bude chodit za formaty
 
+16.09.2025 - 1h - Add stacked bar chart to dashboard + look through chart.js docs
 14.09.2025 - 2,5h - Refactor router navigation to be dynamic and safe + Add JSDocs to composables + Use barrel files
 13.09.2025 - 1h - Refactor router and its paths as const / enum
 12.09.2025 - 2h - Password computed feedback with icons + Gridstack and MeterGroup widget

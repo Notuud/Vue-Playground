@@ -52,7 +52,8 @@ const defaultOptions: GridStackOptions = {
     cellHeight: 'auto',
     columnOpts: {
         breakpoints: [
-            { w: 0, c: 12 }, // width > 1024 use 12 col layout
+            { w: 0, c: 12 }, // width > 1500 use 12 col layout
+            { w: 1500, c: 6 }, // 1500 >= width > 1024  use 6 col layout
             { w: 1024, c: 1 }, // width <= 1024 use 1 col layout
         ],
     },
