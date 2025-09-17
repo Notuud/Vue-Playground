@@ -10,96 +10,114 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { ContainerCard } from '@/components/ui'
 import Chart from "primevue/chart";
+import { useTheme } from "@/composables/useTheme";
+
+const { darkMode } = useTheme()
 
 onMounted(() => {
     chartData.value = setChartData();
-    chartOptions.value = setChartOptions();
 });
 
 const chartData = ref();
-const chartOptions = ref();
+
+const getColor = (name: string) => getComputedStyle(document.documentElement).getPropertyValue(`--color-${name}`)
 
 const setChartData = () =>  {
-    // const documentStyle = getComputedStyle(document.documentElement);
-    
     return {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [
             {
                 type: 'bar',
                 label: 'Krypto',
-                backgroundColor: '#34d399',
+                backgroundColor: getColor('green-500'),
                 data: [600, 0, 300, 300, 0, 0, 0]
             },
             {
                 type: 'bar',
                 label: 'Akcie',
-                backgroundColor: '#60a5fa',
+                backgroundColor: getColor('blue-500'),
                 data: [8500, 4200, 12400, 8000, 0, 3500, 4000]
             },
             {
                 type: 'bar',
                 label: 'Zlato',
-                backgroundColor: '#fbbf24',
+                backgroundColor: getColor('yellow-500'),
                 data: [1200, 0, 0, 1800, 0, 600, 0]
             },
             {
                 type: 'bar',
                 label: 'Fiat',
-                backgroundColor: '#c084fc',
+                backgroundColor: getColor('purple-500'),
                 data: [250, 0, 150, 350, 0, 0, 100]
             }
         ]
     };
 };
-const setChartOptions = () =>  {
-    const documentStyle = getComputedStyle(document.documentElement);
-    const surfaceBorder = documentStyle.getPropertyValue('--p-content-border-color');
-    // https://www.chartjs.org/docs/latest
+
+const chartOptions = computed(() => {
+    const textColor = darkMode.value ? getColor('gray-100') : getColor('gray-900')
+    const bgColor = darkMode.value ? getColor('gray-600') : getColor('gray-300')
+    const fontPreset = {
+        size: 16 ,
+        weight: '600',
+        family: 'ui-sans-serif, system-ui, sans-serif'
+    }
+
     return {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-            tooltip: {
-                enabled: true,
-                mode: 'index',
-                intersect: true
+            title: {
+                display: true,
+                text: 'Portfolio',
+                align: 'start',
+                padding: 0,
+                color: textColor,
+                font: fontPreset
             },
             legend: {
                 position: 'top',
                 align: 'end',
                 labels: {
-                    boxWidth: 8,
-                    boxHeight: 8,
+                    color: textColor,
+                    boxWidth: 10,
+                    boxHeight: 10,
                     padding: 5,
                     usePointStyle: true,
-                    font: {
-                        size: 11
-                    }
+                    font: fontPreset
                 }
+            },
+            tooltip: {
+                enabled: true,
+                mode: 'index',
+                intersect: true,
             }
         },
         scales: {
             x: {
                 stacked: true,
+                grid: { color: 'transparent' },
                 ticks: {
-                },
-                grid: {
-                    color: 'rgba(0,0,0,0)'
+                    color: textColor,
                 }
             },
             y: {
                 stacked: true,
-                ticks: {
+                beginAtZero: true,
+                grid: { 
+                    color: bgColor 
                 },
-                grid: {
-                    color: surfaceBorder
+                ticks: {
+                    color: textColor,
+                    callback: function(value, index, ticks) {
+                        return `$ ${value}`;
+                    }
                 }
             }
         }
-    };
-}
+    }
+})
 </script>

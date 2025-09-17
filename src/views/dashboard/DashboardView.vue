@@ -24,11 +24,13 @@ interface MyGridStackNode extends GridStackNode {
 }
 
 const meter: Component = defineAsyncComponent(() => import('@/components/dashboard/MeterGroup.vue'))
-const stacked: Component = defineAsyncComponent(() => import('@/components/dashboard/StackedBar.vue'))
+const stacked: Component = defineAsyncComponent(() => import('@/components/dashboard/StackedBarChart.vue'))
+const line: Component = defineAsyncComponent(() => import('@/components/dashboard/LineChart.vue'))
 
 const items = ([
-    { x: 0, y: 0, w: 12, h: 3, minW: 6, maxW: 12, minH: 2, maxH: 3, component: stacked },
+    { x: 0, y: 0, w: 12, h: 3, minW: 6, maxW: 12, minH: 2, maxH: 3, component: line },
     { x: 9, y: 1, w: 3, h: 2, minW: 3, maxW: 4, minH: 2, maxH: 3, noResize: true, component: meter },
+    { x: 0, y: 1, w: 9, h: 2, minW: 6, maxW: 9, minH: 2, maxH: 3, noResize: true, component: stacked },
 ]) as MyGridStackNode[]
 
 const handleChange = (changed: GridStackNode[]) => {

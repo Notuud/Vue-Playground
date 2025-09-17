@@ -15,10 +15,10 @@
                     >
                         <div class="flex items-center gap-2">
                             <span
-                                class="w-2 h-2 rounded"
+                                class="w-3 h-3 rounded-lg"
                                 :style="{ backgroundColor: val.color }"
                             />
-                            <span>{{ val.label }}</span>
+                            <span class="font-semibold">{{ val.label }}</span>
                             <span>({{ formatNumberPercent(val.value) }})</span>
                             <span class="ml-auto">{{ formatMoney(val.total, 2, '$') }}</span>
                         </div>
@@ -41,6 +41,8 @@ import { ContainerCard } from '@/components/ui'
 import MeterGroup from 'primevue/metergroup'
 import { formatMoney, formatNumberPercent, roundNumber } from '@/composables/useNumberFormat'
 
+const getColor = (name: string) => getComputedStyle(document.documentElement).getPropertyValue(`--color-${name}`)
+
 interface PortfolioItem {
     label: string
     color: string
@@ -55,10 +57,10 @@ interface PortfolioMeterItem {
 }
 
 const data = ref<PortfolioItem[]>([
-    { label: 'Krypto', color: '#34d399', value: 1445.6 },
-    { label: 'Akcie', color: '#60a5fa', value: 49234.64 },
-    { label: 'Zlato', color: '#fbbf24', value: 3671.2 },
-    { label: 'Fiat', color: '#c084fc', value: 1927.47 },
+    { label: 'Krypto', color: getColor('green-500'), value: 1445.6 },
+    { label: 'Akcie', color: getColor('blue-500'), value: 49234.64 },
+    { label: 'Zlato', color: getColor('yellow-500'), value: 3671.2 },
+    { label: 'Fiat', color: getColor('purple-500'), value: 1927.47 },
 ])
 
 const totalValue = computed<number>(() => {
